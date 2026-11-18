@@ -31,8 +31,27 @@ When no length is asked for, use the one `PREFERENCES.md` implies, or 15 minutes
   | Summary, a prompt to explain it in their own words, where to go next | 300 |
 
 - Write each section to its budget; you cannot count words exactly, so the plan is how you hit the length.
+- Drafts run short: a lesson written "to feel about right" lands near 60% of its budget.
+  So aim at the full budget, never below it, and treat the low end of the bench's range as a failure, not a target.
+- Every idea section carries its own worked example, not only the one near the end.
+  A worked example is a concrete case from the examples `PREFERENCES.md` names (code, a game, a real system), solved step by step, each step one or two short sentences saying what happens and why.
+  For a 30-minute lesson that is a worked example in each of the four to six sections plus the main one, about 250 to 350 words each; this is where most of the length comes from.
+- Grow length with more steps, more examples and more practice, never with longer paragraphs: paragraphs stay short, one idea each, at every length.
 - If the objective is too big for the time, teach its core well and say what the next lesson will cover.
   If it is too small, add worked examples and practice, never padding.
+
+### Check the length before you finish
+
+After writing, read the lesson back and estimate each section's words: count its sentences and multiply by about 15, and add the practice questions, feedback and captions.
+Add the sections up and divide by 150.
+This estimate runs high: lessons it put above 90% came in at 82% to 84% of the budget when the bench counted them.
+So the target is an estimate of **at least 100%** of the requested minutes (4,500 estimated words for 30 minutes), which lands the real count near 90%.
+If the estimate is under 100%, the lesson is short: add a worked example to each section that lacks one, then a second faded practice task, and check again.
+Fix the length with an Edit to the lesson, not by rewriting it from scratch.
+
+Check the length again after every revision, above all after a review that cut something, and once more just before the final lesson is written.
+Fill a gap with material that deepens what the lesson already teaches: another worked example or a faded practice task on an idea already taught, using only terms already defined.
+Never fill it with a new term, a new technique, a statistic or an aside, since those are what a review cuts for complexity.
 - A long lesson keeps the short-section discipline: working memory is small at every length.
 
 ## The shape of a lesson
