@@ -80,3 +80,30 @@ An example of a finished entry:
 - With and without: reviews/c2-review.md, Round 3 (without) and Round 4 (with)
 - Review: The reviewer identified a misleading retrieval statistic, unnecessary technical terms, and inconsistencies in examples. It corrected these problems while maintaining factual correctness at 1.00. However, the first reviewed lesson cost $1.46 compared with $0.60 before the reviewer. I later reduced repeated reviewing and added a final length check, which improved the length ratio from 0.82 to 0.99 in the quick runs. In the full benchmark, the lesson achieved a length ratio of 0.92 and cost $1.32. I think the reviewer improved clarity and technical reliability, but its cost was still high.
 - Kept in final: TODO
+
+### lesson-planner
+
+- Kind: subagent
+- Step added: c3-split
+- Purpose: TODO
+- With and without: reviews/c3-split.md, Round 1 (without) and Round 2 (with)
+- Review: TODO
+- Kept in final: TODO
+
+### lesson-example-designer
+
+- Kind: subagent
+- Step added: c3-split
+- Purpose: TODO
+- With and without: reviews/c3-split.md, Round 2 (without) and Round 3 (with)
+- Review: TODO
+- Kept in final: TODO
+
+### lesson-clarity-checker
+
+- Kind: subagent
+- Step added: c3-split
+- Purpose: TODO
+- With and without: reviews/c3-split.md, Round 3 (without) and Round 4 (with)
+- Review: TODO
+- Kept in final: TODO
