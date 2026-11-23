@@ -1,0 +1,43 @@
+{
+  "id": "a-star-pathfinding",
+  "title": "A* pathfinding for game NPCs",
+  "learner_summary": "A computer science undergraduate who writes Python and has built a small 2D grid game in Pygame. They know breadth-first search from a data structures course: a grid as a graph, a tile's neighbors, and a queue of tiles to visit. They have had one short session on A*'s g, h and f values, and they want the guard NPCs in their game to chase the player around walls.",
+  "minutes": 30,
+  "teach_objective": "O2",
+  "quiz_objective": "O3",
+  "graded_quiz": "0001",
+  "submissions": ["s1"],
+  "objectives": [
+    {"id": "O1", "text": "Calculate g(n), h(n), and f(n) in a simple A* example."},
+    {"id": "O2", "text": "Explain the open set, closed set, and node expansion."},
+    {"id": "O3", "text": "Explain how heuristic choice affects efficiency and optimality."}
+  ],
+  "facts": [
+    {"id": "F1.1", "objective": "O1", "text": "g(n) is the cost of the cheapest path found so far from the start to node n."},
+    {"id": "F1.2", "objective": "O1", "text": "h(n) is a heuristic estimate of the cost of getting from node n to the goal."},
+    {"id": "F1.3", "objective": "O1", "text": "f(n) = g(n) + h(n) is the estimated cost of the cheapest path from the start to the goal that passes through n."},
+    {"id": "F1.4", "objective": "O1", "text": "On a grid where an NPC moves only up, down, left or right and every step costs 1, the standard heuristic is Manhattan distance, |dx| + |dy|."},
+    {"id": "F1.5", "objective": "O1", "text": "A neighbor's g value along a path is the current node's g value plus the cost of the step from the current node to that neighbor."},
+    {"id": "F2.1", "objective": "O2", "text": "The open set holds the nodes that have been discovered but not yet expanded, and A* always expands the open node with the lowest f value next."},
+    {"id": "F2.2", "objective": "O2", "text": "To expand a node, A* removes it from the open set and, for each neighbor, computes a tentative g value; when that value is lower than any g value already known for the neighbor, A* records the new g, f and parent and puts the neighbor in the open set."},
+    {"id": "F2.3", "objective": "O2", "text": "The closed set holds the nodes that have already been expanded; with a consistent heuristic, such as Manhattan distance on a 4-connected grid with step cost 1, a closed node's g value is final and the node is never expanded again."},
+    {"id": "F2.4", "objective": "O2", "text": "A* stops when it selects the goal from the open set for expansion, not when it first adds the goal to the open set; stopping at first discovery can return a path that is not the cheapest."},
+    {"id": "F2.5", "objective": "O2", "text": "The path is rebuilt by following parent pointers from the goal back to the start."},
+    {"id": "F2.6", "objective": "O2", "text": "If the open set becomes empty before the goal is selected for expansion, no path to the goal exists."},
+    {"id": "F3.1", "objective": "O3", "text": "A heuristic is admissible when it never overestimates the true remaining cost to the goal; with an admissible heuristic A* returns a cheapest path, and in the version with a closed set the heuristic must also be consistent, or closed nodes must be reopened when a cheaper path to them is found."},
+    {"id": "F3.2", "objective": "O3", "text": "With h(n) = 0 for every node, A* behaves like Dijkstra's algorithm: it still finds a cheapest path, but it usually expands more nodes."},
+    {"id": "F3.3", "objective": "O3", "text": "A more informative consistent heuristic, one that is never smaller than another and so closer to the true remaining cost, generally leads A* to expand fewer nodes."},
+    {"id": "F3.4", "objective": "O3", "text": "Weighted A* ranks nodes by f = g + w*h with w > 1; it usually expands fewer nodes but may return a path that is not the cheapest, and its path is guaranteed to cost at most w times the cheapest only when step costs are non-negative and h is admissible, with closed nodes reopened when a cheaper path to them is found, or h is consistent."},
+    {"id": "F3.5", "objective": "O3", "text": "On a grid where a straight step costs 1 and a diagonal step costs the square root of 2 (about 1.41), Manhattan distance overestimates (one diagonal step to (1,1) costs about 1.41, but Manhattan gives 2), so it is not admissible; octile distance, max(dx, dy) + (sqrt(2) - 1) * min(dx, dy), equals the exact cost on an open grid and is admissible."},
+    {"id": "F3.6", "objective": "O3", "text": "On a 4-connected grid with step cost 1, Euclidean and Manhattan distance are both admissible and consistent and Euclidean is never larger, so as a general tendency A* with Euclidean expands at least as many nodes as with Manhattan, though the exact counts in one search can differ among tied nodes depending on how ties in f are broken."}
+  ],
+  "misconceptions": [
+    {"id": "M1", "text": "A* picks the node that looks closest to the goal, by h alone.", "correction": "A* ranks open nodes by f = g + h, so the cost already spent to reach a node counts as much as the estimate of what is left."},
+    {"id": "M2", "text": "g(n) is the straight-line or grid distance from the start to n.", "correction": "g(n) is the cost of the path the search actually found from the start to n, including every detour around walls."},
+    {"id": "M3", "text": "h(n) is the exact remaining cost, so f(n) is the exact length of the final path.", "correction": "h(n) is only an estimate; an admissible heuristic is a lower bound, so the real path through n can cost more than f(n)."},
+    {"id": "M4", "text": "A* can stop as soon as the goal is added to the open set.", "correction": "A* stops when the goal is selected from the open set for expansion; a cheaper path to the goal may still be found before then."},
+    {"id": "M5", "text": "Once a node is in the open set, its g value never changes.", "correction": "If a cheaper path to an open node is found, A* updates its g, its f and its parent."},
+    {"id": "M6", "text": "A larger heuristic is always better, and overestimating only makes A* faster with no downside.", "correction": "An overestimating heuristic can make A* return a path that is not the cheapest; it trades path quality for speed."},
+    {"id": "M7", "text": "Manhattan distance is admissible on any grid.", "correction": "When diagonal moves are allowed, Manhattan distance can overestimate the remaining cost; octile distance is the admissible choice there."}
+  ]
+}

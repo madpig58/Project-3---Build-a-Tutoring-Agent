@@ -1,0 +1,44 @@
+{
+  "id": "0001",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "g(n) is the cost of the path the search actually found from the start to n, so the detour around the wall counts: 7 steps at cost 1 each is 7. The straight-line distance (a) ignores the wall, which is the belief that g is distance from the start (M2); the distance to the goal (c) is h(n), not g(n); and 10 (d) adds two measures of the same stretch.",
+      "distractors": {"a": "M2"}
+    },
+    {
+      "id": "q2",
+      "answer": 6,
+      "tolerance": 0,
+      "rationale": "Manhattan distance is |dx| + |dy| = |6 - 2| + |1 - 3| = 4 + 2 = 6."
+    },
+    {
+      "id": "q3",
+      "answer": 8,
+      "tolerance": 0,
+      "rationale": "First the neighbor's g: g(N) = g(C) + step cost = 4 + 1 = 5. Then f(N) = g(N) + h(N) = 5 + 3 = 8. Answering 7 adds g(C) to h(N) and forgets the step cost; answering 3 uses h alone (M1)."
+    },
+    {
+      "id": "q4",
+      "answer": "c",
+      "rationale": "f = g + h: P is 6 + 2 = 8, Q is 1 + 7 = 8, R is 3 + 4 = 7 and T is 2 + 6 = 8, so R has the smallest f. Choosing P because it has the smallest h ranks by h alone (M1).",
+      "distractors": {"a": "M1"}
+    },
+    {
+      "id": "q5",
+      "answer": 6.2,
+      "tolerance": 0.05,
+      "rationale": "g is the sum of the step costs on the path: 2 straight steps cost 2 * 1 = 2 and 3 diagonal steps cost 3 * 1.4 = 4.2, so g(n) = 2 + 4.2 = 6.2. Answering 5 counts steps instead of their costs."
+    },
+    {
+      "id": "q6",
+      "answer": "It estimates the total cost of the cheapest path from the start to the goal through n; g is added so the cost already spent counts, and a tile near the goal reached by a long detour is not favored.",
+      "accepted": [
+        "The estimated cost of the whole path through n; g is added so that the cost already spent counts, not just the distance left.",
+        "The estimated total cost of a start-to-goal path through n; without g, A* would prefer tiles close to the goal even if reaching them was expensive."
+      ],
+      "rationale": "Full credit needs both parts: what f estimates (the total cost of a start-to-goal path through n) and why g is added (so the cost already spent to reach n counts, not only the estimate of what is left). Either part alone is partial. Saying that f is the exact length of the final path shows M3; saying A* should use h alone shows M1."
+    }
+  ]
+}

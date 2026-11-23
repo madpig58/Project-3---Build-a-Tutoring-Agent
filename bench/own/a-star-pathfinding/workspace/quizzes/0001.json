@@ -1,0 +1,58 @@
+{
+  "id": "0001",
+  "objective": "O1",
+  "title": "g, h and f in A*",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "A guard NPC starts at tile S. A wall is in the way, so the cheapest path the search has found from S to tile n takes 7 steps, even though n is only 3 tiles from S in a straight line. Every step costs 1. What is g(n)?",
+      "options": [
+        {"id": "a", "text": "3, the distance from the start tile S to tile n"},
+        {"id": "b", "text": "7, the cost of the path found from S to tile n"},
+        {"id": "c", "text": "The Manhattan distance from tile n to the goal"},
+        {"id": "d", "text": "10, the 3 tiles of distance plus the 7 steps"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O1",
+      "stem": "On a grid where the NPC moves only up, down, left or right, tile n is at (2, 3) and the goal is at (6, 1). What is h(n) if the heuristic is Manhattan distance?",
+      "unit": "steps"
+    },
+    {
+      "id": "q3",
+      "type": "numeric",
+      "objective": "O1",
+      "stem": "The search is at tile C, and g(C) = 4. Tile N is next to C, the step from C to N costs 1, and h(N) = 3. Going through C is the cheapest path to N found so far. What is f(N)?",
+      "unit": "steps"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "Four tiles have these values. Which tile has the smallest f value?",
+      "options": [
+        {"id": "a", "text": "Tile P, with g = 6 and h = 2"},
+        {"id": "b", "text": "Tile Q, with g = 1 and h = 7"},
+        {"id": "c", "text": "Tile R, with g = 3 and h = 4"},
+        {"id": "d", "text": "Tile T, with g = 2 and h = 6"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "numeric",
+      "objective": "O1",
+      "stem": "On a grid where the NPC can also move diagonally, a straight step costs 1 and a diagonal step costs 1.4. The path found so far from the start to tile n is 2 straight steps and 3 diagonal steps. What is g(n)?",
+      "unit": "cost units"
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O1",
+      "stem": "In one or two sentences: what does f(n) = g(n) + h(n) estimate, and why does A* add g(n) instead of using h(n) alone?"
+    }
+  ]
+}

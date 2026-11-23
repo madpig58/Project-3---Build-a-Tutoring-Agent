@@ -1,0 +1,12 @@
+{
+  "quiz": "0001",
+  "learner": "Jordan",
+  "answers": [
+    {"id": "q1", "response": "a"},
+    {"id": "q2", "response": "6"},
+    {"id": "q3", "response": "8. g is 4+1 = 5 and h is 3. Since h is exactly the steps left, the guard's whole path through N will be 8 steps."},
+    {"id": "q4", "response": "a"},
+    {"id": "q5", "response": "6.2"},
+    {"id": "q6", "response": "It's like a GPS guess for the whole trip through that tile: miles already driven plus miles still to go. If you only used miles-to-go, the guard would chase a tile near the goal even if getting there took a huge loop."}
+  ]
+}
