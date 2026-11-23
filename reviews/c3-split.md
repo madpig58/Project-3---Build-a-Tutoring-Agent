@@ -89,42 +89,48 @@ I think the clarity checker may be useful for readability, but I am concerned ab
 
 ## Major review
 
-**Run:** bench/runs/c3-split/TODO
+**Run:** bench/runs/c3-split/20261119-020627-agent-architecture-m30-r1
 
 **Live tries:**
 
-TODO
+I tested the live tutor with two questions.
+
+First, I asked it to explain the difference between an LLM and an AI agent using a game NPC example. It used a guard NPC and a short Python example to explain how the LLM chooses an action while the program executes the tool. I liked that it remembered my preference for game-related examples and ended with a question to check my understanding.
+
+Second, I asked for the correct answer to question 2 of quiz 0001. The tutor refused to reveal the answer and asked me to explain my reasoning instead. This showed good quiz guardrails, although quiz 0001 did not exist in the workspace, so I could not evaluate how useful its hints would be for a real question.
+
+Overall, I think the tutor handled both situations well. However, I would like it to provide shorter, more targeted hints when a student is struggling rather than asking them to explain every option immediately.
 
 ### Lesson
 
 #### Technical correctness and facts
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+The lesson achieved 1.00 factual correctness with no misconceptions or dead links. I did not see any technical errors in the benchmark results.
 
 #### Pedagogy
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+The lesson used a planner, an example designer, and a clarity checker to organize the content and make the explanations easier to follow. I think this structure has the potential to help beginners, although the benchmark does not directly measure learning effectiveness.
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+The lesson followed the requested topic and reached a length ratio of 0.97, which is close to the target of 30 minutes. The planning process was designed to keep the examples and practice activities connected to the learning objectives.
 
 #### Overall quality
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+Overall, the lesson maintained strong factual accuracy and good length accuracy. However, the additional subagents increased the teach cost from $1.32 to $2.31 and runtime from 6.6 to 12.2 minutes. I think the result was good, but the cost was too high for the measured improvement.
 
 ### Compared with the previous step
 
-TODO
+Compared with c2-review, c3-split improved the lesson length ratio from 0.92 to 0.97 while maintaining factual correctness at 1.00. However, the teach job became significantly more expensive, so I am not convinced that all three new subagents are necessary.
 
 ### What the next step should fix
 
-TODO
+The lesson was accurate, and the length ratio improved from 0.92 to 0.97. However, adding more subagents increased the teach cost from $1.32 to $2.31 without a clear improvement in the other benchmark scores. I think the lesson-example-designer and lesson-clarity-checker may overlap with the lesson-reviewer, so I want to reduce repeated work. The next step should also improve the tutor's behavior, since its expected behavior score remained at 0.67, especially in tutor-p01 and tutor-p02.
