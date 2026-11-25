@@ -22,7 +22,9 @@ If the learner wants to take an existing quiz in the chat, go to **Giving a quiz
 The current directory is the workspace root; every path is relative to it.
 Read `FORMATS.md` (the exact shape of a quiz and a key: follow it to the letter, and add no keys it does not list), `MISSION.md`, `PREFERENCES.md`, `NOTES.md` and every file in `learning-records/`.
 Then read `.claude/skills/teach/references/QUIZZES.md`, the general guide; where it and this skill differ, this skill wins.
-Read the lessons in `lessons/` on the objective and the earlier quizzes in `quizzes/`; read earlier keys and grades only for the misconception ids they use.
+Read the lessons in `lessons/` on the objective and the earlier quizzes in `quizzes/`.
+Never open, search or list anything in `keys/`, by any tool, even though `QUIZZES.md` says to read the earlier keys: the keys guard closes it to this conversation, and the `quiz-reviewer` reads the earlier keys and gives you their misconception ids (step 4).
+The only thing you do there is write the new key, once, in step 5.
 Never write anything under `.claude/`, and never edit `PREFERENCES.md`.
 
 ## 1. Pin down the quiz
@@ -66,7 +68,7 @@ Never write a draft into `quizzes/` or `keys/`: those folders get the final file
 - Say why the answer is right as a short chain of reasoning, in two to four sentences: the idea that applies, how it applies to this case, and the conclusion.
 - For a `numeric` item, show every step of the calculation with its units, ending in the answer.
 - Say what the most tempting wrong answer shows, and why it is wrong.
-- Fill `distractors` with the misconception id behind each wrong `mcq` option that has one, reusing the workspace's ids.
+- Fill `distractors` only with ids that `NOTES.md`, the learning records or `grades/` name, and leave out the rest; the `quiz-reviewer`'s report gives the ids the earlier keys use. Never guess an id.
 
 ## 4. Check, then review with the quiz-reviewer
 
@@ -81,20 +83,62 @@ Then run the review loop, at most **two passes**:
 1. Start the `quiz-reviewer` subagent with the Agent tool. Its task message names: the draft quiz and draft key paths, the objective's id and text, the lesson's path in `lessons/` if there is one (or that there is none), and the pass number.
    It sees nothing of this conversation, so the message must carry all of that.
 2. **Wait for its report before you do anything else.** Do not revise, write a final file or finish while it is running.
-3. If the verdict is `CLEAN`, the loop ends.
-4. Otherwise, fix every finding in the drafts, or note why you did not (for example, a finding you are sure is wrong, with the reason).
-   For each item you change, answer it again from its stem alone.
-5. If this was pass 1 and you changed anything, start pass 2 on the revised drafts. After pass 2, the loop ends whatever the verdict; fix what pass 2 found without another review.
+3. Set every item's `distractors` in the draft key from the report's `Misconception ids` lines: the id it gives for each option, and no entry where it says `none`.
+   This changes ids only, so it never starts another pass.
+   When you later rewrite an option, drop its id, unless a later report gives one or the option still holds the same wrong idea.
+4. If the verdict is `CLEAN`, the loop ends.
+5. After pass 1, fix every finding in the drafts, or note why you did not (for example, a finding you are sure is wrong, with the reason).
+   These are the last changes the questions and the key get, so make them with care: answer each changed item again from its stem alone, compare the lengths of its options, and check that its right option does not echo its stem and that no other item gives it away.
+6. If you changed an item after pass 1, save every change to both drafts, then start pass 2 on them, and leave the drafts alone while it runs. If you changed none, the loop ends.
+   After pass 2 the loop ends whatever the verdict.
+7. **When the loop ends, the drafts are frozen.** The learner gets only what the last pass read: from its report on, no stem, option, unit, answer, tolerance, accepted wording or rationale changes, however small or clear the fix looks, and no item is added, replaced or moved. Only two things may still happen:
+   - Set the `distractors` ids, as in 3.
+   - Drop an item, from both drafts, when pass 2 has a finding against it on check 1, 2, 4, 5 or 9 that you are not sure is wrong: a learner's answer to it could not be scored fairly. Renumber the items after it, in both drafts, and change nothing else in them.
+
+   Leave every other finding of pass 2 open, with its item as it is, and say so in the review record.
 
 ## 5. Write the final files and the record
 
-1. Write the final quiz to `quizzes/NNNN.json` and the final key to `keys/NNNN.json`, once each, with the content of the revised drafts (Write the files; no job needs the shell).
-2. Write `review-records/NNNN-quiz.md`: how many passes ran; for each pass, the reviewer's findings as it listed them (item id, check, what was wrong) and what you changed for each, or why you did not; and the final verdict.
+1. Write the final quiz to `quizzes/NNNN.json` and the final key to `keys/NNNN.json`, once each, with exactly the content of the frozen drafts (Write the files; no job needs the shell).
+   Do not improve anything as you copy it.
+2. Write `review-records/NNNN-quiz.md` in exactly the shape below.
+   Later tutoring sessions can read this file, so it says what kind of problem was found and what kind of change fixed it, never what the items say.
+
+```
+# Review record: quiz NNNN (<objective id>)
+
+Passes: <count>
+Final verdict: <CLEAN or REVISE, from the last pass>
+Changed after the last pass: <item ids, or "none">
+Dropped after the last pass: <item ids, or "none">
+Left open: <item ids with a finding of the last pass that was not acted on, or "none">
+Items given misconception ids: <item ids, or "none">
+
+## Pass <n>: <CLEAN or REVISE>
+
+| Item | Check | Where | Problem | Change |
+|---|---|---|---|---|
+| <item id> | <check number> | <stem, options, key or whole quiz> | <problem> | <change> |
+```
+
+   - Item ids are those of the drafts the pass read. *Changed after the last pass* is "none" when the freeze was kept; when it was not, name the items.
+   - One row per item and check the reviewer found; "No findings." instead of the table when there are none.
+   - *Problem* is one of: second defensible answer, key disagrees with stem, thin rationale, missing condition, more than one quantity, no criterion, giveaway in wording, giveaway in length, given away by another item, implausible options, unclear words, answer too long to score, core idea missing, too easy, repeats another item, off objective.
+   - *Change* is one or more of: stem reworded, options reworded, options made similar, item replaced, new case, condition added, criterion added, rationale extended, key corrected, type changed, item dropped, none (left open), none (already fixed), none (finding wrong).
+   - Nothing else goes in the file: no option letter, no answer, no correct or keyed option pointed out, no quote or paraphrase of a stem, an option or a rationale, and no comment before or after.
 
 ## 6. Finish
 
-Finish with a short message: the quiz's path, its objective, how many items and which ideas they cover, and that you will grade it when they send their answers.
-Never put an answer, a hint or anything from the key in the message.
+The learner reads your final message before they take the quiz, so it says only that the quiz is ready, where it is and how to hand in answers.
+Finish with exactly this message, filled in, and nothing before or after it:
+
+```
+Your quiz is ready: `quizzes/NNNN.json` (<count> questions on <objective id>).
+Send me your answers here in the chat when you have done every question, and I will grade them. You can also ask me to show you the questions one by one.
+```
+
+- Nothing about any question: no summary, topic, scenario, approach, option, answer, hint or reasoning, and no list of the ideas the quiz covers.
+- Nothing about how the quiz was made: no review passes, findings, fixes, verdict, misconception ids, or the key. Those belong in the review record.
 
 ## Giving a quiz in the chat
 

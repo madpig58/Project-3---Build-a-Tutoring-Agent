@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chats with the makerspace assistant on Monday and says they finished the soldering training. On Thursday they open a brand-new session. No notes were saved. What does the model know about Monday?",
+      "options": [
+        {"id": "a", "text": "Everything, because it learned from the earlier chat"},
+        {"id": "b", "text": "Nothing, because the new context starts without it"},
+        {"id": "c", "text": "Only the training status, because facts are stored"},
+        {"id": "d", "text": "Everything, because the context window never clears"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent makes 4 model calls. The first call sends 2,000 input tokens. Each later call sends 500 more tokens than the call before it. How many input tokens does the agent send in total across all 4 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The team plans to paste all twelve machine manuals into every request because the model's window is large enough to hold them. Which is the best objection?",
+      "options": [
+        {"id": "a", "text": "Each call costs more and recall can get worse"},
+        {"id": "b", "text": "The model cannot read text that it was not trained on"},
+        {"id": "c", "text": "The manuals would be lost when the session ends"},
+        {"id": "d", "text": "The model would then never call any other tool"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one sentence, what does a search_manual tool put into the context window, and why is that better than including the whole manual?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Name where a student's training status should be saved so that it is still available in next week's session, and say when it gets put back into the context."
+    }
+  ]
+}

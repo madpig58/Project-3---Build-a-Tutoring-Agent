@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Charter, Georgia, serif; line-height: 1.5; color: #1f1d1a; background: #fffdf8; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid #e4dfd4; }
+    a { color: #9a4517; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } a { color: #eaa77a; } }
+  </style>
+</head>
+<body>
+  <h1>Context and memory in an agent</h1>
+  <p>From <a href="../lessons/0001-context-and-memory-in-an-agent.html">Lesson 1</a>.</p>
+  <h2>Terms</h2>
+  <ul>
+    <li><strong>Context:</strong> everything sent on one model call: system prompt, tool definitions, messages, tool results.</li>
+    <li><strong>Context window:</strong> the limit on the size of the context, counted in tokens.</li>
+    <li><strong>Context rot:</strong> accuracy and recall fall as the context grows.</li>
+    <li><strong>Retrieval:</strong> search a library, put only the relevant passages in context.</li>
+  </ul>
+  <h2>Where information lives</h2>
+  <table>
+    <thead><tr><th>Place</th><th>Lasts</th><th>Use for</th></tr></thead>
+    <tbody>
+      <tr><td>Context</td><td>One session; billed every call</td><td>Current question, current tool results</td></tr>
+      <tr><td>Saved notes or database</td><td>Across sessions</td><td>Per-user facts, e.g. training status</td></tr>
+      <tr><td>Searchable library</td><td>Permanent</td><td>Manuals, via up-front or just-in-time retrieval</td></tr>
+    </tbody>
+  </table>
+  <h2>Rules</h2>
+  <ul>
+    <li>The model keeps nothing between calls; the program re-sends the history.</li>
+    <li>Input for call n = input for call n-1 + the new request + the new result.</li>
+    <li>Return small tool results; put the largest result as late as possible.</li>
+    <li>Between sessions: write a fact down, read it back. Nothing is automatic.</li>
+    <li>Up-front retrieval: fewer calls, cannot retry. Just-in-time: more calls, can search again.</li>
+    <li>Long sessions: compaction, notes, sub-agents.</li>
+  </ul>
+</body>
+</html>

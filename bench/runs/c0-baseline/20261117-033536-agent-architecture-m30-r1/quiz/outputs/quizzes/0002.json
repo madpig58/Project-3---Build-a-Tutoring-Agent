@@ -1,0 +1,68 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents: who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which statement best describes the difference between a workflow and an agent?",
+      "options": [
+        {"id": "a", "text": "Workflows use tools, while agents answer only from their training"},
+        {"id": "b", "text": "Workflows have no language model inside, while agents always have one"},
+        {"id": "c", "text": "In a workflow, code sets the steps; in an agent, the model sets them"},
+        {"id": "d", "text": "Workflows use small models, while agents always use the largest ones"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "In your makerspace assistant, a Python program always runs check_calendar, then check_training_record, then book_machine, in that order. The model is called inside each step only to fill in the arguments or to write text. Who owns the control flow here?",
+      "options": [
+        {"id": "a", "text": "The model, because it writes the confirmation message at the end"},
+        {"id": "b", "text": "The program code, because it fixes the order of every step"},
+        {"id": "c", "text": "The model, because it supplies the arguments for each tool"},
+        {"id": "d", "text": "Neither; control flow only exists once a system is an agent"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Every booking request at the makerspace needs the same three steps in the same order: check the calendar, check the training record, then write the booking. What is the best reason to build this part as a fixed workflow rather than an agent?",
+      "options": [
+        {"id": "a", "text": "The steps are known in advance, so fixed code is cheaper and more predictable"},
+        {"id": "b", "text": "A fixed workflow can recover from surprises that an agent cannot handle"},
+        {"id": "c", "text": "An agent cannot call tools, so a workflow is the only way to book"},
+        {"id": "d", "text": "Fixed workflows give more accurate answers on every kind of task"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "For one request, a fixed workflow in your assistant always makes exactly 2 model calls: one to classify the question and one to write the answer. An agent handling the same request requests 4 tools, one per model call, and then writes its final answer in one more call. Each model call costs the same. How many more model calls does the agent use than the workflow?",
+      "unit": "model calls"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one or two sentences: in a workflow, what decides which step runs next, and in an agent, what decides?"
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which makerspace task is the best candidate for an agent rather than a fixed workflow?",
+      "options": [
+        {"id": "a", "text": "Sending the same reminder text to each student the day before a booking"},
+        {"id": "b", "text": "Booking a slot once the student has confirmed machine, day and time"},
+        {"id": "c", "text": "Replying to a student who asks for the shop's opening hours"},
+        {"id": "d", "text": "Helping a student whose print keeps failing, with unknown lookups needed"}
+      ]
+    }
+  ]
+}

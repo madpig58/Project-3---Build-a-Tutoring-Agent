@@ -1,0 +1,37 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between sessions, so memory exists only if the program saves the fact and puts it back into the next session's context. A larger window (a) only holds more within one session; expecting the model to learn from talks (c) or to have built-in memory of past sessions (d) assumes memory is automatic.",
+      "distractors": {"a": "M7", "c": "M8", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 6700,
+      "tolerance": 0,
+      "rationale": "Call 1 sends 800 + 200 = 1,000. Call 2 sends 1,000 + 100 + 1,400 = 2,500. Call 3 sends 2,500 + 100 + 600 = 3,200. Total 1,000 + 2,500 + 3,200 = 6,700. An answer of 3,200 gives only the last call's size and ignores that the history is re-sent on every call."
+    },
+    {
+      "id": "q3",
+      "answer": "A note is a copy that can be stale or wrong, for example if the training has expired; the assistant should check the real training record with a tool before booking.",
+      "accepted": [
+        "The note may be out of date, so the assistant should check the authoritative training record with a tool.",
+        "A saved note can go stale; it should look up the actual training record instead of trusting the note."
+      ],
+      "rationale": "Full credit needs both parts: the risk (a note is a copy that can be out of date or wrong) and the remedy (check the real record, by tool, for a fact with safety consequences). Giving only the risk is partial. Saying the model forgets the note, or that notes cannot be loaded, is wrong."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "A chunk cut out of its page loses what it was about, so a search can return it for the wrong machine. Putting the machine, section and page at the front of each chunk when the index is built keeps that information with it. Shorter chunks (a) lose more context, more chunks (b) cost tokens without fixing the cause, and a larger model (c) cannot tell which manual an unlabeled chunk came from."
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "Fitting in the window removes the hard limit, but tokens are billed on every call, and recall tends to decline as the context grows (context rot). So context still has to be managed. The model does not read all tokens equally well (b), and it stores nothing from a call afterward (c). Retrieval is optional when the text is small enough, not required (d).",
+      "distractors": {"b": "M7", "c": "M8"}
+    }
+  ]
+}

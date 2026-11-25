@@ -1,0 +1,152 @@
+{
+  "duration_api_ms": 107759,
+  "stop_reason": "end_turn",
+  "session_id": "7625d97b-69f4-4d89-9718-f8d5f15956ee",
+  "total_cost_usd": 0.441049,
+  "usage": {
+    "input_tokens": 22,
+    "cache_creation_input_tokens": 59056,
+    "cache_read_input_tokens": 495566,
+    "output_tokens": 12986,
+    "output_tokens_details": {
+      "thinking_tokens": 323
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 59056,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 540,
+        "cache_read_input_tokens": 71161,
+        "cache_creation_input_tokens": 2634,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2634
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 22,
+      "outputTokens": 12986,
+      "cacheReadInputTokens": 495566,
+      "cacheCreationInputTokens": 59056,
+      "webSearchRequests": 0,
+      "costUSD": 0.4156846,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 323,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 59056,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 35074,
+      "outputTokens": 3714,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 2,
+      "costUSD": 0.025364400000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1489,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 24,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I wrote the 10-minute lesson on O3, **`lessons/0001-context-and-memory.html`**, plus a quiz and its key. I didn't open the lesson in a browser or run a word count. I estimate its length at roughly 1,700 words, which is about 11 minutes. The two sources I used are linked in the lesson and listed in `RESOURCES.md`.\n\nThe lesson uses the makerspace assistant as its running example and covers these parts:\n- **Context window:** it is everything the model sees in one call, and the program rebuilds and re-sends it on every call. The lesson ties this to cost and to context rot.\n- **Between steps and between sessions:** context carries steps forward within a run, and a new session starts empty unless something was saved and reloaded. The example is a student's training status.\n- **Retrieval and notes:** you retrieve the few relevant manual pages instead of pasting the whole manual, and you keep progress notes in a file outside the context.\n- **Practice:** it has a warm-up recall question, a figure, worked examples, misconception boxes, and self-check questions with instant feedback. It ends with a sorting task and a \"say it in your own words\" prompt.\n\n**Quiz 0002** is ready when you are. It has five items on O3 and doesn't repeat the lesson's practice questions.\n\nThe quiz key has no misconception ids. The workspace doesn't name any ids for the context-and-memory mix-ups, and I didn't want to invent ones that might clash.\n\nAsk me anything about the lesson, or say \"give me quiz 0002\" to take it here. Do you want a longer or shorter version, or a cheat sheet for context and memory?",
+  "ttft_ms": 1894,
+  "type": "result",
+  "duration_ms": 106912,
+  "uuid": "4d1b3092-6c79-4c2d-bdc3-42c8694f662f",
+  "ttft_stream_ms": 1734,
+  "time_to_request_ms": 125,
+  "first_content_frame_ms": 1734,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 22,
+      "outputTokens": 12986,
+      "cacheReadInputTokens": 495566,
+      "cacheCreationInputTokens": 59056,
+      "webSearchRequests": 0,
+      "costUSD": 0.4156846,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 323,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 59056,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 35074,
+      "outputTokens": 3714,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 2,
+      "costUSD": 0.025364400000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1489,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-28T13:15:33.320Z"
+}

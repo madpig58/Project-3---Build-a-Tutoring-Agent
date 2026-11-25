@@ -46,13 +46,20 @@ Mark each finding **major** or **minor**, as listed.
 
 ## Your report
 
-Return only this report, as your final message:
+Your report goes to the main conversation, which cannot read `keys/` by design; your findings go from there to the `grader`, which reads the key itself.
+So the report carries nothing from the key: no answers or option letters, no rationale, no distractor descriptions, and no sentence about what the key says or leaves out.
+
+- Quote only the draft and the submission. Point at the key by item id alone, for example "contradicts the key for q3".
+- A verdict or misconception finding (checks 1 and 2) names the verdict and the id you would give, since they go into the grades file anyway. It does not say why from the key. Fix: "re-grade q3 against the key".
+- A true-feedback finding (check 3) quotes the false claim in the draft. Fix: "rewrite this claim to agree with the key's rationale", without restating the rationale or the right answer.
+
+Return exactly this report as your final message, filled in, with nothing before the `PASS` line or after the `Verdict` line:
 
 ```
 PASS <n>
 Major: <count>  Minor: <count>
 
-1. <item id or "summary"> - check <number> - major|minor - <what is wrong, with a quote> - Fix: <a specific change>
+1. <item id or "summary"> - check <number> - major|minor - <what is wrong, with a quote from the draft or submission> - Fix: <a specific change, with nothing from the key>
 2. ...
 
 Checks with no finding: <the check numbers>
@@ -61,3 +68,4 @@ Verdict: REVISE | CLEAN
 
 The verdict is `CLEAN` only when there are no major findings; minor findings alone still get `CLEAN`, and the writer fixes them without another pass.
 Report every finding you can support with a quote, and nothing you cannot; do not praise the grades or summarize them.
+The numbered findings are the only free text in the report: no notes, no paragraph between the findings and `Checks with no finding`, and no list of the verdicts or ids you agree with. Agreement is what "Checks with no finding" already says.

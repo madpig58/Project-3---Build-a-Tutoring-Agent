@@ -1,0 +1,39 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model keeps nothing between calls, and the program's message list is gone when a session ends. A preference carries over only if the program saves it and loads it into the next context. Blaming a full window (a), a deletion timer (b) or a short prompt (d) assumes the model remembers by itself, which is M3.",
+      "distractors": {"a": "M3", "b": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 4160,
+      "tolerance": 0,
+      "rationale": "Call 1 input is 1,050. Call 2 input is the whole history again: 1,050 + 60 + 2,000 = 3,110. Total 1,050 + 3,110 = 4,160. An answer of 3,110 counts only the last call; 3,050 counts each piece once, as if the model remembered the earlier text (M3)."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Retrieval returns only the relevant chunks, which saves tokens on every call and avoids context rot. A window that can hold everything (a, d) is a limit, not a target: the cost is paid on every call and recall falls. Fine-tuning (c) is out of scope and does not give reliable lookup of exact procedures.",
+      "distractors": {"a": "M7", "d": "M7"}
+    },
+    {
+      "id": "q4",
+      "answer": "Because the program re-sends the whole history, including every earlier result, on every model call, so the input grows each step.",
+      "accepted": [
+        "The whole conversation is sent again on each call",
+        "Each call includes all earlier messages and tool results",
+        "The model keeps no memory, so the entire context is re-sent every step"
+      ],
+      "rationale": "The key idea is that the model does not remember and the full list is sent again each call. Answers that say the model remembers but charges more, or that the model gets slower or tired, miss it (M3)."
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "A completed training is a small, stable fact the next session needs, so it is a note. A just-checked booking (b) goes stale and should be read live from the calendar tool. A retrieved chapter (c) already lives in the manual index and can be retrieved again. Reasoning from one chat (d) is not needed later.",
+      "distractors": {"b": "M8", "c": "M8"}
+    }
+  ]
+}

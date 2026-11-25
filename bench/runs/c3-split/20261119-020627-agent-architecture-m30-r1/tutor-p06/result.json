@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 25373,
+  "stop_reason": "end_turn",
+  "session_id": "2d507bae-c269-4876-b9f6-3835dac276de",
+  "total_cost_usd": 0.127112,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 22952,
+    "cache_read_input_tokens": 111880,
+    "output_tokens": 2410,
+    "output_tokens_details": {
+      "thinking_tokens": 996
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 22952,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 481,
+        "cache_read_input_tokens": 36856,
+        "cache_creation_input_tokens": 1062,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1062
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2410,
+      "cacheReadInputTokens": 111880,
+      "cacheCreationInputTokens": 22952,
+      "webSearchRequests": 0,
+      "costUSD": 0.127112,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 996,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22952,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 10,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Tool calling is the model writing a request on a slip of paper, and something else doing the actual work and handing back the result. The model never does the action itself.\n\nHere's an analogy, with no code.\n\n1. Picture a manager in a closed room with a mail slot. She can only write notes and read notes. She can't leave the room, use a phone, or open the booking book.\n2. Outside sits an assistant with the phone and the booking book. Taped to the slot is a menu: \"I can check the calendar. I can book a machine. I can look up a manual page.\" Each item says what it does and what details it needs.\n3. A student asks, \"Is the laser cutter free Friday?\" The manager writes a slip: *\"Check the calendar: laser cutter, Friday.\"* She doesn't know the answer, so she asks for it.\n4. The assistant reads the slip, looks in the book, and slides back: *\"Booked 2–4pm, free otherwise.\"*\n5. The manager reads that and writes her reply to the student. If she needed more, she'd send another slip first.\n\nThis works because the manager is good at deciding what to ask for and how to word it. The assistant is good at doing things. Neither has to do the other's job.\n\nThe analogy breaks down in one place. The menu isn't a separate sign. It's text the model reads, so a clear tool description really does shape which slips it writes. That's the skill you listed in your mission.\n\nQuick check, in your own words: in the makerspace assistant, what is the \"mail slot\" and what is the \"assistant\"?",
+  "ttft_ms": 2112,
+  "type": "result",
+  "duration_ms": 25671,
+  "uuid": "f400233b-f702-4e29-8998-fb51dfca8173",
+  "ttft_stream_ms": 2110,
+  "time_to_request_ms": 122,
+  "first_content_frame_ms": 2111,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2410,
+      "cacheReadInputTokens": 111880,
+      "cacheCreationInputTokens": 22952,
+      "webSearchRequests": 0,
+      "costUSD": 0.127112,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 996,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22952,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-28T13:15:31.317Z"
+}

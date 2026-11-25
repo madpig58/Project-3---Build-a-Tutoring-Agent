@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "In an agent run, the model asks for the calendar and then, on its next call, answers using the calendar result. In a basic setup, how does the model have the calendar result on that second call?",
+      "options": [
+        {"id": "a", "text": "The program sends that result again inside the second request"},
+        {"id": "b", "text": "The model stored the result when it first saw it earlier"},
+        {"id": "c", "text": "The model fetches it from the booking system by itself"},
+        {"id": "d", "text": "The provider's servers remember it between the two calls"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your assistant's system prompt plus tool definitions total 1,500 tokens and the student's question is 100 tokens. The model makes three calls: it requests a tool (50 tokens), gets a 400-token result, requests another tool (50 tokens), gets a 600-token result, then writes its final answer. Each call sends the whole history so far. How many input tokens are sent in total across the three calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student passes laser cutter training on Monday and returns on Thursday for a new session. Which design lets the assistant know about the training on Thursday at a low token cost?",
+      "options": [
+        {"id": "a", "text": "Choose a model with a larger window and hope it keeps Monday's chat"},
+        {"id": "b", "text": "Save a short record of the training and load it when the session starts"},
+        {"id": "c", "text": "Paste the complete Monday transcript into the system prompt for every session"},
+        {"id": "d", "text": "Tell the model in its instructions to remember every student it meets"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "When a long conversation nears the window limit, the program can have the model summarize it and start a fresh window from that summary. What is this technique called? Answer in one word."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The makerspace has a 150-page set of manuals. Which approach best controls cost and keeps the model focused on the right information for each question?",
+      "options": [
+        {"id": "a", "text": "Put all 150 pages into the system prompt so every answer can use them"},
+        {"id": "b", "text": "Rely on the model's training, since it has read many similar manuals"},
+        {"id": "c", "text": "Split the manuals into chunks and load only the few that match"},
+        {"id": "d", "text": "Save the whole manual set as a note and load it every session"}
+      ]
+    }
+  ]
+}

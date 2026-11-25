@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 44rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Charter, Georgia, serif; line-height: 1.5; color: #1f1d1a; background: #fffdf8; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 1.8rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid #e4dfd4; }
+    code { font-family: ui-monospace, Consolas, monospace; font-size: 0.88em; background: #f3efe6; padding: 0.1em 0.3em; border-radius: 3px; }
+    a { color: #9a4517; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } code { background: #23211e; } a { color: #eaa77a; } }
+    @media print { body { background: #fff; color: #000; } }
+  </style>
+</head>
+<body>
+  <h1>Context and memory in an agent</h1>
+  <p>From <a href="../lessons/0001-context-and-memory-in-an-agent.html">lesson 1</a>. Objective O3.</p>
+
+  <h2>The three places a fact can live</h2>
+  <table>
+    <tr><th>Place</th><th>Lasts</th><th>Use for</th></tr>
+    <tr><td>Context (system prompt, history, tool results)</td><td>One model call; the history lasts one session</td><td>Rules needed every time; the current task</td></tr>
+    <tr><td>Saved notes (long-term memory)</td><td>Across sessions, until deleted</td><td>Low-stakes facts about a student: preferences, past bookings</td></tr>
+    <tr><td>Retrieval (search over manuals)</td><td>Stored outside; only found pieces enter the context</td><td>Large reference text where little is needed per question</td></tr>
+  </table>
+
+  <h2>Sorting questions, in order</h2>
+  <ol>
+    <li>Needed on every request? System prompt.</li>
+    <li>About this student, across sessions? Saved note, loaded at session start or read by a tool.</li>
+    <li>Large reference text, small piece needed? Retrieve it, ideally with a tool.</li>
+    <li>Only needed for this task? Keep in history, then clear or compact.</li>
+    <li>Does a stale or wrong copy cause harm? Check the real record with a tool.</li>
+  </ol>
+
+  <h2>Facts to remember</h2>
+  <ul>
+    <li>The model keeps nothing between calls or sessions; the program re-sends history and saves and loads memory.</li>
+    <li>Input cost of a run = the sum of each call's full input, so early content is paid for again on every call.</li>
+    <li>Recall tends to get worse as the context fills (context rot); a bigger window does not remove the need to choose what goes in.</li>
+  </ul>
+
+  <h2>Managing a long history</h2>
+  <table>
+    <tr><th>Technique</th><th>What it does</th><th>Risk</th></tr>
+    <tr><td>Clear tool results</td><td>Replace used output with a short note</td><td>Detail lost; may need to fetch again</td></tr>
+    <tr><td>Trim old messages</td><td>Drop the oldest turns</td><td>Early constraints vanish</td></tr>
+    <tr><td>Compaction</td><td>Summarize decisions, open questions, constraints into a fresh context</td><td>One extra model call; a summary can drop a needed detail</td></tr>
+  </table>
+
+  <h2>Memory types and write timing</h2>
+  <ul>
+    <li><strong>Semantic:</strong> facts. <strong>Episodic:</strong> past experiences or examples. <strong>Procedural:</strong> rules for how to act.</li>
+    <li><strong>Hot path:</strong> write during the request; available at once, adds delay. <strong>Background:</strong> write afterward; no delay, but arrives later.</li>
+  </ul>
+
+  <h2>Retrieval</h2>
+  <ul>
+    <li>Steps: chunk, index, search, place the top chunks in the context.</li>
+    <li>Embeddings find similar meaning; BM25 finds exact words and codes; combine them.</li>
+    <li>Put machine, section and page in front of each chunk.</li>
+    <li>Under about 200,000 tokens (roughly 500 pages), consider putting the whole text in the prompt instead.</li>
+  </ul>
+
+  <p>Sources: <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic, Effective context engineering</a>; <a href="https://docs.langchain.com/oss/python/concepts/memory">LangChain, Memory</a>; <a href="https://www.anthropic.com/news/contextual-retrieval">Anthropic, Contextual Retrieval</a>.</p>
+</body>
+</html>

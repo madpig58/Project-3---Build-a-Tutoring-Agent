@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+</head>
+<body>
+<main>
+  <div class="kicker">Cheat sheet &middot; objective O3</div>
+  <h1>Context and memory in an agent</h1>
+  <p>From <a href="../lessons/0001-context-and-memory-in-an-agent.html">lesson 1</a>.</p>
+
+  <h2>Terms</h2>
+  <table>
+    <tbody>
+      <tr><td><dfn>Context window</dfn></td><td>All text the model reads for one request, plus what it writes: system prompt, tool definitions, messages, tool results, output.</td></tr>
+      <tr><td><dfn>Token</dfn></td><td>A small chunk of text; the unit of window size and of billing.</td></tr>
+      <tr><td><dfn>Context rot</dfn></td><td>Recall and accuracy get worse as the token count grows.</td></tr>
+      <tr><td><dfn>Compaction</dfn></td><td>Summarize a long conversation and continue from the summary.</td></tr>
+      <tr><td><dfn>Notes (agentic memory)</dfn></td><td>Facts the program saves outside the window and loads in later sessions.</td></tr>
+      <tr><td><dfn>Retrieval</dfn></td><td>Fetching only the relevant pieces of a large library into the window.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Rules to remember</h2>
+  <ul>
+    <li>The model keeps nothing between requests; the program resends the message list each call.</li>
+    <li>Every call re-reads the whole history, so cost grows with each step.</li>
+    <li>Nothing survives a session unless the program saves it.</li>
+    <li>Memory tool: the model requests a file operation, your application runs it.</li>
+    <li>A bigger window gives room, not value.</li>
+  </ul>
+
+  <h2>Where does it live?</h2>
+  <table>
+    <thead><tr><th>Place</th><th>Put here</th></tr></thead>
+    <tbody>
+      <tr><td>Window</td><td>Short rules, the current question, recent results</td></tr>
+      <tr><td>Saved notes</td><td>Small facts that must survive, with no other home</td></tr>
+      <tr><td>Library + retrieval</td><td>Large reference text such as manuals</td></tr>
+      <tr><td>A tool call</td><td>Fast-changing facts such as the calendar</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Cost of a request</h2>
+  <p>Input tokens = sum, over every model call, of everything in the window at that call. Add each new tool request and result to the next call's input.</p>
+</main>
+</body>
+</html>

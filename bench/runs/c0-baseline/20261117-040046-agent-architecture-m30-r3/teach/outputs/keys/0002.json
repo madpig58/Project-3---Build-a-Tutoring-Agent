@@ -1,0 +1,35 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "The model keeps nothing between calls; the program re-sends the whole history, including tool results, on every call. Picking b or d shows M1, the belief that the model or provider remembers by itself.",
+      "distractors": {"b": "M1", "d": "M1"}
+    },
+    {
+      "id": "q2",
+      "answer": 6350,
+      "tolerance": 0,
+      "rationale": "Call 1: 1,500 + 100 = 1,600. Call 2: 1,600 + 50 + 400 = 2,050. Call 3: 2,050 + 50 + 600 = 2,700. Total 1,600 + 2,050 + 2,700 = 6,350. An answer of 2,700 counts only the last call and shows M3, that history is not paid for again each call."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Between sessions the window is empty, so memory must be saved outside it: a short, structured record loaded at session start costs few tokens. A larger window does not carry over sessions (M2), and a full transcript is costly (M3).",
+      "distractors": {"a": "M2", "c": "M3", "d": "M1"}
+    },
+    {
+      "id": "q4",
+      "answer": "compaction",
+      "accepted": ["compaction", "compacting", "context compaction", "compact"],
+      "rationale": "Summarizing the conversation near the limit and starting a new window from the summary is called compaction."
+    },
+    {
+      "id": "q5",
+      "answer": "c",
+      "rationale": "Retrieval loads only the few matching chunks, keeping each call small and focused. Putting everything in context costs tokens on every call and invites context rot (M2, M3); training does not contain the makerspace's own manuals (M1); loading the whole manual as a note is the same as pasting it in.",
+      "distractors": {"a": "M3", "b": "M1", "d": "M3"}
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant's model is called a fourth time in one run. It can use the result of the first tool call. What is the reason it can?",
+      "options": [
+        {"id": "a", "text": "The model keeps its own private record of earlier tool results"},
+        {"id": "b", "text": "The program includes the earlier results in the text it sends"},
+        {"id": "c", "text": "The model fetches the results again from the booking system"},
+        {"id": "d", "text": "The context window stores results permanently between all sessions"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "On Monday a student tells the assistant their name and preferred evening slots. On Thursday they open a new session and the assistant does not know either. What is the most likely cause?",
+      "options": [
+        {"id": "a", "text": "The context window was too small to hold a whole week"},
+        {"id": "b", "text": "The model forgot them because it was not trained on them"},
+        {"id": "c", "text": "The new session started empty and nothing was saved or reloaded"},
+        {"id": "d", "text": "The student's slot preferences were removed by context rot"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your sponsor suggests pasting all 600 pages of machine manuals into the system prompt because the model's context window is big enough. In one or two sentences, give one reason to use retrieval instead."
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Each model call re-sends the whole context. A system prompt of 2,000 tokens is part of every call. In a run with 5 model calls, how many tokens of system prompt are sent in total, counting all calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A long task makes the assistant's context grow large, and you want it to continue from a clean context after a reset. Which approach lets it keep its progress?",
+      "options": [
+        {"id": "a", "text": "Hope the model recalls the earlier steps after the reset"},
+        {"id": "b", "text": "Have it write progress notes to a file and read them back"},
+        {"id": "c", "text": "Raise the step limit so that the loop never ends"},
+        {"id": "d", "text": "Shorten the system prompt so that more steps fit"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: an agent is defined by the loop of the model choosing an action, the program running it, and the result coming back. The tempting alternative, a longer prompt (a), only changes what one call can do; it is still a single call with no loop."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the model only writes text, and that text is a structured request naming check_calendar with the arguments laser cutter and tomorrow's date. Options (a) and (d) are tempting because they picture the model running the tool, but it never touches the booking system or the tool's code; the program does that. This split matters again in q4."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked 'left to run longer, it will eventually fix the bug', which says more steps will get the agent there. But the agent sees the same failing test every time, so step 41 will look just like step 40 and nothing changes. The fix is a stopping condition, such as a step limit that ends the loop and reports back. Next time, ask: is anything changing between steps?"
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your number, 4, is right: 3 tool requests + 1 final answer = 4 model calls. Your reasoning is off, though: the model does not run the tools. Trace it: call 1 outputs a request for check_calendar and the program runs it; call 2 gets that result and requests search_manuals; call 3 gets that result and requests check_training_record; call 4 gets the last result and writes the answer."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, and you gave both parts: the result goes back in as the next input, and the model uses it to decide what to do next. Your group-chat comparison works because the model only sees what is put in front of it on each turn."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "The name helps, but it is not enough on its own: a tool called check_calendar could take a machine, a person or a room. The model relies on the whole description the program gives it: the name, what the tool does and the parameters it takes. Next time, write a tool's description as if it were the only thing the model will ever read."
+    }
+  ],
+  "summary": "You have the core loop down: you recognised what makes an agent, that the model outputs a request instead of running anything, and that results go back in as the next input. The belief to fix is that the model runs the tools itself; your q4 working showed it, even though the count was right. Two other gaps: a loop needs a stopping condition because more steps do not help when nothing changes (q3), and the model chooses a tool from its whole description, not just its name (q6). For your next step, trace the laser-cutter request again, marking what the model writes and what the program does at each step, and note where the loop could stop."
+}

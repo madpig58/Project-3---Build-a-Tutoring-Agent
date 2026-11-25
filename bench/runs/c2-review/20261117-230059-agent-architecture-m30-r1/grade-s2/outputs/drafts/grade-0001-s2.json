@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: an agent is the loop in which the model picks an action, the program runs it, and the result comes back for the next step. A longer prompt (a) is the tempting alternative, but it only changes what one call does, not the structure of the system. Keep this test for design reviews: if there is no loop, it is not an agent."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the model outputs a structured request naming check_calendar with the machine and date as arguments, and the program does the actual call. Option (a) is the tempting one, because it pictures the model reaching into the booking system itself. It cannot: all it produces is text. Remember this when you write tools, since the program around the model is where the real work and the safety checks happen."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked 'No change; left to run longer, it will eventually fix the bug', which assumes that more steps will lead to success. It is tempting because an agent does adapt to results, but here it gets the same failing test every time, so step 41 will look just like step 40. The fix is a stopping condition, such as a step limit that ends the loop and reports back to a person. Next time, ask yourself: is each step giving the model anything new? If not, the loop needs a way to stop."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your number is right: 4 calls, three that each request one tool and a fourth that writes the answer. The reason is off, though: you said the model 'runs' each tool itself. In fact the model only outputs a request, and the program runs the tool and sends the result back, which is why each result triggers a new model call. Check your reasoning by asking who actually executes the tool: the program, not the model."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the result goes back in as the next input, and you gave the reason, so the model can decide what to do next. Your group-chat picture works: the result is a new message the model replies to. The common slip is to say the program shows the result to the user, but the model has to read it first. This is also why a long run gets expensive, since each step adds more text the model must read."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "The name does play a part, so this is half right. But the model relies on the whole tool description the program gives it: the name, what the tool does, and the parameters it takes. A name alone can mislead, for example two tools named check_calendar and check_schedule would look the same. Next time, say 'it reads the tool descriptions and picks the one that fits'; this will matter when you write descriptions for your own tools."
+    }
+  ],
+  "summary": "You have the loop down: you picked the right structure for an agent, what the model outputs for a tool call, and what the program does with a result. The idea to work on is who does what: your answer to q4 says the model runs the tools (M4), when the program runs them, and in q3 you expected a stuck agent to eventually succeed (M6), when it needs a stopping condition. Next, redraw the loop for the makerspace assistant with two columns, 'model outputs' and 'program does', and mark where a step limit goes. Then retake the q3 and q6 style questions."
+}

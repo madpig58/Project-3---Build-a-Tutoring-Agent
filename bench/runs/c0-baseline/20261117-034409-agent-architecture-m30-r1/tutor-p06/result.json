@@ -1,0 +1,119 @@
+{
+  "duration_api_ms": 24667,
+  "stop_reason": "end_turn",
+  "session_id": "cdeedce4-9ae6-4ebb-ad45-9ba21e6752ef",
+  "total_cost_usd": 0.1334181,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 24533,
+    "cache_read_input_tokens": 113301,
+    "output_tokens": 2394,
+    "output_tokens_details": {
+      "thinking_tokens": 897
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 24533,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 567,
+        "cache_read_input_tokens": 38047,
+        "cache_creation_input_tokens": 941,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 941
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2394,
+      "cacheReadInputTokens": 113301,
+      "cacheCreationInputTokens": 24533,
+      "webSearchRequests": 0,
+      "costUSD": 0.1334181,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 897,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 24533,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 10,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Think of a restaurant.\n\nYou are a customer at a table. You can't walk into the kitchen. You have a **menu**, a **waiter** and an **order slip**.\n\n- **The menu** is all you know about what the kitchen can do. You've never seen the stove or met the cook. You choose a dish from the one-line descriptions, such as \"Tomato soup: served hot, contains dairy\". A vague description means you order the wrong thing.\n- **The order slip** is all you hand over. You write \"Tomato soup, no croutons\" and nothing else. You don't cook, and writing the slip doesn't produce soup.\n- **The kitchen** (with the waiter) does the real work. It reads the slip, makes the dish and brings it back. You never see how.\n- **The dish arriving** is when you learn something new. Only then do you decide your next move: order dessert, send it back, or say \"that's all, thanks\".\n\nIn tool calling:\n- The **model** is the customer.\n- The **tool descriptions** are the menu.\n- The model's output is the **order slip**: a request naming a tool and the details to use.\n- Your **Python program** is the kitchen and waiter. It does the work.\n- The **result** goes back to the model, which decides what to do next.\n\nWhere the analogy breaks: a real customer remembers the whole meal. The model only knows what the program shows it each time it's called, so the program has to pass everything back in. That is the \"context\" lesson coming up.\n\nTo check it landed, answer in your own words. In a restaurant, who actually makes the soup, and how does the customer know what they can ask for?\n\nI'm keeping quiz 0001 closed until it's graded, so I've kept this general and not tied to its questions. Want a short lesson that walks through one makerspace request using this picture?",
+  "ttft_ms": 1634,
+  "type": "result",
+  "duration_ms": 25381,
+  "uuid": "acccf651-93aa-41ff-86a2-31fe5a6b657d",
+  "ttft_stream_ms": 1254,
+  "time_to_request_ms": 103,
+  "first_content_frame_ms": 1254,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2394,
+      "cacheReadInputTokens": 113301,
+      "cacheCreationInputTokens": 24533,
+      "webSearchRequests": 0,
+      "costUSD": 0.1334181,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 897,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 24533,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

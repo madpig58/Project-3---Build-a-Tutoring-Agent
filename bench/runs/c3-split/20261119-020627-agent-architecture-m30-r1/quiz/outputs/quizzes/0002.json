@@ -1,0 +1,68 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A game studio builds a bot that handles player bug reports. In which design does the model, rather than the program's code, own the control flow?",
+      "options": [
+        {"id": "a", "text": "Code lets the model pick a severity label, then always files the ticket the same way"},
+        {"id": "b", "text": "Code sends each report to the model once and always posts the model's reply as a comment"},
+        {"id": "c", "text": "A model is given search and ticket tools and picks each next call itself, until it stops"},
+        {"id": "d", "text": "Code asks the model to rewrite the report, then to translate it, always in that fixed order"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A Python script for a level-design tool runs three steps, in this order, for every request: (1) call the model to extract the room names from a text brief, (2) call the model to draft a description of each room, (3) call the model to check the descriptions for typos. The script's own code decides when each step runs and when the script ends. How should this design be classified?",
+      "options": [
+        {"id": "a", "text": "A workflow, because the code fixes the order of the steps, whichever part the model does"},
+        {"id": "b", "text": "An agent, because it calls the model more than once to finish a single user request"},
+        {"id": "c", "text": "An agent, because the output of each step is passed on as the input to the next step"},
+        {"id": "d", "text": "An agent, because a model carries out every one of the steps in the script it runs"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A makerspace assistant handles the request 'book the laser cutter for Friday at 3' by always doing the same three things: check the calendar for that slot, create the booking, send a confirmation. Would you build this part as a fixed workflow or as an agent? Answer with one of those two words: workflow or agent."
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "A booking request always needs the same 3 steps, so a fixed workflow handles it with exactly 3 model calls. An agent given the same requests loops until it decides it is done and averages 7 model calls, and its extra calls add nothing to the result. Every model call costs $0.002. Over 1,000 requests, how many dollars would you save by choosing the fixed workflow instead of the agent? Give the savings, not either total.",
+      "unit": "dollars"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which task is the best candidate for a fixed workflow rather than an agent, if the goal is predictable behavior at the lowest cost per request?",
+      "options": [
+        {"id": "a", "text": "Finding why a player's save file corrupts, when the cause could be in any of dozens of systems"},
+        {"id": "b", "text": "Every night, reading the new support emails, labeling each one, and adding the label to a sheet"},
+        {"id": "c", "text": "Researching which engine suits a new game, where each finding decides what to look up next"},
+        {"id": "d", "text": "Fixing a failing build, where the next action depends on whatever the error messages reveal"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A team built an agent that, for each uploaded CSV of printer logs, always does the same four things: validate the columns, convert to JSON, store the file, and email a summary. It averages 9 model calls per file, and about one file in ten ends without the email being sent. Which change would best fix both the cost and the missed emails?",
+      "options": [
+        {"id": "a", "text": "Raise the agent's step limit so it has more steps to finish the email"},
+        {"id": "b", "text": "Switch to a larger model so the agent picks its next step better"},
+        {"id": "c", "text": "Give the agent extra tools so it has more ways to send the email"},
+        {"id": "d", "text": "Replace the agent with code that runs the four steps in order"}
+      ]
+    }
+  ]
+}

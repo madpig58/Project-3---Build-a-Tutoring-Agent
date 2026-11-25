@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem; font-family: Georgia, serif; line-height: 1.5; color: #1f1d1a; background: #fffdf8; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    th, td { text-align: left; padding: 0.4rem; border-bottom: 1px solid #e4dfd4; vertical-align: top; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } }
+  </style>
+</head>
+<body>
+  <h1>Context and memory in an agent</h1>
+  <h2>Terms</h2>
+  <ul>
+    <li><b>Context</b>: the tokens sent on one model call (system prompt, tool descriptions, history, retrieved text).</li>
+    <li><b>Context window</b>: the most tokens one call can take.</li>
+    <li><b>Context rot</b>: recall gets worse as the context grows.</li>
+    <li><b>Compaction</b>: summarise the history and start a fresh context with the summary.</li>
+    <li><b>Retrieval</b>: search a big source and put only the best chunks in the context.</li>
+    <li><b>Notes</b>: findings written outside the window and read back later.</li>
+  </ul>
+  <h2>Where each kind of information lives</h2>
+  <table>
+    <tr><th>Information</th><th>Where</th></tr>
+    <tr><td>Needed on every call</td><td>In the context</td></tr>
+    <tr><td>Big, rarely needed</td><td>Outside; retrieved</td></tr>
+    <tr><td>Needed next session</td><td>Saved record or notes</td></tr>
+    <tr><td>Changes fast</td><td>A tool, checked live</td></tr>
+  </table>
+  <h2>Rules of thumb</h2>
+  <ul>
+    <li>The model keeps nothing between calls; the program resends the history.</li>
+    <li>Total tokens sent = the sum of every call's whole context.</li>
+    <li>A bigger window is not memory: it ends with the session.</li>
+    <li>Retrieval can fetch the wrong chunk; test it on real questions.</li>
+  </ul>
+  <p>Source: <a href="https://www.anthropic.com/research/effective-context-engineering-for-ai-agents">Anthropic, Effective context engineering for AI agents</a>. Lesson: <a href="../lessons/0001-context-and-memory-in-an-agent.html">Context and memory in an agent</a>.</p>
+</body>
+</html>

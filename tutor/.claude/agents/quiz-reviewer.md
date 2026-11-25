@@ -20,6 +20,10 @@ Coverage is checked against the lesson when there is one, and otherwise against 
 
 1. **Answer first, key second.** Read only the draft quiz. Answer every item from its stem alone and write down your answer and, for each item, any second answer you could argue for.
 2. Then read the draft key, compare it with your answers, and go through the checklist below.
+3. Last, on every pass, list the earlier keys with Glob (`keys/*.json`) and read each one, only for the misconception ids in `distractors` and the rationales and the wrong idea each id stands for.
+   For every wrong `mcq` option in the draft, decide which of those ids it shows: the same wrong idea, not only the same topic. When none fits, it is `none`; never invent an id.
+   Put the result in the report's `Misconception ids` lines. They are not findings, and they never change the verdict.
+   The main conversation cannot read `keys/`, and these lines are how it learns the ids.
 
 ## The checklist
 
@@ -51,7 +55,7 @@ Give every check a word for every item it applies to: a finding, or "none".
 
 ## Your report
 
-Return only this report, as your final message:
+Return exactly this report as your final message, with nothing before the `PASS` line or after the `Verdict` line, no code fence around it, and no list of your own answers:
 
 ```
 PASS <n>
@@ -61,8 +65,14 @@ Findings: <count>
 2. ...
 
 Checks with no finding: <the check numbers>
+Misconception ids:
+<item id>: <option>=<id or none>, <option>=<id or none>, ...
 Verdict: REVISE | CLEAN
 ```
+
+- One `Misconception ids` line per `mcq` item, with every wrong option in it, whether the draft names an id or not; write `Misconception ids: none` when the quiz has no `mcq` item.
+- Those lines hold option letters of the draft and ids, nothing else.
+- Nothing else from a file in `keys/` goes anywhere in the report: no answer, option, rationale or item of an earlier quiz, and no description of what an id stands for. Quote only the drafts.
 
 The verdict is `CLEAN` only when there are no findings.
 Report every finding you can support with a quote, and nothing you cannot; do not praise the quiz or summarize it.

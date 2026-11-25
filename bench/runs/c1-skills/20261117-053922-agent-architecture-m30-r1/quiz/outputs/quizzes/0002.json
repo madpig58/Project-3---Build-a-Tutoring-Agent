@@ -1,0 +1,68 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A game studio is trying four systems that all call a language model. In which one does the model, rather than the program's code, choose what happens next?",
+      "options": [
+        {"id": "a", "text": "A script asks the model to write quest text, then runs a length check, then asks the model to translate it, always in that order"},
+        {"id": "b", "text": "A script asks the model to label each player report as bug or cheating, then files it into the queue that matches the label"},
+        {"id": "c", "text": "A program gives the model tools to search the bug tracker and read logs; the model picks which to call and when to stop"},
+        {"id": "d", "text": "A script loops over 50 screenshots and asks the model for exactly one caption for each, then saves the captions to a file"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A studio must localize 2,000 dialogue lines. Every line needs the same three stages in the same order: translate with the model, check the length with code, format for the game file with code. The budget is small, and the goal is the lowest cost with predictable results. Which design is best for that goal?",
+      "options": [
+        {"id": "a", "text": "An agent with three tools, so the model can adapt the stages to each line"},
+        {"id": "b", "text": "A fixed workflow where the code runs the three stages in order and calls the model only to translate"},
+        {"id": "c", "text": "An agent with a step limit of three, so that it cannot run longer than the workflow"},
+        {"id": "d", "text": "An agent whose prompt lists the three stages in order and tells the model to follow them"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "A support system handles 400 requests a day. As a fixed workflow it makes exactly 3 model calls per request. As an agent it averages 5 model calls per request, because it decides its own steps and sometimes repeats one. Assume every model call costs $0.02. How many more dollars per day does the agent version cost than the workflow version?",
+      "unit": "dollars per day"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which part of the makerspace assistant gains the most from being an agent instead of a fixed workflow? Judge by this: the steps cannot be listed in advance.",
+      "options": [
+        {"id": "a", "text": "Answering \"Which machine can cut 6 mm acrylic and is free Friday?\", where the number and order of lookups depend on what each one finds"},
+        {"id": "b", "text": "Booking a slot once the student, machine and time are confirmed: check the calendar, write the booking, send the confirmation, every time"},
+        {"id": "c", "text": "Sending each student a reminder the evening before a booking, using a template filled in from the booking record"},
+        {"id": "d", "text": "Checking that a student's training record covers the requested machine before any booking is made, using the same check each time"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A Python program sends a student's message to a model and asks for one word: booking, manual or other. An if/elif in the program then runs the booking routine, the manual-search routine or a canned reply, and the program ends. Is this a workflow or an agent, and who owns the control flow? Answer in one sentence."
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A team built a refund bot as an agent with three tools. The steps are always the same: look up the order, check the 30-day refund window, write the reply. In testing, 1 run in 12 skips the window check and approves a refund anyway, and the cost per request is higher than expected. Which change is best for fixing both reliability and cost?",
+      "options": [
+        {"id": "a", "text": "Switch to a larger model, which is less likely to skip a step"},
+        {"id": "b", "text": "Add \"NEVER skip the window check\" in capital letters to the prompt"},
+        {"id": "c", "text": "Raise the step limit so that the agent has room to finish its checks"},
+        {"id": "d", "text": "Rewrite it as a workflow where the code runs all three steps in order every time"}
+      ]
+    }
+  ]
+}

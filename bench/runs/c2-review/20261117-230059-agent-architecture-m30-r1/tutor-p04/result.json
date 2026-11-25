@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 18006,
+  "stop_reason": "end_turn",
+  "session_id": "95a933bf-2272-4702-95c8-755d3b2d4a72",
+  "total_cost_usd": 0.10596299999999999,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 20949,
+    "cache_read_input_tokens": 71850,
+    "output_tokens": 1497,
+    "output_tokens_details": {
+      "thinking_tokens": 147
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 20949,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 631,
+        "cache_read_input_tokens": 33451,
+        "cache_creation_input_tokens": 2237,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2237
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1497,
+      "cacheReadInputTokens": 71850,
+      "cacheCreationInputTokens": 20949,
+      "webSearchRequests": 0,
+      "costUSD": 0.10596299999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 147,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 20949,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Short answer: neither number is right by default, because \"more agents always give better results\" isn't true. It's tempting because a team of specialists sounds better than one generalist. But each agent you add has a cost, and past a point it hurts.\n\nHere's why, in small steps.\n\n1. **Start with one request.** A student asks, \"Can I book the laser cutter Friday at 3, and what material is safe?\" With one agent, the loop is: check the calendar, search the manual, book, reply. That's about 3 tool calls.\n\n2. **Now split it.** Say you add a manual-agent, a calendar-agent and a coordinator. The coordinator has to write each helper a message. Each helper needs enough context to do its job, and each one sends a result back for the coordinator to read. A *hand-off* is that pass of work and context between agents.\n\n3. **Why hand-offs cost you.** Every agent runs its own loop, and each model call is billed for all the text it reads. Three agents mean the same facts get read and rewritten several times. Your sponsor's budget is small, so this matters a lot.\n\n4. **Why hand-offs also hurt quality.** Information gets lost or garbled in a hand-off. If the coordinator forgets to say \"Friday 3 pm\" to the calendar-agent, the booking goes wrong, and no single agent sees the whole picture.\n\n5. **So when does splitting pay off?** It pays when the jobs really are different. Examples are tools or instructions so different that one agent gets confused, or tasks that can run in parallel. Splitting by job, not by headcount, is the rule. Your assistant has three jobs: manual Q&A, calendar check and booking. That points toward one agent, or at most a few, not five or ten.\n\nI haven't taught multi-agent systems yet, so this is the short version. I can write a lesson on it if you want.\n\nQuick check: for the Friday laser-cutter request, which hand-off would you cut first if you had five agents, and why?",
+  "ttft_ms": 2366,
+  "type": "result",
+  "duration_ms": 18382,
+  "uuid": "e9c0d5e6-6608-4ca3-be44-9f850b7a8835",
+  "ttft_stream_ms": 2364,
+  "time_to_request_ms": 147,
+  "first_content_frame_ms": 2364,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1497,
+      "cacheReadInputTokens": 71850,
+      "cacheCreationInputTokens": 20949,
+      "webSearchRequests": 0,
+      "costUSD": 0.10596299999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 147,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 20949,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-28T13:15:33.320Z"
+}

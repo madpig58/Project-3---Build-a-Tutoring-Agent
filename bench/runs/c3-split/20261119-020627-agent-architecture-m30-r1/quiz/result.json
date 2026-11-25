@@ -1,0 +1,110 @@
+{
+  "duration_api_ms": 170319,
+  "stop_reason": "end_turn",
+  "session_id": "c4674159-c99a-48cb-9bd5-48331d233964",
+  "total_cost_usd": 0.5199409,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 6281,
+    "cache_read_input_tokens": 101958,
+    "output_tokens": 4933,
+    "output_tokens_details": {
+      "thinking_tokens": 836
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 6281,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 405,
+        "cache_read_input_tokens": 51713,
+        "cache_creation_input_tokens": 4813,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4813
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 36,
+      "outputTokens": 22379,
+      "cacheReadInputTokens": 453189,
+      "cacheCreationInputTokens": 75368,
+      "webSearchRequests": 0,
+      "costUSD": 0.5199409,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 9527,
+      "cacheCreationEphemeral5mInputTokens": 33808,
+      "cacheCreationEphemeral1hInputTokens": 41560,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwmxar4p-fd8deb37"
+  },
+  "subagent_stats": {
+    "spawned": 2,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 2
+    },
+    "started_in_background": 2,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 2,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "quiz-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 4,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The quiz is written to `quizzes/0002.json`, with its key in `keys/0002.json`. It has six items on O4 (who owns the control flow, and when a fixed workflow is the better choice).\n\nThere was no lesson on O4, so this quiz is ahead of the lessons.\n\nThe items cover these ideas:\n- **Who owns the control flow (q1, q2):** the model chooses the next step in an agent, while code fixes the order in a workflow. A model that runs inside the code's sequence doesn't make the design an agent.\n- **Deciding on a fixed workflow (q3, q5):** choose one when the steps are known in advance and the same every time. Choose an agent when the next step depends on what was just found.\n- **Cost of the choice (q4):** how much extra an agent costs when its flexibility isn't used.\n- **Fixing an agent that's the wrong fit (q6):** a diagnosis of an agent that is costly and unreliable on a task with fixed steps.\n\nThe quiz-reviewer ran two passes. I fixed every finding from both, but I didn't run a third pass on the final wording. Its findings and my changes are in `review-records/0002-quiz.md`.\n\nSend me your answers when you're ready and I'll grade them.",
+  "ttft_ms": 8067,
+  "type": "result",
+  "duration_ms": 29859,
+  "uuid": "f07d388c-e51c-4b02-812f-a226ce050806",
+  "ttft_stream_ms": 1080,
+  "time_to_request_ms": 51,
+  "first_content_frame_ms": 1080,
+  "queued_turn_count": 0,
+  "result_index": 2,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-28T13:15:31.317Z"
+}

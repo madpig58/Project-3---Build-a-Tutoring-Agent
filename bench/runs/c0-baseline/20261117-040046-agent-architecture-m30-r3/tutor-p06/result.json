@@ -1,0 +1,119 @@
+{
+  "duration_api_ms": 21593,
+  "stop_reason": "end_turn",
+  "session_id": "94bc3340-3de0-45b0-a315-479f5d50369a",
+  "total_cost_usd": 0.1334379,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 24524,
+    "cache_read_input_tokens": 113259,
+    "output_tokens": 2400,
+    "output_tokens_details": {
+      "thinking_tokens": 880
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 24524,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 582,
+        "cache_read_input_tokens": 38005,
+        "cache_creation_input_tokens": 974,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 974
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2400,
+      "cacheReadInputTokens": 113259,
+      "cacheCreationInputTokens": 24524,
+      "webSearchRequests": 0,
+      "costUSD": 0.1334379,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 880,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 24524,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 10,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Here's a fresh angle, with no code.\n\n**Picture a manager in a windowless office.** The manager is smart but can't leave the room, and has no phone or computer. Outside the door sits an assistant who can actually do things: look up bookings, search the manuals, check records.\n\nOn the manager's desk is a **service menu**. Each line names a service and says what it does and what details it needs. For example: \"Look up bookings. Give me a machine and a date.\"\n\nA request slides under the door: \"Is the laser cutter free tomorrow?\" The manager can't look anything up. All the manager can do is write on paper. So they write a note: \"Service: look up bookings. Machine: laser cutter. Date: tomorrow.\" They slide it out.\n\nThe assistant reads the note, does the lookup, and slides the answer back in. The manager reads it, then does one of two things: writes another note asking for something else, or writes the final reply to the student.\n\nThat's tool calling:\n- The manager (the model) only ever writes notes. It never does the action itself.\n- The assistant (your program) does the real work and returns the result.\n- The menu (the tool descriptions) is all the manager knows about the services. The manager never sees how they work inside, so a clear menu line matters a lot. That's the tool description you'll write for your team.\n\n**Where the analogy breaks:** a real model doesn't remember between notes. Each time, it's handed the whole pile of paper again, including the request, its earlier notes and the results. We'll build on that when we get to context and memory.\n\nQuick check, in your own words: if the manager writes a note asking for a service that isn't on the menu, who notices, and what happens?\n\nDoes this click better? If so, I can turn it into a short lesson for the makerspace assistant. Since the quiz covers this same topic, I'll go through it with you once it's graded.",
+  "ttft_ms": 1903,
+  "type": "result",
+  "duration_ms": 24772,
+  "uuid": "41146875-5f2f-4444-b595-97414a65a8ad",
+  "ttft_stream_ms": 1531,
+  "time_to_request_ms": 114,
+  "first_content_frame_ms": 1531,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2400,
+      "cacheReadInputTokens": 113259,
+      "cacheCreationInputTokens": 24524,
+      "webSearchRequests": 0,
+      "costUSD": 0.1334379,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 880,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 24524,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

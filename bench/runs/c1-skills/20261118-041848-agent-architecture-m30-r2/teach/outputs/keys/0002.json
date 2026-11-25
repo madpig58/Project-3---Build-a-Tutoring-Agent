@@ -1,0 +1,43 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model keeps nothing between calls; it knows only what is in the request. With an empty message list and no notes loaded, the earlier chat is absent. Choosing a shows the belief that the model learns from conversations as it goes; b and d show the belief that memory of earlier sessions is automatic (M3), with b also confusing window size with persistence (M7).",
+      "distractors": {"a": "M3", "b": "M7", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 5250,
+      "tolerance": 0,
+      "rationale": "Call 1 input is 2,100. Call 2 input is the whole history: 2,100 + 50 (the tool request) + 1,000 (the tool result) = 3,150. The total is 2,100 + 3,150 = 5,250. The final answer is output, not input. An answer of 3,150 counts only the last call; 3,100 forgets that the history is resent."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Every token in the window is paid for on every call, and recall and accuracy degrade as the window fills (context rot), so a large window is capacity, not a reason to fill it. Choosing b is false for current windows, c is false because the model keeps nothing at all, and d is wrong because pasting text into the request also lets it see new text; retrieval is a way to choose what to paste.",
+      "distractors": {"b": "M7", "c": "M3", "d": "M8"}
+    },
+    {
+      "id": "q4",
+      "answer": "Notes are saved outside the window, so they survive after the session ends and can be loaded into a new session's window; a bigger window still starts empty each session.",
+      "accepted": [
+        "Notes persist between sessions; a context window is wiped when the session ends.",
+        "They carry information into a new session, which starts with an empty window.",
+        "Notes are stored outside the context, so they last beyond one session."
+      ],
+      "rationale": "Full credit needs the idea of persistence across sessions: the window only exists within one session, and a larger window does not change that. Answers about cost or recall alone are partial, since they are true but do not name what a bigger window cannot do. An answer saying the model remembers anyway shows M3."
+    },
+    {
+      "id": "q5",
+      "answer": "It searches the manuals for the few chunks most relevant to the question, and only those chunks (not the whole manual) are added to the window as a tool result.",
+      "accepted": [
+        "It looks up the most relevant passages and puts just those into the context.",
+        "The program searches the index for matching pages and returns the top few to the model as the tool result.",
+        "It finds the relevant sections of the manual and adds only them to the window."
+      ],
+      "rationale": "Full credit needs both parts: a search that selects the relevant pieces, and that only those pieces, not the entire manual, land in the window. Saying that the model searches the manuals itself without the program or index is partial or shows M8; saying that the whole manual is loaded is wrong."
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "duration_api_ms": 615664,
+  "stop_reason": "end_turn",
+  "session_id": "91a3f5a0-2a8b-496a-8370-54cc3dccfd1d",
+  "total_cost_usd": 0.4464368,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 4489,
+    "cache_read_input_tokens": 95852,
+    "output_tokens": 3422,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4489,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 530,
+        "cache_read_input_tokens": 48484,
+        "cache_creation_input_tokens": 3373,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3373
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 32,
+      "outputTokens": 13607,
+      "cacheReadInputTokens": 364163,
+      "cacheCreationInputTokens": 87420,
+      "webSearchRequests": 0,
+      "costUSD": 0.4464368,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2536,
+      "cacheCreationEphemeral5mInputTokens": 50529,
+      "cacheCreationEphemeral1hInputTokens": 36891,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwmxeuth-ea9da806"
+  },
+  "subagent_stats": {
+    "spawned": 2,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 2
+    },
+    "started_in_background": 2,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 2,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grade-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I've graded submission s2 of quiz 0001: 3 correct, 2 partial and 1 wrong.\n\n| Item | Verdict | Misconception |\n|---|---|---|\n| q1 | correct | none |\n| q2 | correct | none |\n| q3 | wrong | M6 |\n| q4 | partial | M4 |\n| q5 | correct | none |\n| q6 | partial | none |\n\n- **q3:** You picked \"left to run longer, it will eventually fix the bug\". The agent sees the same failing test every time, so more steps change nothing. The safeguard is a stopping condition such as a step limit.\n- **q4:** Your count of 4 is right, but your working says the model runs the tools itself. The model only writes a request, and the program runs the tool.\n- **q6:** \"By the name\" is incomplete. The model chooses a tool from its whole description: the name, what it does and its parameters.\n\n**Summary:** You have the core loop down. The main thing to fix is the belief that the model runs the tools. The q3 and q6 gaps are smaller.\n\n**Next step:** Trace the laser-cutter request again. At each step, mark what the model writes and what the program does, and note where the loop could stop.\n\nThe `grade-reviewer` ran two passes. Pass 1 asked for revisions and pass 2 came back clean. I fixed all of its findings, and the review record has the details.\n\nBesides the grades, I added a learning record (`learning-records/0003-model-requests-program-runs.md`) and updated `NOTES.md`. Submission s1 hasn't been graded.\n\nGrades file: `grades/0001-s2.json`",
+  "ttft_ms": 1603,
+  "type": "result",
+  "duration_ms": 22035,
+  "uuid": "e7202a2e-bf14-4764-8d4b-ca0eb2c0c30d",
+  "ttft_stream_ms": 1398,
+  "time_to_request_ms": 89,
+  "first_content_frame_ms": 1404,
+  "queued_turn_count": 0,
+  "result_index": 2,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-28T13:15:31.317Z"
+}

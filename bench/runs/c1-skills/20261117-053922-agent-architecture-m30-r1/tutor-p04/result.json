@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 17083,
+  "stop_reason": "end_turn",
+  "session_id": "fefd5afb-53a1-4aa9-9b57-6a945b232d6a",
+  "total_cost_usd": 0.109799,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 21744,
+    "cache_read_input_tokens": 73410,
+    "output_tokens": 1547,
+    "output_tokens_details": {
+      "thinking_tokens": 130
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 21744,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 550,
+        "cache_read_input_tokens": 35828,
+        "cache_creation_input_tokens": 438,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 438
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1547,
+      "cacheReadInputTokens": 73410,
+      "cacheCreationInputTokens": 21744,
+      "webSearchRequests": 0,
+      "costUSD": 0.109799,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 130,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 21744,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 9,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Neither, as things stand. The premise is the problem: more agents don't always give better results.\n\nIt's a tempting idea because more people on a team often means more gets done. Agents work differently. Every extra agent adds cost, and it adds places where information can get lost.\n\n1. **Start with a game example.** Say an NPC shopkeeper needs to greet you, check your gold and sell you a sword. You could split that into three scripts that talk to each other, or write one script with three steps. The one script is simpler. It's easier to debug, and nothing gets lost between the parts.\n\n2. **Apply that to your assistant.** A request like \"How do I use the laser cutter, and can I book it Thursday?\" needs the manual search tool and the calendar tool. One agent with those two tools can do it in one loop.\n\n3. **Cost.** Each agent is its own model loop. Each one re-reads its instructions and whatever context you hand it, and you pay for every token. Ten agents can easily cost several times what one does, and your budget is small.\n\n4. **Handoffs.** When agent A passes work to agent B, B only knows what A wrote down. If A leaves out \"the student is not trained on this machine,\" B can book the slot anyway.\n\n5. **When splitting does pay off.** Two cases are common. One is when a single agent's context gets overloaded. The other is when separate jobs can run in parallel and don't need each other's results. Your team can use that as the test at the design review: what problem does each extra agent solve?\n\nA sensible plan is to start with one agent plus tools, measure where it fails, and split only there.\n\nQuick check: if the booking step must always run the same way (check training, check calendar, book), would you make it an agent or a fixed workflow? Why?",
+  "ttft_ms": 1845,
+  "type": "result",
+  "duration_ms": 17263,
+  "uuid": "d821de57-9199-4073-8afa-60814cca0f93",
+  "ttft_stream_ms": 1845,
+  "time_to_request_ms": 94,
+  "first_content_frame_ms": 1845,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1547,
+      "cacheReadInputTokens": 73410,
+      "cacheCreationInputTokens": 21744,
+      "webSearchRequests": 0,
+      "costUSD": 0.109799,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 130,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 21744,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-28T13:15:33.833Z"
+}

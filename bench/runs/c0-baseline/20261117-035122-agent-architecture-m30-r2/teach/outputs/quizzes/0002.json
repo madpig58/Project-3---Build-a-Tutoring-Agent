@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your makerspace agent has already run three tools in one request and is about to make its fourth model call. What does the model receive on that fourth call?",
+      "options": [
+        {"id": "a", "text": "Only the newest tool result, since the earlier results were used already"},
+        {"id": "b", "text": "The earlier requests and results, sent again by the program each call"},
+        {"id": "c", "text": "A private memory the model kept inside itself during its earlier calls"},
+        {"id": "d", "text": "Only the system prompt, because every call starts with nothing else"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent request makes three model calls: two tool requests, then the final answer. The system prompt and tool definitions take 1,000 tokens and the question 100. Each tool request the model writes is 50 tokens and each tool result is 400 tokens. Every call re-sends everything before it. What is the total number of input tokens read across the three calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "On Monday a student finishes laser cutter training in one chat, and the chat ends. On Tuesday the same student starts a new chat and asks to book the laser cutter. What must your program do for the assistant to know the training was completed?",
+      "options": [
+        {"id": "a", "text": "Nothing, because the model's weights update during every chat it has"},
+        {"id": "b", "text": "Nothing, because a new chat inherits the old chat's context window"},
+        {"id": "c", "text": "Save the status when training ends, then load it into the new context"},
+        {"id": "d", "text": "Switch to a larger model, which holds earlier chats inside its window"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your 40 machine manuals would fit inside the model's context window. Give one reason to retrieve only a few relevant pages for each question instead of including all the manuals in every call."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Students often ask vague questions, and your first manual search sometimes returns the wrong pages. Which design lets the assistant recover from a bad first search within the same request?",
+      "options": [
+        {"id": "a", "text": "Up-front retrieval, because the program's single search is always accurate"},
+        {"id": "b", "text": "Neither one, because the model already knows the manuals from training"},
+        {"id": "c", "text": "Compaction, because it rewrites the earlier search into a shorter summary"},
+        {"id": "d", "text": "Just-in-time retrieval, because the model can search again after a miss"}
+      ]
+    }
+  ]
+}

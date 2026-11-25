@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "On Monday a student tells your makerspace assistant that they use a wheelchair and need ground-floor machines. On Thursday, in a new session, the assistant asks them again. Which change makes the assistant remember this across sessions?",
+      "options": [
+        {"id": "a", "text": "Switch to a model with a much larger context window"},
+        {"id": "b", "text": "Save the fact in a note and load it each session"},
+        {"id": "c", "text": "Keep chatting longer, since the model learns from talks"},
+        {"id": "d", "text": "Turn on the built-in memory of the model's past sessions"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent run has three model calls. The system prompt plus tool descriptions is 800 tokens and the student's question is 200 tokens. After call 1 the model writes a 100-token tool request, and the tool returns 1,400 tokens. After call 2 the model writes another 100-token tool request, and that tool returns 600 tokens. Call 3 writes the final answer. Nothing is ever removed from the history. How many input tokens are sent to the model across the three calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your assistant saved the note \"Sam is trained on the laser cutter\" six months ago. In one or two sentences, why is it risky to let the assistant approve a booking from that note alone, and what should it do instead?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your search tool returns the chunk \"Set the spindle to 12,000 rpm and the feed to 800 mm/min\" for a question about the laser cutter, but the chunk comes from the CNC router manual. Which change to how the search index is built best prevents this?",
+      "options": [
+        {"id": "a", "text": "Cut every chunk shorter so each holds fewer numbers"},
+        {"id": "b", "text": "Return ten chunks per question instead of only three"},
+        {"id": "c", "text": "Use a larger model to read each chunk once found"},
+        {"id": "d", "text": "Put the machine, section and page in front of each chunk"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your model's context window can hold a whole 96,000-token set of manuals. A teammate says, \"Then we can put all the manuals in every call and stop managing context.\" Which reply is accurate?",
+      "options": [
+        {"id": "a", "text": "It fits, but you pay for it on every call, and recall tends to get worse as the context fills"},
+        {"id": "b", "text": "It works well, because the model reads every token in the window equally carefully, whatever the size"},
+        {"id": "c", "text": "It works, because the manuals are stored inside the model after the very first call that sends them"},
+        {"id": "d", "text": "It fails, because manuals must always be retrieved in pieces before any model call can use them"}
+      ]
+    }
+  ]
+}

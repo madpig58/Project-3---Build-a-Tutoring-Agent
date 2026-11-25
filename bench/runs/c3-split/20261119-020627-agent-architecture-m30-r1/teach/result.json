@@ -1,0 +1,129 @@
+{
+  "duration_api_ms": 726201,
+  "stop_reason": "end_turn",
+  "session_id": "dc7b67d4-0e9b-49ef-acc4-8c8c6029a5c8",
+  "total_cost_usd": 2.3069932,
+  "usage": {
+    "input_tokens": 18,
+    "cache_creation_input_tokens": 45949,
+    "cache_read_input_tokens": 1111675,
+    "output_tokens": 26967,
+    "output_tokens_details": {
+      "thinking_tokens": 1732
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 45949,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 772,
+        "cache_read_input_tokens": 158913,
+        "cache_creation_input_tokens": 3709,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3709
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 98,
+      "outputTokens": 103628,
+      "cacheReadInputTokens": 2890388,
+      "cacheCreationInputTokens": 287041,
+      "webSearchRequests": 0,
+      "costUSD": 2.2646013,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 24964,
+      "cacheCreationEphemeral5mInputTokens": 139385,
+      "cacheCreationEphemeral1hInputTokens": 147656,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 80859,
+      "outputTokens": 8612,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 3,
+      "costUSD": 0.042391899999999996,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 4490,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwmx3znj-7437e383"
+  },
+  "subagent_stats": {
+    "spawned": 4,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 4
+    },
+    "started_in_background": 4,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 4,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "lesson-planner": 1,
+      "lesson-example-designer": 1,
+      "lesson-clarity-checker": 1,
+      "lesson-reviewer": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 13,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The 30-minute lesson on O3 is written, with a quiz and answer key.\n\n**Lesson:** `lessons/0001-context-and-memory.html`. Its win: Riley can decide what the makerspace assistant keeps in its context, what it saves between sessions, and how it finds the right manual page, and give a reason for each that fits a small budget. It has five parts:\n- **The context window:** tokens, calls versus requests, and what a call costs.\n- **What stays between steps:** every step is a separate model call, so the program resends the history. This section covers clearing used tool results and compaction.\n- **Notes as memory between sessions:** a student's training status saved in a file and read back.\n- **Retrieval:** chunks, searching, and giving each chunk a line of context of its own.\n- **A full design walkthrough:** the keep, save and find sorting, with the token budget compared against pasting in the whole manual (about 19 times more).\n\nIt also has a warm-up, two figures, four practice checks, two faded practice tasks and links to the three Anthropic sources.\n\n**Quiz:** `quizzes/0002.json` (five items) with `keys/0002.json`. It is ready whenever Riley wants it.\n\n**Also written:** `cheatsheets/keep-save-find.html`, `RESOURCES.md`, `review-records/0001-lesson.md`, and an update to `NOTES.md`.\n\nSome things to know:\n- **Length:** I couldn't run a word-count script, so the length is a hand estimate of about 5,000 words. That is inside the bench's range of 2,700 to 6,750 words.\n- **Numbers:** every token count in the lesson is invented and says so. No real limits or prices are taught.\n- **Reviews:** the clarity check found 3 major points and 9 minor ones, and I fixed all the majors and the quick minors. The reviewer's verdict was CLEAN, so there was no second pass.\n- **No community link:** I found no community I could verify, so \"Go further\" says none yet instead of inventing one. Do you have a makerspace or university forum I should list?\n- **Misconception ids:** the existing key 0001 doesn't define M1 to M6, so I reused M3 by inference. I added M7 (more context is always better) and M9 (memory means retraining). Please check that numbering.\n\nRiley can ask me anything about the lesson in the chat.",
+  "ttft_ms": 2578,
+  "type": "result",
+  "duration_ms": 155969,
+  "uuid": "aca10bb9-aa3b-4081-90f0-e9ae15c63700",
+  "ttft_stream_ms": 1554,
+  "time_to_request_ms": 41,
+  "first_content_frame_ms": 1554,
+  "queued_turn_count": 0,
+  "result_index": 4,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-28T13:15:31.317Z"
+}

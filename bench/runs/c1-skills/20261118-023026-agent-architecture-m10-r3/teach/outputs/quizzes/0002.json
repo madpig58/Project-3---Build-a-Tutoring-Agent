@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "On Tuesday a student chats with your makerspace assistant and says she is left-handed and prefers the small soldering iron. On Thursday she starts a brand-new chat session. What does the model see on Thursday, if the program saved nothing?",
+      "options": [
+        {"id": "a", "text": "Only the system prompt, tool descriptions and her new message"},
+        {"id": "b", "text": "Her Tuesday chat, because the model keeps what it has read"},
+        {"id": "c", "text": "A short summary that the model wrote itself on Tuesday night"},
+        {"id": "d", "text": "Her Tuesday chat, as long as the context window is large enough"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent run makes 3 model calls. The system prompt and tool descriptions are 2,000 tokens, and the student's question adds 100 tokens. The first tool result adds 400 tokens and the second adds 600 tokens. Each call is sent everything gathered so far, and you ignore the model's own output. How many input tokens are sent across all 3 calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your team's 400-page set of machine manuals is far too long to read in full for every question. Which design best lets the assistant answer a question about one machine's settings?",
+      "options": [
+        {"id": "a", "text": "Search the manuals per question and add only the best-matching passages"},
+        {"id": "b", "text": "Put all manuals into the system prompt so every call has them"},
+        {"id": "c", "text": "Rely on what the model learned in training about similar machines"},
+        {"id": "d", "text": "Ask the student to paste the relevant page into the chat"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "The assistant must remember next week that a student finished the laser cutter training today. In one or two sentences, how should the assistant do this, given that the context is empty at the start of next week's session?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A teammate says, \"Just buy a model with a huge context window and the assistant will remember every student forever.\" In one or two sentences, give one reason this is wrong."
+    }
+  ]
+}

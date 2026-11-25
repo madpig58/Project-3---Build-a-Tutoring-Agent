@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "In a workflow, code fixes the path through the steps; in an agent, the model decides the next step as it goes. Who owns the control flow is the dividing line. Calling the model several times (a), using tools (c) and hand-written prompts (d) all occur in both kinds of system.",
+      "distractors": {"a": "M7", "c": "M8", "d": "M7"}
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "The code decides the order of the steps, so this is a workflow, even though it calls the model twice and uses a tool. Option d is false, since the model does see the tool's result when it writes the reply. Options a and b treat several model calls or tool use as what makes an agent.",
+      "distractors": {"a": "M7", "b": "M8"}
+    },
+    {
+      "id": "q3",
+      "answer": "d",
+      "rationale": "When the steps and their order are known in advance, a fixed workflow is cheaper, more predictable and easier to test than an agent, which spends extra model calls deciding what to do. A larger model (b) costs more and still leaves the order to the model; splitting into three agents (c) adds cost and coordination for no gain. Choosing an agent to handle surprises (a) pays for flexibility the task does not need.",
+      "distractors": {"a": "M9", "b": "M9", "c": "M9"}
+    },
+    {
+      "id": "q4",
+      "answer": 8,
+      "tolerance": 0.05,
+      "rationale": "The agent makes 6 - 2 = 4 extra calls per request. 4 x $0.004 = $0.016 per request, and 500 x $0.016 = $8. The workflow costs 500 x 2 x $0.004 = $4 and the agent costs 500 x 6 x $0.004 = $12, so the difference is $8. An answer of 12 is the agent's total cost, not the difference."
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "Booking has known steps, so a fixed workflow is the cheaper and more predictable choice. Manual questions need a number of lookups that cannot be listed in advance, so letting the model decide when it has enough is where an agent pays off. Using an agent for booking (b, d) spends model calls on decisions that are already made, and fixing the steps for the open-ended job (c) cannot cover questions that need more or fewer lookups.",
+      "distractors": {"b": "M9", "c": "M10", "d": "M9"}
+    },
+    {
+      "id": "q6",
+      "answer": "predictability",
+      "accepted": ["predictable", "predictable behavior", "predictable behaviour", "consistency", "reliability", "cost", "cost control", "testability", "repeatability", "predictable cost"],
+      "rationale": "When the model chooses the steps, the number of steps, the cost and the exact path vary from request to request, so predictability, consistency, cost and testability all become harder to guarantee. A fixed workflow fixes all of them in code."
+    }
+  ]
+}

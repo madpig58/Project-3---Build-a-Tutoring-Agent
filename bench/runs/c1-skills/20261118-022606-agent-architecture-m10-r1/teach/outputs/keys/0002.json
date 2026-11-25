@@ -1,0 +1,32 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls; the program rebuilds the context each call and includes earlier results. Option a shows the belief that the model remembers by itself."
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "A new session starts with an empty context, so facts must be saved outside it and loaded back. Option a treats this as a size problem; it is a persistence problem."
+    },
+    {
+      "id": "q3",
+      "answer": "Retrieval sends only the few relevant pages, so each call costs far fewer tokens and recall is better than with a huge context.",
+      "accepted": ["cheaper", "lower cost", "fewer tokens per call", "context rot", "recall gets worse with long context", "you pay for every token on every call"],
+      "rationale": "Any one valid reason is enough: cost (every token is paid for on every call), context rot (recall degrades as context grows), or that manuals can grow past the window. Saying a big window removes the need for retrieval is wrong."
+    },
+    {
+      "id": "q4",
+      "answer": 10000,
+      "tolerance": 0,
+      "rationale": "The system prompt is part of the context of every call: 2,000 tokens x 5 calls = 10,000. An answer of 2,000 treats it as sent once."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "Notes written outside the context survive a reset and can be read back; the model itself keeps nothing between calls."
+    }
+  ]
+}

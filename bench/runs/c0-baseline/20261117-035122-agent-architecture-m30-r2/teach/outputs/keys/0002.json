@@ -1,0 +1,44 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls; the program re-sends the whole history, including earlier requests and results, on every call. Options a, c and d each assume the model holds or drops state on its own (M8).",
+      "distractors": {"a": "M8", "c": "M8", "d": "M8"}
+    },
+    {
+      "id": "q2",
+      "answer": 4650,
+      "tolerance": 0,
+      "rationale": "Call 1 reads 1,000 + 100 = 1,100. Call 2 adds the first request and result: 1,100 + 50 + 400 = 1,550. Call 3 adds the second: 1,550 + 450 = 2,000. Total 1,100 + 1,550 + 2,000 = 4,650. An answer of 2,000 counts only the last call and misses that earlier steps are re-read."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "Nothing carries over between sessions on its own: the context is gone when the chat ends and the weights do not change. The program must write the status somewhere (file, database, note) and read it back into the new context. Options a and b show M3 (memory of earlier conversations is automatic); d shows M7 (a bigger window removes the need to design what is kept).",
+      "distractors": {"a": "M3", "b": "M3", "d": "M7"}
+    },
+    {
+      "id": "q4",
+      "answer": "Every token is re-read and paid for on every call, and accuracy and recall degrade as the context grows (context rot).",
+      "accepted": [
+        "cost",
+        "it costs less",
+        "it is cheaper",
+        "cost, since the manuals are re-read on every call",
+        "the model gets worse at finding the right information in a long context",
+        "context rot",
+        "accuracy drops as the context grows",
+        "recall degrades in long contexts"
+      ],
+      "rationale": "Either reason is fully correct: cost (everything in context is re-sent and billed on every call) or quality (accuracy and recall degrade as the context grows). An answer that only says the window is limited is wrong here, since the premise says the manuals fit. This probes M7."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "In just-in-time retrieval the model calls a search tool itself, sees the result, and can search again with a better query in the same loop. Up-front retrieval searches once before the model is called, so a miss cannot be corrected (a). The model does not hold the manuals in training (b, M9), and compaction shortens history; it does not search (c).",
+      "distractors": {"a": "M9", "b": "M9"}
+    }
+  ]
+}

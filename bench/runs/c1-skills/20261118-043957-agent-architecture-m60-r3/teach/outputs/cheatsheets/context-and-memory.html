@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cheat sheet: context and memory in an agent</title>
+<style>
+body { max-width: 40rem; margin: 0 auto; padding: 2rem 1rem; font-family: Georgia, serif; line-height: 1.5; }
+h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 1.5rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid #ccc; vertical-align: top; }
+</style>
+</head>
+<body>
+<h1>Context and memory in an agent</h1>
+<p>From <a href="../lessons/0001-context-and-memory-in-an-agent.html">lesson 1</a>.</p>
+<h2>Rules</h2>
+<ul>
+<li>The model sees only the context window on each call: system prompt, tool definitions, messages, results.</li>
+<li>The model keeps nothing between calls; the program re-sends the list every time.</li>
+<li>Input cost per request = sum of the window size at every call. Early big results are paid repeatedly.</li>
+<li>Bigger window is a limit, not a target: crowded context can lower accuracy (context rot).</li>
+</ul>
+<h2>Between steps</h2>
+<table>
+<tr><th>Move</th><th>Use when</th></tr>
+<tr><td>Keep all</td><td>Short requests</td></tr>
+<tr><td>Clear old tool results</td><td>Big results already used</td></tr>
+<tr><td>Compact (summarize, new window)</td><td>Very long runs; keep IDs and goals</td></tr>
+</table>
+<h2>Where facts live</h2>
+<table>
+<tr><th>Place</th><th>Lasts</th><th>Example</th></tr>
+<tr><td>Context window</td><td>One run</td><td>Current goal, retrieved chunks</td></tr>
+<tr><td>Notes / records</td><td>Across sessions</td><td>Preferences, training status</td></tr>
+<tr><td>Knowledge store</td><td>Until edited</td><td>Manuals, via retrieval</td></tr>
+<tr><td>Other systems</td><td>Their own</td><td>Booking calendar, via tools</td></tr>
+</table>
+<h2>Retrieval steps</h2>
+<ol><li>Chunk by section; prefix each with manual and section title.</li><li>Index (keywords, embeddings, or both).</li><li>Search; take the top few.</li><li>Insert with sources.</li><li>When wrong: print the retrieved chunks first.</li></ol>
+</body>
+</html>

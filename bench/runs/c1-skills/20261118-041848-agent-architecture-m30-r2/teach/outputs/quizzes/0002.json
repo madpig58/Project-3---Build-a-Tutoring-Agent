@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student finishes a chat with your makerspace assistant and returns a week later. The program starts a new session with an empty message list and no saved notes. What does the model know about the student's earlier chat?",
+      "options": [
+        {"id": "a", "text": "It recalls the chat, because the model learns from every conversation"},
+        {"id": "b", "text": "It recalls the chat, because the large window still holds it"},
+        {"id": "c", "text": "Nothing, because nothing from that chat was put into the new request"},
+        {"id": "d", "text": "Only the gist, because the system prompt carries a summary by default"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your assistant's program sends a first request of 2,100 tokens (system prompt, tool definitions and the question). The model replies with a 50-token tool request. The tool returns 1,000 tokens. The program then calls the model again with the full history, and the model writes its final answer. What is the total number of input tokens across the two model calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A 400-page machine manual would technically fit in the window of the model you chose. Why is it still usually better to retrieve a few relevant pages for each question?",
+      "options": [
+        {"id": "a", "text": "Every call pays for all those tokens, and recall gets worse as the window fills"},
+        {"id": "b", "text": "Models are unable to read more than a few pages in a single request"},
+        {"id": "c", "text": "The model deletes the manual from its memory after answering the first question"},
+        {"id": "d", "text": "Retrieval is the only way for a model to see text it was not trained on"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A teammate says: \"Just use a model with a huge context window and we won't need to save notes.\" In one or two sentences, what does saving notes do that a bigger window cannot?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A student asks a question that the manuals answer. In one or two sentences, what does the retrieval step do before the model writes its answer, and what ends up in the context window as a result?"
+    }
+  ]
+}

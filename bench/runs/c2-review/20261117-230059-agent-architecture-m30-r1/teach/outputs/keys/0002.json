@@ -1,0 +1,39 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "Each model call is stateless: the model reads only its input. The program has to add the earlier tool request and its result to call 2's input. Believing the model kept it itself (a) or that the API holds the model's state (b) is the misconception that memory between steps is automatic. The tool never talks to the model directly (d); the program carries the result.",
+      "distractors": {"a": "M7", "b": "M7", "d": "M4"}
+    },
+    {
+      "id": "q2",
+      "answer": 4550,
+      "tolerance": 0,
+      "rationale": "Call 1 reads 2,000. Call 2 reads the whole history again plus the new items: 2,000 + 50 + 500 = 2,550. Total 2,000 + 2,550 = 4,550. Answering 2,550 counts only the last call, and answering 2,500 forgets that call 2 re-reads the 2,000 tokens of the start; both treat earlier text as not re-read."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "The old chat is gone: a new session starts with a blank context. A small fact that must survive between sessions is saved outside the window as a note or record and loaded by a tool when needed. A bigger window (a) does not keep a chat from a month ago, and asking the model to remember (c) saves nothing, since the model keeps nothing between calls: both show M3. The manuals (d) do not hold student data.",
+      "distractors": {"a": "M3", "c": "M3"}
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "Retrieval searches the manual outside the model and puts only the best-matching chunks into the context, so those chunks are all the model reads of the manual. Thinking it reads the whole manual (b) is the retrieval misconception M9; the model also does not look pages up itself (c) after the search, and it does not hold the manual from training (d).",
+      "distractors": {"b": "M9", "c": "M9", "d": "M9"}
+    },
+    {
+      "id": "q5",
+      "answer": "Clear the old tool results (or compact the history into a summary); a bigger window does not help because every token is still billed and read on every call, and recall gets worse as context grows.",
+      "accepted": [
+        "Clear old tool results; a bigger window still costs for every token and recall degrades as the context grows (context rot).",
+        "Summarize the history (compaction); a larger window does not remove the cost or the loss of accuracy from a long context.",
+        "Remove tool results that are no longer needed; a bigger window just lets the clutter grow and still costs more and gets less accurate."
+      ],
+      "rationale": "Full credit needs a way to shrink the context (clearing old tool results, or compaction by summary) and a reason a bigger window is not the better fix (cost for every token on every call, or recall degrading as context grows). Giving only one of the two is partial. Saying a bigger window fixes the problem shows M8."
+    }
+  ]
+}

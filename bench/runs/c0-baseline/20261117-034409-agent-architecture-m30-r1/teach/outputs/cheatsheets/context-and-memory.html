@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 40rem; margin: 0 auto; padding: 2rem 1rem; font-family: Georgia, serif; line-height: 1.5; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.5rem; }
+    table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid #ccc; vertical-align: top; }
+  </style>
+</head>
+<body>
+<h1>Context and memory in an agent</h1>
+<p>From <a href="../lessons/0001-context-and-memory-in-an-agent.html">lesson 1</a>. Source: <a href="https://anthropic.com/research/effective-context-engineering-for-ai-agents">Anthropic, Effective context engineering for AI agents</a>.</p>
+<h2>Where does it live?</h2>
+<table>
+  <tr><th>Need</th><th>Put it in</th></tr>
+  <tr><td>Short rules, needed every call</td><td>System prompt (in context)</td></tr>
+  <tr><td>This request's history and tool results</td><td>Context; clear or summarize when no longer needed</td></tr>
+  <tr><td>Large documents (manuals), needed sometimes</td><td>Outside; retrieve a few pages, up front or by a search tool</td></tr>
+  <tr><td>Facts for the next session (training status, preferences)</td><td>Saved to a file or database; loaded at session start</td></tr>
+</table>
+<h2>Rules of thumb</h2>
+<ul>
+  <li>Context = everything the model sees on one call. Each call is separate; the program resends the history.</li>
+  <li>Every call re-reads the whole context, so total tokens read is the sum of all contexts.</li>
+  <li>More context can mean worse recall (context rot), not just higher cost.</li>
+  <li>The model does not remember between sessions; the program saves and loads.</li>
+  <li>Retrieval only makes the right page available. Test it on its own.</li>
+</ul>
+</body>
+</html>

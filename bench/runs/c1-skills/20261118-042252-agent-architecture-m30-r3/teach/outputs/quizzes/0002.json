@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "On Monday a student chats with your makerspace assistant and says she prefers morning slots. On Wednesday she starts a new chat. The assistant does not know her preference. What explains this?",
+      "options": [
+        {"id": "a", "text": "The model forgets old chats because its context window was full"},
+        {"id": "b", "text": "The model stores chats only for a short time before deleting them"},
+        {"id": "c", "text": "Nothing was saved by the program and loaded into the new chat"},
+        {"id": "d", "text": "The model needs a longer system prompt to remember its users"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your first model call has 1,050 input tokens. The model replies with a 60-token tool request. The tool returns 2,000 tokens, and the program calls the model a second time, which writes the final answer. Counting both calls, how many input tokens were sent in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your manuals total 400 pages and your model's context window could hold all of them. Which design is best for answering a question about one machine's focus procedure?",
+      "options": [
+        {"id": "a", "text": "Put all manuals in the system prompt so every call has them"},
+        {"id": "b", "text": "Give the model a search tool that returns the best few chunks"},
+        {"id": "c", "text": "Fine-tune the model on the manuals so that it remembers them"},
+        {"id": "d", "text": "Save each manual page as a note and load every note each time"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one sentence: why does each extra step in an agent loop cost more input tokens than the step before it, even when each tool result is small?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Which one of these is the best candidate to save as a note that the assistant loads in future sessions?",
+      "options": [
+        {"id": "a", "text": "The student completed laser cutter safety training on a given date"},
+        {"id": "b", "text": "The laser cutter is free next Tuesday afternoon, as just checked"},
+        {"id": "c", "text": "The full text of the laser cutter's maintenance chapter, as retrieved"},
+        {"id": "d", "text": "The model's reasoning for choosing the calendar tool in this chat"}
+      ]
+    }
+  ]
+}

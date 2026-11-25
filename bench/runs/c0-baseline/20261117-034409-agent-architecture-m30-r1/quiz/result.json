@@ -1,0 +1,119 @@
+{
+  "duration_api_ms": 29938,
+  "stop_reason": "end_turn",
+  "session_id": "0b491ef9-2d52-4b40-add7-916fd780b112",
+  "total_cost_usd": 0.1581405,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 26700,
+    "cache_read_input_tokens": 113945,
+    "output_tokens": 3993,
+    "output_tokens_details": {
+      "thinking_tokens": 750
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 26700,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 325,
+        "cache_read_input_tokens": 38000,
+        "cache_creation_input_tokens": 3155,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3155
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 3993,
+      "cacheReadInputTokens": 113945,
+      "cacheCreationInputTokens": 26700,
+      "webSearchRequests": 0,
+      "costUSD": 0.1581405,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 750,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 26700,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 10,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The six-question quiz on O4 is ready: `quizzes/0002.json`, with its key in `keys/0002.json`.\n\n- **Topic:** it ties to the makerspace assistant. It asks who owns the control flow, how to classify a system, why a fixed booking workflow wins, a cost comparison, and which request needs an agent.\n- **Mix:** four multiple-choice items, one numeric item and one short-answer item.\n- **Not checked:** I haven't run any automated check on the files.\n- **Not graded:** quiz 0001 is still ungraded.\n- **Ahead of the lessons:** no lesson covers O4 yet, so the quiz tests the objective directly. I wrote it without looking up a source, so it's from my own knowledge. I can write a lesson on O4 if you'd like one.\n- **No misconception ids:** the key leaves out misconception ids on the wrong options. I couldn't confirm what the existing ids mean, and I didn't want to invent new ones.",
+  "ttft_ms": 1515,
+  "type": "result",
+  "duration_ms": 33422,
+  "uuid": "e75bd363-5beb-4ff6-887b-68a864077055",
+  "ttft_stream_ms": 1157,
+  "time_to_request_ms": 103,
+  "first_content_frame_ms": 1157,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 3993,
+      "cacheReadInputTokens": 113945,
+      "cacheCreationInputTokens": 26700,
+      "webSearchRequests": 0,
+      "costUSD": 0.1581405,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 750,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 26700,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

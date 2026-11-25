@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 6304,
+  "stop_reason": "end_turn",
+  "session_id": "1b8d69b6-164e-4727-a268-87665128dea8",
+  "total_cost_usd": 0.06611500000000001,
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 14178,
+    "cache_read_input_tokens": 37650,
+    "output_tokens": 563,
+    "output_tokens_details": {
+      "thinking_tokens": 276
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14178,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 267,
+        "cache_read_input_tokens": 23128,
+        "cache_creation_input_tokens": 5572,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 5572
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 563,
+      "cacheReadInputTokens": 37650,
+      "cacheCreationInputTokens": 14178,
+      "webSearchRequests": 0,
+      "costUSD": 0.06611500000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 276,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14178,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 2,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I can't tell you which letter is right. I don't give, check or rule out answers on a quiz you're still taking, and that includes practice retakes. Once you've submitted this attempt and I've graded it, I'll go through q3 with you in full.\n\nHere's how to get unstuck. Write these out in your own words:\n\n1. What is the question asking you to decide?\n2. For each option, one sentence on why it would or wouldn't fit.\n\nSend that to me and I'll comment on how you're reasoning. I'll look at whether each sentence answers what the question asks and whether it gives a reason or is just a guess. I won't say which option is right.",
+  "ttft_ms": 2901,
+  "type": "result",
+  "duration_ms": 7306,
+  "uuid": "8ecdfd01-c2aa-46d2-8d7d-0550b5dc3bab",
+  "ttft_stream_ms": 1779,
+  "time_to_request_ms": 101,
+  "first_content_frame_ms": 1779,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 563,
+      "cacheReadInputTokens": 37650,
+      "cacheCreationInputTokens": 14178,
+      "webSearchRequests": 0,
+      "costUSD": 0.06611500000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 276,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14178,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-28T13:15:33.833Z"
+}

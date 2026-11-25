@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Georgia, serif; line-height: 1.55; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.6rem; border-bottom: 1px solid #ccc; }
+    table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+    h1 { font-size: 1.6rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Context and memory in an agent</h1>
+  <table>
+    <tr><th>Thing</th><th>Lasts</th><th>Use it for</th></tr>
+    <tr><td>Context window</td><td>One run</td><td>The current question, recent results</td></tr>
+    <tr><td>Retrieval</td><td>Fetched per need</td><td>Big documents, such as manuals</td></tr>
+    <tr><td>Notes (memory tool)</td><td>Across sessions</td><td>Facts about a user or a long task</td></tr>
+  </table>
+  <ul>
+    <li>Every model call re-sends the whole context, so you pay for it each time.</li>
+    <li>More context is not better: recall degrades as it fills (context rot).</li>
+    <li>The model keeps nothing between sessions; your program must save and reload.</li>
+    <li>The memory tool is client-side: the model asks, your code runs the operation.</li>
+  </ul>
+  <p>Lesson: <a href="../lessons/0001-context-and-memory-in-an-agent.html">Context and memory in an agent</a>.</p>
+</main>
+</body>
+</html>

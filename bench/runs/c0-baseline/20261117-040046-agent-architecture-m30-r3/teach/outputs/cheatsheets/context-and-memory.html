@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+</head>
+<body>
+<main>
+  <div class="kicker">Cheat sheet &middot; O3</div>
+  <h1>Context and memory in an agent</h1>
+  <p>From <a href="../lessons/0001-context-and-memory-in-an-agent.html">Lesson 1</a>.</p>
+
+  <h2>Terms</h2>
+  <table>
+    <tbody>
+      <tr><td><dfn>Context</dfn></td><td>All text sent on one model call: system prompt, tool definitions, messages, tool results.</td></tr>
+      <tr><td><dfn>Context window</dfn></td><td>The limit on the context's size. Everything inside counts toward cost.</td></tr>
+      <tr><td><dfn>Context rot</dfn></td><td>Recall gets worse as the window fills.</td></tr>
+      <tr><td><dfn>Compaction</dfn></td><td>Summarize the conversation, start a new window from the summary.</td></tr>
+      <tr><td><dfn>Short-term memory</dfn></td><td>The history within one session.</td></tr>
+      <tr><td><dfn>Long-term memory</dfn></td><td>Notes saved outside the window, kept across sessions.</td></tr>
+      <tr><td><dfn>Retrieval</dfn></td><td>Search a store, load only the best-matching chunks.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Rules to remember</h2>
+  <ul>
+    <li>The model keeps nothing between calls; the program re-sends the history each time.</li>
+    <li>Input tokens for a run = sum over calls, so early material is paid for again on every later call.</li>
+    <li>Bigger window: delays overflow only. It does not cut cost, fix recall or carry over sessions.</li>
+    <li>Clear used tool results first; then trim; then compact.</li>
+  </ul>
+
+  <h2>Where does it go?</h2>
+  <table>
+    <thead><tr><th>Question</th><th>Place</th></tr></thead>
+    <tbody>
+      <tr><td>Needed on every call, short?</td><td>System prompt (context)</td></tr>
+      <tr><td>Small fact needed next session?</td><td>Saved note</td></tr>
+      <tr><td>Large reference material?</td><td>Searchable store, retrieved on demand</td></tr>
+      <tr><td>Changes constantly, has a source of truth?</td><td>Tool call each time</td></tr>
+    </tbody>
+  </table>
+</main>
+</body>
+</html>

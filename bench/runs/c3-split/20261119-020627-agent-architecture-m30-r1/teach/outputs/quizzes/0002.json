@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in the makerspace assistant",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "On Tuesday a student tells the assistant, \"I'm allergic to resin.\" On Wednesday the student starts a new session and asks which printing materials are safe. What lets the assistant take the allergy into account?",
+      "options": [
+        {"id": "a", "text": "The model still holds Tuesday's chat from when it was last used"},
+        {"id": "b", "text": "The model was retrained overnight on all of Tuesday's conversations"},
+        {"id": "c", "text": "The program saved a note on Tuesday and puts it into Wednesday's window"},
+        {"id": "d", "text": "The model's context window is simply large enough to cover both days"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "One request makes four model calls. A tool result of 2,000 tokens arrives after call 1, so it is part of the history in calls 2, 3 and 4. Option A keeps it in full in all three calls. Option B keeps it in full in call 2, then replaces it with a 50-token note in calls 3 and 4. How many fewer tokens does option B send in total across the three calls? (All numbers invented.)",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student asks, \"How do I change the blade on the band saw?\" The search over the manuals returns a chunk that reads \"Release the tension, then remove it carefully.\" The chunk is correct but it is ranked low, and other chunks are returned instead. What is the most likely cause?",
+      "options": [
+        {"id": "a", "text": "The manuals were cut into chunks that are far too long"},
+        {"id": "b", "text": "The chunk never names the band saw or the blade"},
+        {"id": "c", "text": "The model's context window was already completely full"},
+        {"id": "d", "text": "The chunk was saved in a note file by mistake"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "At the end of a session the assistant can save either a one-line note about the student or the whole chat. In one or two sentences, why is the one-line note the better choice for later sessions?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Each request makes five model calls. On call 2 the assistant loads a 10,000-token manual page, and it is used once, on call 3. Which single change cuts the most tokens per request?",
+      "options": [
+        {"id": "a", "text": "Replace the page with a one-line note once it is used"},
+        {"id": "b", "text": "Save the whole page as a note for the next session"},
+        {"id": "c", "text": "Shorten the instructions by about fifty tokens a call"},
+        {"id": "d", "text": "Move to a model with a much larger context window"}
+      ]
+    }
+  ]
+}

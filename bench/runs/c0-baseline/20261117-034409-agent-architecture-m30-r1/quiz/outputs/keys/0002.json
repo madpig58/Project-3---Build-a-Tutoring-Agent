@@ -1,0 +1,47 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The difference is who owns the control flow: in a workflow the developer's code fixes the path, and in an agent the model decides its own steps and tool use. Both can use tools (a), model size does not define either one (b), and memory across chats is a separate topic (d)."
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "The program's code sets the order of the steps and the model only fills in one step, so this is a workflow. Having a model in the system (b) or a tool in it (c) does not make it an agent; control of the next step does. Answer d is wrong because the control-flow test sorts every such system."
+    },
+    {
+      "id": "q3",
+      "answer": "d",
+      "rationale": "When the steps and their order never change, a fixed workflow gives predictable behavior and needs no model calls just to decide what to do next, so it costs less and is easier to test. A workflow does not invent new orders (a) or handle unplanned requests (b), and the model still reads text in it (c)."
+    },
+    {
+      "id": "q4",
+      "answer": 6,
+      "tolerance": 0,
+      "rationale": "The agent uses 5 - 2 = 3 extra calls per request. 3 calls x $0.01 x 200 requests = $6. An answer of 2 or 10 comes from using only one system's total instead of the difference."
+    },
+    {
+      "id": "q5",
+      "answer": "the program's code",
+      "accepted": [
+        "code",
+        "the code",
+        "the program",
+        "the program's code",
+        "the developer's code",
+        "the developer",
+        "the program code",
+        "the predefined code",
+        "the code path"
+      ],
+      "rationale": "In a workflow the developer's code decides the order of steps in advance; the model only does the work inside a step. Answering 'the model' describes an agent."
+    },
+    {
+      "id": "q6",
+      "answer": "b",
+      "rationale": "The number and order of steps depend on what comes back (which machine suits acrylic, then which slots are free), so the model has to choose the next step: that is an agent. A fixed three-step workflow (a) cannot adapt, 'always cheaper' (c) is not a reason to use a workflow where the steps vary, and an agent always needs a stopping limit (d)."
+    }
+  ]
+}

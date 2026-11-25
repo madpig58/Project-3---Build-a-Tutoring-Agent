@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "On Monday a student told your makerspace assistant which printer they prefer. On Tuesday they open a new chat and the assistant does not know. Which explanation is correct?",
+      "options": [
+        {"id": "a", "text": "The model forgot it, because older facts fade from the model over time"},
+        {"id": "b", "text": "The window was too small, because Monday's chat used up all the space"},
+        {"id": "c", "text": "Tuesday's chat started with an empty list, and nothing saved was loaded"},
+        {"id": "d", "text": "The model only stores facts when the student confirms them out loud"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A request starts with 2,000 tokens (system prompt, tool definitions and the question). The model makes a 50-token tool request, gets a 500-token result, makes another 50-token tool request, gets a 1,500-token result, then writes a final answer. Each model call re-reads the whole history. How many input tokens are read in total across the three model calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your manuals total 400 pages and each question needs one or two of them. Cost per request matters. Which design is best?",
+      "options": [
+        {"id": "a", "text": "Put all 400 pages in the system prompt so nothing can be missed"},
+        {"id": "b", "text": "Give the model a search tool that returns the few best passages"},
+        {"id": "c", "text": "Train a model on the manuals so that it remembers every page"},
+        {"id": "d", "text": "Put a one-paragraph summary of each manual in the system prompt"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "What is the name for summarizing a conversation that is close to the context window limit, then continuing in a fresh window that starts with the summary?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant uses a memory tool that stores notes as files. The model decides to save a student's preference. Which statement describes what happens?",
+      "options": [
+        {"id": "a", "text": "The model writes the file itself, straight into its own internal storage"},
+        {"id": "b", "text": "The model updates its learned patterns, so every future student benefits"},
+        {"id": "c", "text": "The provider's servers save the file, and your program never sees it"},
+        {"id": "d", "text": "The model requests a file write, and your program carries it out"}
+      ]
+    }
+  ]
+}

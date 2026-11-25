@@ -1,0 +1,119 @@
+{
+  "duration_api_ms": 20159,
+  "stop_reason": "end_turn",
+  "session_id": "908fc652-7c6b-415d-9f30-d7cb37dbc848",
+  "total_cost_usd": 0.1178366,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 22514,
+    "cache_read_input_tokens": 75386,
+    "output_tokens": 2023,
+    "output_tokens_details": {
+      "thinking_tokens": 629
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 22514,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 629,
+        "cache_read_input_tokens": 36017,
+        "cache_creation_input_tokens": 952,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 952
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 2023,
+      "cacheReadInputTokens": 75386,
+      "cacheCreationInputTokens": 22514,
+      "webSearchRequests": 0,
+      "costUSD": 0.1178366,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 629,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22514,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Reinforcement learning (RL) is a real part of how some strong agents are built. But a full PPO derivation and a training run would be the wrong use of your five weeks, and your mission lists training and the math inside models as out of scope. Here is the short version, and what I'd do instead.\n\n**The idea, with an example.** Say the assistant tries to book a laser cutter and calls the calendar tool with a malformed date. RL replays many attempts like this, gives each a reward (booking succeeded: +1, failed: 0), and nudges the model to make the successful tool calls more likely.\n\nPPO (Proximal Policy Optimization, Schulman et al. 2017, arXiv:1707.06347) adds one safety rule: don't change the model too much in one update. Its objective is:\n\nL = E[ min( r·A, clip(r, 1−ε, 1+ε)·A ) ]\n\n- r is how much more likely the new model is to take an action than the old one.\n- A is the advantage: how much better that action turned out than average.\n- The clip stops r from straying more than about ε (often 0.2) from 1.\n\n**What a derivation needs first.** You'd need policy gradients, which you'd get from probability and calculus. You'd also need a trainable model, which means open-weight models and GPUs. A hosted model API generally doesn't let you run PPO on it. And you'd need thousands of scored rollouts, which will break a small budget.\n\n**What I'd do instead.** Most tool-calling failures in a system like yours come from vague tool descriptions, missing error messages and a bad loop design. All of those are cheap to fix. Build a set of 20 to 30 real student requests with the expected tool calls, and measure against it. That is also the reward signal RL would need, so the work isn't wasted if you ever train.\n\nI can write a short optional lesson on RL for agents, at intuition level, if you want one. Which would help your design review more: that, or the lesson on context and memory?",
+  "ttft_ms": 1154,
+  "type": "result",
+  "duration_ms": 20652,
+  "uuid": "36f490f1-e0b3-4541-a67b-e80bbad2808b",
+  "ttft_stream_ms": 1111,
+  "time_to_request_ms": 101,
+  "first_content_frame_ms": 1112,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 2023,
+      "cacheReadInputTokens": 75386,
+      "cacheCreationInputTokens": 22514,
+      "webSearchRequests": 0,
+      "costUSD": 0.1178366,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 629,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22514,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

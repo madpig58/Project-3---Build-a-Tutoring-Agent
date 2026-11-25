@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 40rem; margin: 0 auto; padding: 2rem 1rem; font-family: Georgia, serif; line-height: 1.5; color: #1f1d1a; background: #fffdf8; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem; border-bottom: 1px solid #e4dfd4; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } }
+  </style>
+</head>
+<body>
+  <h1>Context and memory in an agent</h1>
+  <h2>Core facts</h2>
+  <ul>
+    <li><b>Context window:</b> all the text the model reads on one call. The model keeps nothing between calls.</li>
+    <li><b>Between steps:</b> the program re-sends the whole history every call, so tokens sent grow each step.</li>
+    <li><b>Between sessions:</b> nothing is kept unless the program saves it and loads it back.</li>
+    <li><b>Retrieval:</b> search outside the window, bring in only the top few chunks.</li>
+  </ul>
+  <h2>Where does it go?</h2>
+  <table>
+    <tr><th>Lives for</th><th>Home</th><th>Example</th></tr>
+    <tr><td>This request</td><td>Context window</td><td>Question, tool results</td></tr>
+    <tr><td>Across visits, small</td><td>Saved record or notes</td><td>Training status</td></tr>
+    <tr><td>Large, constant</td><td>Searchable store</td><td>Machine manuals</td></tr>
+  </table>
+  <h2>Keep the window small</h2>
+  <ul>
+    <li>Make tools return less (filter at the source).</li>
+    <li>Clear old tool results.</li>
+    <li>Compaction: summarize and restart when near the limit.</li>
+    <li>Cost of a loop is the sum of every call's full window, not just new text.</li>
+  </ul>
+  <h2>Retrieval checklist</h2>
+  <ul>
+    <li>Chunk by section; put machine name and section title in each chunk.</li>
+    <li>Index with keyword and/or embedding search.</li>
+    <li>If wrong answers appear, check search results first, not the model.</li>
+    <li>Saved facts go stale: record a date and decide who updates them.</li>
+  </ul>
+  <p>Source: <a href="https://anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic: Effective context engineering for AI agents</a>. Full lesson: <a href="../lessons/0001-context-and-memory-in-an-agent.html">Lesson 1</a>.</p>
+</body>
+</html>

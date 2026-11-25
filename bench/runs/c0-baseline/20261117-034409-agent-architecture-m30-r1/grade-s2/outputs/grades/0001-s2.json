@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. What makes a system an agent is the loop: the model picks an action, it gets run, and the result comes back. A longer prompt or a bigger model only changes what a single call can do."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The model only outputs a structured request: the tool's name plus arguments such as the laser cutter and tomorrow's date. Your program runs check_calendar. This is a clear improvement on your first attempt."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Running longer won't fix this. The agent is repeating the same edit and getting the same failure, so more steps add nothing new. That is why the loop needs a stopping condition: a step limit (b) ends it and reports what happened so a person can step in. It is tempting to think persistence pays off, but without new information the agent just repeats itself. This also matters for your budget, because 40 wasted steps cost money."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "4 is the right number, and your count is right: three tool requests plus one final answer. The reason is off, though. You wrote that the model runs the tools itself. It doesn't. Each call ends with the model requesting one tool, and your program runs it and sends the result back in the next call. The model is called once for the question and once for each of the three results, so 1 + 3 = 4. The tool runs are not model calls."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right on both parts. The result goes back in as the model's next input, and that is so the model can decide its next step or write the final answer. The group-chat picture works: each tool result is a new message the model replies to. Keep in mind that every new message makes the next call longer, which is where cost comes from."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "The name is part of it, and you were closer in your first attempt, which also mentioned the description. The model is given each tool's name, what it does and its parameters, and it picks the tool whose description fits the request. A name alone can mislead: a tool called check_calendar could be for the room calendar or for the machine calendar. The description tells them apart. This is why writing clear tool descriptions is one of your mission goals."
+    }
+  ],
+  "summary": "You have the loop down: q1, q2 and q5 are solid, and you improved on your first attempt on q2, q5 and q6. Two things to fix. First, the model never runs a tool. It outputs a request, and your program runs the tool, which is why your count of 4 in q4 was right but your reason was not. Second, an agent needs a stopping condition (q3). Before the next session, trace the laser-cutter question on paper and mark which steps are model calls and which are program steps. Next up is context and memory."
+}

@@ -1,0 +1,181 @@
+{
+  "duration_api_ms": 241026,
+  "stop_reason": "end_turn",
+  "session_id": "00201172-b881-4238-8d2e-69f1fe3be219",
+  "total_cost_usd": 0.7293649000000001,
+  "usage": {
+    "input_tokens": 32,
+    "cache_creation_input_tokens": 74013,
+    "cache_read_input_tokens": 917546,
+    "output_tokens": 31148,
+    "output_tokens_details": {
+      "thinking_tokens": 3027
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 74013,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 624,
+        "cache_read_input_tokens": 83911,
+        "cache_creation_input_tokens": 4841,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4841
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 32,
+      "outputTokens": 31148,
+      "cacheReadInputTokens": 917546,
+      "cacheCreationInputTokens": 74013,
+      "webSearchRequests": 0,
+      "costUSD": 0.6993506,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3027,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 74013,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 76543,
+      "outputTokens": 4720,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 2,
+      "costUSD": 0.030014299999999997,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1997,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01DTY82EkH9aDXynUGE2MyJa",
+      "tool_input": {
+        "command": "cd \"C:/Users/ohwj5/AppData/Local/Temp/p3-9i6fricw\" && python -I -c \"\nimport re,sys\nt=open('lessons/0001-context-and-memory-in-an-agent.html',encoding='utf-8').read()\nt=re.sub(r'<(script|style).*?</\\1>','',t,flags=re.S)\nt=re.sub(r'<[^>]+>',' ',t)\nprint(len(t.split()))\""
+      }
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01UqL29zSvDz1WZUUHyDJUA9",
+      "tool_input": {
+        "command": "$t = Get-Content -Raw -Encoding UTF8 \"lessons\\0001-context-and-memory-in-an-agent.html\"; $t = [regex]::Replace($t,'(?s)<(script|style).*?</\\1>',''); $t = [regex]::Replace($t,'<[^>]+>',' '); ($t -split '\\s+' | Where-Object {$_}).Count"
+      }
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01HBZqpRKWkM6PNNNKd9ETvC",
+      "tool_input": {
+        "command": "$t = Get-Content -Raw -Encoding UTF8 \"lessons\\0001-context-and-memory-in-an-agent.html\"; $t = $t -replace '(?s)<(script|style).*?</\\1>',''; $t = $t -replace '<[^>]+>',' '; ($t | Measure-Object -Word).Words"
+      }
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_01Q16d5yBTB78KocBn5JRmiZ",
+      "tool_input": {
+        "command": "Get-Content -Raw -Encoding UTF8 \"lessons\\0001-context-and-memory-in-an-agent.html\" | % { $_ -replace '(?s)<(script|style).*?</\\1>','' -replace '<[^>]+>',' ' } | Measure-Object -Word"
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 35,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I've written the 30-minute lesson on context and memory, plus a short quiz, an answer key and a cheat sheet. I couldn't run a word count in this environment (the shell blocked the scripts I tried). I added a section after my first draft to reach the length, but I don't know whether it lands near 30 minutes.\n\n- **Lesson:** `lessons/0001-context-and-memory-in-an-agent.html`\n  - It covers the context window, what the program keeps between steps, trimming a full context, notes between sessions, and retrieval for finding the right manual page.\n  - Each part has a worked example from the makerspace assistant, with token counts.\n  - There are three figures and a practice check in most sections, and it ends with a memory plan for the assistant.\n  - The primary source is Anthropic's [Effective context engineering for AI agents](https://anthropic.com/engineering/effective-context-engineering-for-ai-agents). I fetched and read it. For the other two sources I only read search snippets, plus a partial read of the arXiv survey (its last ~15,000 characters were cut off), so their citations are thinner.\n- **Quiz:** `quizzes/0002.json` has five items. The answer key is in `keys/0002.json`.\n- **Also written:** `cheatsheets/context-and-memory.html`, a new `RESOURCES.md`, and an update to `NOTES.md`.\n\nI made up two misconception ids for the key because I couldn't tell whether they already exist: M7 (a bigger window means paste everything) and M8 (save everything, even live data). M3 (the model remembers by itself) comes from key 0001.\n\nQuiz 0001 has two ungraded submissions, so I didn't build on it. Ask for the quiz when you're ready, or ask me anything about the lesson.\n\nDo you want sub-agents next, or workflows versus agents? I left sub-agents out of this lesson on purpose.",
+  "ttft_ms": 2237,
+  "type": "result",
+  "duration_ms": 238456,
+  "uuid": "74787dd7-3e82-4e69-9189-8291ae6040af",
+  "ttft_stream_ms": 2235,
+  "time_to_request_ms": 178,
+  "first_content_frame_ms": 2235,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 32,
+      "outputTokens": 31148,
+      "cacheReadInputTokens": 917546,
+      "cacheCreationInputTokens": 74013,
+      "webSearchRequests": 0,
+      "costUSD": 0.6993506,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3027,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 74013,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 76543,
+      "outputTokens": 4720,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 2,
+      "costUSD": 0.030014299999999997,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1997,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-28T13:15:33.320Z"
+}

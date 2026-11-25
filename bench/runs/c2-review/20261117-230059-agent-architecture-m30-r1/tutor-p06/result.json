@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 22515,
+  "stop_reason": "end_turn",
+  "session_id": "78ea8cfe-96e6-48b7-bcfe-7567b238051f",
+  "total_cost_usd": 0.1278598,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 23410,
+    "cache_read_input_tokens": 110738,
+    "output_tokens": 2313,
+    "output_tokens_details": {
+      "thinking_tokens": 893
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23410,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 501,
+        "cache_read_input_tokens": 37209,
+        "cache_creation_input_tokens": 940,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 940
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2313,
+      "cacheReadInputTokens": 110738,
+      "cacheCreationInputTokens": 23410,
+      "webSearchRequests": 0,
+      "costUSD": 0.1278598,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 893,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23410,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 10,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Here's a different angle, using a game you've probably played.\n\n**Short answer:** tool calling is the model *asking* for something to be done, while a separate program actually does it. The model never does the action itself.\n\n1. **Picture a quest-giver NPC in a game.** The NPC can only talk. It can't walk to the next town or open the shop's inventory.\n2. **Give it a messenger.** The NPC has a menu card on the wall: \"Messenger can: check the shop's stock (needs: item name).\" The card is the only thing the NPC knows about what the messenger can do. It has never seen how the messenger works.\n3. **A player asks, \"Does the shop have healing potions?\"** The NPC can't know that from talking alone. So it writes a note: \"Check stock: healing potion.\" Then it stops and waits. The note is all the NPC produces.\n4. **The messenger reads the note, runs to the shop, and comes back** with \"3 in stock.\" The messenger then hands that result to the NPC.\n5. **The NPC reads the result and answers the player:** \"Yes, we have 3.\"\n\n**Why it works this way:** the model only reads and writes text. It has no hands. The program around it is the hands, and the menu card is how the model learns what it can ask for.\n\n**Where the analogy breaks:** a real NPC remembers earlier turns. A model only knows what's written in front of it each time. The messenger's answer has to be handed back as text, or the model never learns it.\n\nQuick check: in this story, who actually walks to the shop, and how does the NPC know the messenger exists?",
+  "ttft_ms": 2163,
+  "type": "result",
+  "duration_ms": 27041,
+  "uuid": "004f2fd7-a5be-4278-8278-62ff5ca399e5",
+  "ttft_stream_ms": 2162,
+  "time_to_request_ms": 142,
+  "first_content_frame_ms": 2162,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2313,
+      "cacheReadInputTokens": 110738,
+      "cacheCreationInputTokens": 23410,
+      "webSearchRequests": 0,
+      "costUSD": 0.1278598,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 893,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23410,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-28T13:15:33.320Z"
+}

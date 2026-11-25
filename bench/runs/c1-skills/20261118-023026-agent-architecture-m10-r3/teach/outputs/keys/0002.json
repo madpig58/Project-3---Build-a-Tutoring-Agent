@@ -1,0 +1,43 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "The model keeps nothing between calls or sessions; the program supplies the context each time. A new session starts with an empty message list, so only the fixed prompt, tools and the new message arrive. Choosing b or d shows the idea that the model or its window holds memory across sessions (M8, M7).",
+      "distractors": {"b": "M8", "d": "M7"}
+    },
+    {
+      "id": "q2",
+      "answer": 7700,
+      "tolerance": 0,
+      "rationale": "Call 1 sends 2,000 + 100 = 2,100. Call 2 adds the first result: 2,500. Call 3 adds the second: 3,100. Total 2,100 + 2,500 + 3,100 = 7,700. Answering 3,100 counts only the final context size and forgets that every call resends everything."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Retrieval fetches only relevant passages just in time, keeping cost and context rot low. Pasting everything (b) costs tokens on every call and buries the answer (M9); training knowledge (c) can be outdated or about other machines; asking the student (d) does not meet the assistant's job.",
+      "distractors": {"b": "M9"}
+    },
+    {
+      "id": "q4",
+      "answer": "Save it outside the context, such as in a stored record, and read it back into the context (or via a tool) at the next session.",
+      "accepted": [
+        "Write it to a file or database as a note and load it next time",
+        "Store the training status in storage and retrieve it when the student returns",
+        "Save a note with a tool and read it in the next session"
+      ],
+      "rationale": "Full credit needs saving to storage outside the model and loading it back later. Saying that the model will remember, or that the chat is kept in the window, shows M8 or M7."
+    },
+    {
+      "id": "q5",
+      "answer": "A context window holds only one session's text and starts empty next time, so it is not storage; it also costs more and recalls worse as it fills.",
+      "accepted": [
+        "The window is emptied when the session ends so nothing persists",
+        "Bigger windows cost more per call and the model recalls less accurately as they fill",
+        "Memory across sessions needs saved notes, not a bigger window"
+      ],
+      "rationale": "Any one valid reason is enough: no persistence between sessions, or higher cost, or context rot. Agreeing with the teammate shows M7."
+    }
+  ]
+}

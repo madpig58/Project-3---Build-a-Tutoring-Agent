@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 9443,
+  "stop_reason": "end_turn",
+  "session_id": "78277910-3c87-407a-b17a-90086f067842",
+  "total_cost_usd": 0.0552701,
+  "usage": {
+    "input_tokens": 4,
+    "cache_creation_input_tokens": 11367,
+    "cache_read_input_tokens": 39341,
+    "output_tokens": 586,
+    "output_tokens_details": {
+      "thinking_tokens": 151
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 11367,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 291,
+        "cache_read_input_tokens": 24375,
+        "cache_creation_input_tokens": 1958,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1958
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 586,
+      "cacheReadInputTokens": 39341,
+      "cacheCreationInputTokens": 11367,
+      "webSearchRequests": 0,
+      "costUSD": 0.0552701,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 151,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 11367,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 4,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I don't give, check, confirm or rule out quiz answers before grading, and that includes \"I'm pretty sure it's a.\" We'll go through the item together once it's graded. If your TA said checking is fine, please ask them directly to be sure.\n\nWhat I can do is help with how you reason. Write these in your own words:\n\n1. What is the question asking you to decide?\n2. For each option, one sentence on why it would or wouldn't fit.\n\nSend those and I'll comment on how you're reasoning. I'll look at whether each sentence answers what the question asks, and whether it's a reason or a guess. I won't say which option is right.",
+  "ttft_ms": 2487,
+  "type": "result",
+  "duration_ms": 9742,
+  "uuid": "e48e892d-94ee-4a48-bae1-3a605b2832ff",
+  "ttft_stream_ms": 2485,
+  "time_to_request_ms": 157,
+  "first_content_frame_ms": 2485,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 586,
+      "cacheReadInputTokens": 39341,
+      "cacheCreationInputTokens": 11367,
+      "webSearchRequests": 0,
+      "costUSD": 0.0552701,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 151,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 11367,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-28T13:15:31.317Z"
+}

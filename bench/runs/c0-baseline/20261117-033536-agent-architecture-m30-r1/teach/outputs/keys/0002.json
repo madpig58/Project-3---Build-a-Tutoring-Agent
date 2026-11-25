@@ -1,0 +1,40 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls or sessions; the new session's context holds only what the program puts in it, and no notes were saved. Believing it learned from the chat (a), stored the fact (c) or that the window persists (d) shows the misconception that the assistant remembers earlier conversations automatically.",
+      "distractors": {"a": "M3", "c": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 11000,
+      "tolerance": 0,
+      "rationale": "Each call re-sends the whole context: 2,000 + 2,500 + 3,000 + 3,500 = 11,000. Answering 3,500 counts only the last call; 8,000 counts only four copies of the first."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "All tokens are paid for on every call, and recall degrades as the context fills (context rot), so retrieving only relevant passages is cheaper and more accurate. The model can read any text put in context (b), the window itself, not the manuals, is what resets between sessions (c), and tools are unaffected (d)."
+    },
+    {
+      "id": "q4",
+      "answer": "It puts in only a few relevant passages, which costs fewer tokens and keeps the answer from being buried in irrelevant text.",
+      "accepted": [
+        "Only the passages that match the query, so the context is smaller, cheaper and easier for the model to use.",
+        "A few relevant snippets, which saves tokens and avoids context rot."
+      ],
+      "rationale": "Full credit needs what goes in (a few relevant passages, not the whole manual) and why (fewer tokens or cost, or better recall). Only one of the two is partial."
+    },
+    {
+      "id": "q5",
+      "answer": "In storage outside the context, such as a notes file or database, loaded into the context at the start of the next session.",
+      "accepted": [
+        "In a notes file or database, and read into the context when the session starts.",
+        "Saved to external memory like a file, then loaded at the beginning of the next session."
+      ],
+      "rationale": "Full credit needs both a place outside the context (file, database, notes) and loading it at session start. Saying the model or the context window will remember it shows M3."
+    }
+  ]
+}

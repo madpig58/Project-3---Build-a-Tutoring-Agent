@@ -1,0 +1,110 @@
+{
+  "duration_api_ms": 60594,
+  "stop_reason": "end_turn",
+  "session_id": "c92871a5-3ca4-4df9-a8a1-e393e5ae9dcd",
+  "total_cost_usd": 0.2831183,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 4241,
+    "cache_read_input_tokens": 89036,
+    "output_tokens": 2917,
+    "output_tokens_details": {
+      "thinking_tokens": 62
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 4241,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 482,
+        "cache_read_input_tokens": 45222,
+        "cache_creation_input_tokens": 2833,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2833
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 18,
+      "outputTokens": 8676,
+      "cacheReadInputTokens": 213188,
+      "cacheCreationInputTokens": 50148,
+      "webSearchRequests": 0,
+      "costUSD": 0.2831183,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1495,
+      "cacheCreationEphemeral5mInputTokens": 17059,
+      "cacheCreationEphemeral1hInputTokens": 33089,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwmxco34-f5eded3f"
+  },
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 1
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grade-reviewer": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I graded submission s1 for quiz 0001: 2 correct, 2 partial and 2 wrong.\n\n| Item | Verdict | Note |\n|---|---|---|\n| q1 | correct | |\n| q2 | wrong | M4: you picked \"the model opens the booking system itself\". |\n| q3 | correct | |\n| q4 | wrong | M4: you said 1 model call; the answer is 4 (3 tool requests + the final answer). |\n| q5 | partial | You said the result goes back to the model but didn't say why. |\n| q6 | partial | Tool descriptions were right, but you added that the model remembers earlier sessions on its own (M3). |\n\n**Summary:** You have the shape of the agent loop and the need for a stopping condition, and you know the model picks tools from their descriptions. The one thing to fix is who does what. The model only writes text, and the program runs the tools and calls the model again for every step. That tripped you up in q2 and q4.\n\n**Next step:** Trace the laser cutter question step by step. For each step, write down whether the model or the program acts. Then retake the quiz.\n\nThe grade-reviewer's one pass came back CLEAN, with 0 major and 7 minor findings. I fixed all seven, so no second pass was needed.\n\nBesides the grades file, I wrote the review record, a learning record (0003) and an update to `NOTES.md`. The s2 attempt is still ungraded.\n\nGrades file: `grades/0001-s1.json`",
+  "ttft_ms": 2101,
+  "type": "result",
+  "duration_ms": 18154,
+  "uuid": "eb1c5d21-64e9-442b-b114-2efc16c2c61d",
+  "ttft_stream_ms": 1991,
+  "time_to_request_ms": 68,
+  "first_content_frame_ms": 1992,
+  "queued_turn_count": 0,
+  "result_index": 1,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-28T13:15:31.317Z"
+}

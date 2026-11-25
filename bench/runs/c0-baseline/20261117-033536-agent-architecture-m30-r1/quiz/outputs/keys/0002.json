@@ -1,0 +1,42 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The defining difference is who owns the control flow: in a workflow, predefined code paths decide the steps; in an agent, the model dynamically directs its own process and tool use. Both can use tools and any model size (a, b, d)."
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "The program fixes the order of the steps, so the code owns the control flow and this is a workflow, even though the model is called inside steps. Calling the model for arguments or text (a, c) does not give it control over what happens next."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "When the steps are known in advance, fixed code is the better choice: it is more predictable and avoids the extra model calls an agent spends deciding the next step, which matters on a small budget. Workflows do not handle surprises better (b), agents can call tools (c), and neither approach is always more accurate (d)."
+    },
+    {
+      "id": "q4",
+      "answer": 3,
+      "tolerance": 0,
+      "rationale": "The agent makes 4 tool-request calls plus 1 final-answer call, 5 in total. The workflow makes 2. The difference is 5 - 2 = 3. An answer of 4 or 5 forgets to subtract the workflow's calls or the final-answer call."
+    },
+    {
+      "id": "q5",
+      "answer": "In a workflow, the program's code decides the next step; in an agent, the model decides.",
+      "accepted": [
+        "Workflow: code or a predefined path. Agent: the model.",
+        "The code decides in a workflow and the model decides in an agent.",
+        "The program decides in a workflow, the language model decides in an agent.",
+        "In a workflow the developer's fixed code path decides; in an agent the model chooses the next action."
+      ],
+      "rationale": "Both halves are needed: code (a predefined path) for workflows, the model for agents. Giving only one half, or reversing them, is not fully correct."
+    },
+    {
+      "id": "q6",
+      "answer": "d",
+      "rationale": "An agent pays off when the number and kind of steps cannot be known in advance, as with diagnosing a failing print. Reminders (a), confirmed bookings (b) and a single lookup (c) have fixed, predictable steps, so a fixed workflow is cheaper and more reliable."
+    }
+  ]
+}

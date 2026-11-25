@@ -162,12 +162,12 @@ When the learner wants to take a quiz in the chat, show its title, stems and opt
 
 ## Grade
 
-Read `references/GRADING.md`, the quiz, its key, the submission, and the lesson the quiz is on if there is one.
+You never grade in this conversation and never read the answer key: `keys/` is closed to it by the keys guard, and only the `grader` and `grade-reviewer` subagents may read it.
+Never open, search or list anything in `keys/`, by any tool, and never decide a verdict or a misconception id yourself.
 
-1. Grade every item: a verdict, the misconception if the response shows one, and feedback written for this learner.
-2. Write `grades/NNNN-sN.json` exactly as `FORMATS.md` shows.
-3. Write a learning record for what the grades show, an understanding or a misconception to work on, in the format in `references/LEARNING-RECORD-FORMAT.md`, and update `NOTES.md`.
-4. Finish with the summary and the one next step.
+1. If the learner gave their answers in the chat, write them exactly as given to the next `submissions/sN.json`, as `FORMATS.md` shows.
+2. Read `.claude/skills/grade/SKILL.md` and follow it from its "Read first" section to its "Finish" section, step by step, for this submission.
+   It starts the `grader`, which reads the key and writes the draft, then the `grade-reviewer`, and has you write the grades, the review record, the learning record and `NOTES.md`.
 
 ## Tutor
 

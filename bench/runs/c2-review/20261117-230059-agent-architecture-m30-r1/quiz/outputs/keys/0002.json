@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "agent",
+      "accepted": ["an agent", "Agent", "an agent."],
+      "rationale": "The two designs differ in who owns the control flow, meaning who decides the next step. Here the order and number of actions are not fixed in code, so the model decides each next step from the results, which makes this an agent. If the code had fixed the order of steps, it would be a workflow, however many model calls or tools it used. Answering workflow suggests a belief that any system with tools is a workflow."
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "The test is who decides the next step. In this system the code always runs classify, then lookup, then reply, in that order, so the code owns the control flow and it is a workflow; the model never chooses a step. Using a tool (a, b) or making several model calls does not make a system an agent, because a workflow can contain both. Option d is wrong the other way: workflows commonly contain several model calls (it shows M10, that a workflow is not allowed model calls).",
+      "distractors": {"a": "M8", "b": "M8", "d": "M10"}
+    },
+    {
+      "id": "q3",
+      "answer": 6,
+      "tolerance": 0.05,
+      "rationale": "Extra model calls per request: 5 - 2 = 3 calls. Extra cost per request: 3 calls x $0.004 per call = $0.012. Over a day: $0.012 per request x 500 requests = $6.00 per day. Answering 10 (the agent's total, 5 x $0.004 x 500) or 4 (the workflow's total, 2 x $0.004 x 500) gives a total instead of the difference; this is a slip in reading the question, not a misconception."
+    },
+    {
+      "id": "q4",
+      "answer": "b",
+      "rationale": "A fixed workflow fits when the steps can be written down in advance; an agent earns its extra cost only when the path cannot be, because the model has to look at each result and decide what to try next. Debugging a codebase has no known list of steps, so b fits. Options a, c and d each list a fixed sequence of steps, so code can run them in order more cheaply and predictably; choosing one of them shows the belief that agents are better everywhere (M9).",
+      "distractors": {"a": "M9", "c": "M9", "d": "M9"}
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "Requests 1 and 2 always follow the same steps, so a fixed workflow does them with fewer model calls and no chance of skipping a step. Request 3 has a varying number of lookups, which is where an agent's choices pay for their cost. Running everything as agents (a) pays for unneeded decisions and shows M9; running everything as workflows (b) cannot handle the open-ended request and shows M11; option c puts the agent on the predictable request and the workflow on the open one, which is backwards: it shows the idea of workflow versus agent has been reversed, not a named misconception.",
+      "distractors": {"a": "M9", "b": "M11"}
+    },
+    {
+      "id": "q6",
+      "answer": "a",
+      "rationale": "The order never changes, so the code can own it: if the program always runs validate_move before the save step, the validation cannot be skipped, and that is a fixed workflow. A prompt line (b) or a larger model (c) only makes skipping less likely, because the model still decides the order and can still skip; believing that an instruction guarantees the order is M7. A higher step limit (d) caps how long the loop runs and does not make the model take any particular step.",
+      "distractors": {"b": "M7"}
+    }
+  ]
+}

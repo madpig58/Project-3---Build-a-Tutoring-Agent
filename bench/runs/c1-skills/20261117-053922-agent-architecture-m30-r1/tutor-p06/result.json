@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 22407,
+  "stop_reason": "end_turn",
+  "session_id": "9e3b97d5-1976-49fc-82e7-4e0fcceb1e35",
+  "total_cost_usd": 0.12016310000000001,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 21620,
+    "cache_read_input_tokens": 107371,
+    "output_tokens": 2293,
+    "output_tokens_details": {
+      "thinking_tokens": 891
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 21620,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 556,
+        "cache_read_input_tokens": 35296,
+        "cache_creation_input_tokens": 846,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 846
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2293,
+      "cacheReadInputTokens": 107371,
+      "cacheCreationInputTokens": 21620,
+      "webSearchRequests": 0,
+      "costUSD": 0.12016310000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 891,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 21620,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 9,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Tool calling is a way for the model to ask for something to be done, while your program does the actual work.\n\nPicture someone locked in a room with no phone and no internet. They can only read notes and write notes. A helper outside, your program, passes notes through a slot.\n\n1. **The menu.** Before anything starts, the helper slides in a menu: \"You may request: *check the booking calendar*, *look up a manual page*.\" Each item has a short description. That menu is the list of tools.\n2. **The question.** A student's question arrives as a note: \"Is the laser cutter free Friday?\"\n3. **The request slip.** The person can't open the calendar, so they write \"Please run *check the booking calendar*, for Friday, laser cutter.\" That slip is the tool call. It is only text, a request. Nothing has happened yet.\n4. **The helper acts.** The helper reads the slip, opens the real calendar, and finds \"booked 2–4pm\". The model did none of this. Your program ran the tool.\n5. **The result comes back.** The helper slides in a new note: \"Result: booked 2–4pm.\" The person reads it and either asks for another tool or writes the final answer to the student.\n\nWhy it works: the model only ever produces text, so a request slip is the one way it can reach the outside world. Your program decides whether to carry the slip out.\n\nThis is like a game. The player types \"open door\", and the game engine decides whether the door opens.\n\nWhere the analogy breaks: the person in the room remembers the earlier notes. A model doesn't. Each time, the helper hands it the whole pile of notes again, and it reads them fresh.\n\nCheck: if the person writes a slip asking for a tool that isn't on the menu, who notices, and what should happen next? Answer in your own words.",
+  "ttft_ms": 1790,
+  "type": "result",
+  "duration_ms": 26040,
+  "uuid": "c58d5228-f10c-41e1-b1cc-22697576ba14",
+  "ttft_stream_ms": 1788,
+  "time_to_request_ms": 92,
+  "first_content_frame_ms": 1788,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2293,
+      "cacheReadInputTokens": 107371,
+      "cacheCreationInputTokens": 21620,
+      "webSearchRequests": 0,
+      "costUSD": 0.12016310000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 891,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 21620,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-28T13:15:33.833Z"
+}

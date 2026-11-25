@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: what makes it an agent is the loop, where the model picks an action, the program runs it, and the result comes back for the next step. A longer prompt (a) or a bigger context window (c) only changes what one call can do, not the structure. Keep this loop in mind, because the next questions are about who does which part of it."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "You picked (a), the calendar entries, which says the model opens the booking system itself. A model only writes text, so it cannot reach a booking system, and it is tempting to think so because the final answer arrives as if it had looked. What it outputs is a request, such as check_calendar(laser cutter, tomorrow), and the program around it runs the tool. Next time, ask yourself: what can a text-only output do? It can only name a tool and its arguments."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the agent is repeating itself with the same failing result, so more steps add nothing, and a step limit ends the loop and hands the problem back to a person. The tempting option was (a), but all 40 steps already fit in the context, so a bigger window changes nothing. Every agent loop needs a stopping condition like this, and it will matter for your assistant's budget too."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "You answered 1, saying the model runs the 3 tools itself inside one call. The model only writes text, so each tool request ends a call, and the program runs the tool and calls the model again with the result. Count the calls: tool request 1, tool request 2, tool request 3, then the final answer is 3 + 1 = 4 model calls. A quick check is that the model is called once per input it receives: the question plus three results is 4."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You have the what: the program sends the result back to the model. The question also asked why, and that part is missing. The reason is that the model has not seen the result yet, so the program adds it to the model's next input and calls it again, and the model uses it to pick the next step or write the final answer. When a question says 'and why', add a 'so that...' clause."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "The first part is right: the model gets a list of tools with names and descriptions, and picks the one that fits the request. The last sentence is wrong, though: the model does not remember earlier sessions on its own. Each call starts from only the text it is given, so any memory of past sessions has to be saved by the program and put back into the input. Reread the part of the lesson on what the model sees at each call, since memory is the next topic."
+    }
+  ],
+  "summary": "You have the shape of the agent loop and the need for a stopping condition, and you know the model chooses tools from their descriptions. The idea to fix is who does what: the model only writes text, and the program runs the tools and calls the model again for every step. This showed up in q2 and q4. Next, trace the laser cutter question step by step, writing down for each step whether the model or the program acts, then retake the quiz. Also remember that memory across sessions is not automatic."
+}

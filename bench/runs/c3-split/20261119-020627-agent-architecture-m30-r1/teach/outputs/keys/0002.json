@@ -1,0 +1,37 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "A session's window is gone when it ends, and the model keeps nothing between calls, so the fact must be saved outside the window (a note) and put back by the program. Options a and d assume the model or its window carries Tuesday over (M3); b assumes memory means retraining (M9).",
+      "distractors": {"a": "M3", "b": "M9", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 3900,
+      "tolerance": 0,
+      "rationale": "Option A sends 3 x 2,000 = 6,000 tokens of the result. Option B sends 2,000 + 50 + 50 = 2,100. The difference is 6,000 - 2,100 = 3,900. An answer of 5,850 forgets that call 2 still carries the full result."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "A chunk cut out of a manual can lose the words that say what it is about; this one never names the machine or the part, so a search for 'band saw blade' scores it low. Adding a line such as 'Band saw manual, Maintenance, Changing the blade' fixes the cause. Chunk length (a), a full window (c) and the note file (d) do not explain a correct chunk that ranks low."
+    },
+    {
+      "id": "q4",
+      "answer": "The note holds the one fact that matters in a few tokens, while the whole chat would add thousands of tokens to every later window, costing more and burying the fact in noise.",
+      "accepted": [
+        "A note is small and cheap to load into the next window; a whole chat adds many tokens, costing more and adding noise.",
+        "Because only the key fact is needed later, and loading the whole chat would waste tokens and clutter the context."
+      ],
+      "rationale": "Full credit names the cost or noise of loading the whole chat, and that the note carries the needed fact. Saying only that the note is 'shorter' with no link to tokens, cost or noise is partial. Saying the model needs the whole chat to remember, or that memory is retraining, is wrong."
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "The page is resent on every call after it arrives (calls 3, 4 and 5), and it is not needed after call 3. Clearing it to one line removes about 10,000 tokens from each of the later calls. Saving it as a note (b) would add tokens to future sessions, shortening instructions (c) saves little, and a larger window (d) raises what fits but removes no tokens (M7).",
+      "distractors": {"b": "M7", "d": "M7"}
+    }
+  ]
+}

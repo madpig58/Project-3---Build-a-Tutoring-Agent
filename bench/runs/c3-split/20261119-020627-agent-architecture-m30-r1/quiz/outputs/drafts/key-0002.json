@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The difference between a workflow and an agent is who decides the next step. In c the model chooses which tool to call, in what order, and when to stop, so the model owns the control flow. In a, b and d the program's code fixes the sequence and the model only does a task inside it. Picking any of those shows the belief that using a model in a pipeline already makes it an agent.",
+      "distractors": {"a": "M7", "b": "M7", "d": "M7"}
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "The script's code fixes the order (extract, describe, check) and decides when the run ends, so the code owns the control flow and this is a workflow. A model doing each step does not change that. Counting the model calls (b) or passing outputs forward (c) does not make an agent: an agent is defined by the model choosing the next step. Having a model carry out every step (d) does not make an agent either: what matters is who chooses the next step, and here the code does.",
+      "distractors": {"b": "M7", "c": "M7", "d": "M7"}
+    },
+    {
+      "id": "q3",
+      "answer": "the program's code",
+      "accepted": ["code", "the code", "the program", "program", "program's code", "the program's if/else", "if/else", "the program code", "the program's own code", "program's own code", "the script", "the script's code", "programs code", "the code owns it", "our code", "the program's code owns it"],
+      "rationale": "The model's only job is to produce a label; the if/else in the program decides which handler runs next, and the set of paths is fixed in advance. The code owns the control flow, so this is a workflow. Answering 'the model' because its output picks the branch confuses supplying a value with choosing the next step."
+    },
+    {
+      "id": "q4",
+      "answer": 8,
+      "tolerance": 0.05,
+      "rationale": "Extra calls per request = 7 - 3 = 4 calls. Extra cost per request = 4 calls x $0.002 = $0.008. Over 1,000 requests: $0.008 x 1,000 = $8. Answering 14 (the agent's total, 7 x 0.002 x 1,000) or 6 (the workflow's total) gives a total instead of the difference."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "A fixed workflow fits when the steps are known in advance and the same every time, which is true of reading, labeling and recording each email. In a, c and d the next action depends on what was just found, so the number and order of steps cannot be fixed beforehand and an agent's flexibility is needed. Choosing one of those shows the belief that an agent is always the more capable, better choice, even where its flexibility goes unused and it costs more.",
+      "distractors": {"a": "M8", "c": "M8", "d": "M8"}
+    },
+    {
+      "id": "q6",
+      "answer": "d",
+      "rationale": "The steps are always the same four, so the agent's freedom to choose is unused: it costs 9 calls instead of a few, and a missed email is what one would expect when the model chooses each step: nothing forces it to do the last one. Code that runs the steps in a fixed order always reaches the email step and uses a model call only where one is needed, so it fixes both problems. More steps (a), a larger model (b) or more tools (c) add agent power to a task that needs none, and a still may not make the model send the email; this is the belief that agents are the answer to every problem.",
+      "distractors": {"a": "M8", "b": "M8", "c": "M8"}
+    }
+  ]
+}

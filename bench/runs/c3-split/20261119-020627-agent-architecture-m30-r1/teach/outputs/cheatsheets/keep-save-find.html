@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: keep, save, find</title>
+  <style>
+    body { max-width: 40rem; margin: 0 auto; padding: 2rem 1rem; font-family: Charter, Georgia, serif; line-height: 1.55; background: #fffdf8; color: #1f1d1a; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 1.8rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid #e4dfd4; }
+    th { font-family: system-ui, sans-serif; font-size: 0.75rem; text-transform: uppercase; color: #6b665e; }
+    code { font-family: ui-monospace, Consolas, monospace; background: #f3efe6; padding: 0.1em 0.3em; border-radius: 4px; }
+    small { color: #6b665e; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } code { background: #23211e; } small, th { color: #a49e93; } }
+    @media print { body { background: #fff; color: #000; } }
+  </style>
+</head>
+<body>
+  <h1>Keep, save, find: context and memory</h1>
+  <p><small>From the lesson <a href="../lessons/0001-context-and-memory.html">Context and memory</a>. All token numbers there are invented.</small></p>
+
+  <h2>The three decisions</h2>
+  <table>
+    <tr><th>Decision</th><th>Rule</th><th>Makerspace example</th></tr>
+    <tr><td><strong>Keep</strong> (in the window now)</td><td>Only what the next step needs. Clear used tool results to one line; compact a long chat into a summary.</td><td>Instructions, tool definitions, the question, safety rules, the booking confirmation</td></tr>
+    <tr><td><strong>Save</strong> (between sessions)</td><td>Small facts that are stable and costly to rediscover, written to a file the program reads back. Never whole chats or raw tool output.</td><td>A one-line note per student: training done, preferences</td></tr>
+    <tr><td><strong>Find</strong> (in a long document)</td><td>Cut into chunks, give each chunk a line of its own context, search, load only the top few.</td><td>Three manual chunks (about 600 tokens), not 60 pages (about 40,000)</td></tr>
+  </table>
+
+  <h2>Terms</h2>
+  <table>
+    <tr><td>Token</td><td>A word or part of a word; the unit that limits and prices a call.</td></tr>
+    <tr><td>Context window</td><td>The tokens the model is given on one call.</td></tr>
+    <tr><td>Call / request</td><td>A call is one trip to the model; one student question (request) can need several calls.</td></tr>
+    <tr><td>History</td><td>Instructions, question and every tool result so far, resent on every call.</td></tr>
+    <tr><td>Context rot</td><td>The model uses information less well as the window fills.</td></tr>
+    <tr><td>Compaction</td><td>Summarize a long run, start a new window from the summary.</td></tr>
+    <tr><td>Session / memory</td><td>One conversation; information saved outside the window and read back later.</td></tr>
+    <tr><td>Chunk / retrieval</td><td>A short piece of a document; finding the best few chunks for a question.</td></tr>
+  </table>
+
+  <h2>Questions to ask about any piece of text</h2>
+  <ol>
+    <li>Does the model need it for the next step? If not, clear it.</li>
+    <li>Will it matter next session, and is it small and stable? If so, save a note.</li>
+    <li>Is it a long document? Retrieve chunks; do not paste it.</li>
+    <li>Tokens kept x number of calls = cost. Do that multiplication.</li>
+  </ol>
+</body>
+</html>

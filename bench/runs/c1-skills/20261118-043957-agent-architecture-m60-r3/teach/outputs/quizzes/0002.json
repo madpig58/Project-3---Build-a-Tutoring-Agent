@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your makerspace assistant is about to make a model call. Which of these is part of what the model sees on that call?",
+      "options": [
+        {"id": "a", "text": "Every earlier session this student has had with the assistant"},
+        {"id": "b", "text": "The system prompt, tool definitions, and the messages so far"},
+        {"id": "c", "text": "The calendar database behind check_calendar, in full"},
+        {"id": "d", "text": "The model's own memory of its previous call in this run"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "In one request, the system prompt and tool definitions total 800 tokens and the student's question is 100 tokens. The assistant makes three model calls. After call 1 and again after call 2, the program appends a tool request and result of 400 tokens, and nothing is ever removed. Counting only input tokens, how many tokens are sent across all three calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant must answer questions from a 40,000-token machine manual, and the sponsor's budget is small. Which design is best for cost and for accuracy?",
+      "options": [
+        {"id": "a", "text": "Paste the whole manual into the system prompt so it is always present"},
+        {"id": "b", "text": "Train the model on the manual so it needs no text in its window"},
+        {"id": "c", "text": "Search the manual and put only the best few chunks in the window"},
+        {"id": "d", "text": "Summarize the manual once and send that summary on every call"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A large tool result arrives early in a long agent run and is never removed. In one sentence, why does it cost more than the same result arriving at the very last step?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your manual search returns the chunk \"The minimum is 10%.\" and the model cannot tell which machine or setting it refers to. In one sentence, what is the problem with the chunk and one way to fix it?"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "duration_api_ms": 202261,
+  "stop_reason": "end_turn",
+  "session_id": "d73ea10a-9ec6-470b-8c96-69565843b643",
+  "total_cost_usd": 0.6469058999999999,
+  "usage": {
+    "input_tokens": 14,
+    "cache_creation_input_tokens": 12644,
+    "cache_read_input_tokens": 360034,
+    "output_tokens": 7121,
+    "output_tokens_details": {
+      "thinking_tokens": 726
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 12644,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 389,
+        "cache_read_input_tokens": 64709,
+        "cache_creation_input_tokens": 3168,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3168
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 44,
+      "outputTokens": 28435,
+      "cacheReadInputTokens": 717309,
+      "cacheCreationInputTokens": 84412,
+      "webSearchRequests": 0,
+      "costUSD": 0.6469058999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 9291,
+      "cacheCreationEphemeral5mInputTokens": 31274,
+      "cacheCreationEphemeral1hInputTokens": 53138,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01Ua1zCuGdtBsUhueMwNt51v",
+      "tool_input": {
+        "command": "mkdir -p review-records && cp drafts/quiz-0002.json quizzes/0002.json && cp drafts/key-0002.json keys/0002.json && python -c \"import json;json.load(open('quizzes/0002.json'));json.load(open('keys/0002.json'));print('ok')\""
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwlb1aw2-0ea5db4a"
+  },
+  "subagent_stats": {
+    "spawned": 2,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 2
+    },
+    "started_in_background": 2,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 2,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "quiz-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 13,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The quiz is at `quizzes/0002.json`, and its key is at `keys/0002.json`. I haven't run a JSON validity check on the final files, because the shell command that would do it was blocked.\n\nIt has six items on O4, \"Workflows and agents: who owns the control flow\":\n\n- **Who decides the next step (q1, q2):** telling an agent from a workflow in a game NPC and a dialogue system, including why using tools or several model calls doesn't make a system an agent.\n- **Cost (q3):** the daily cost gap between a fixed workflow and an agent on booking requests.\n- **When a fixed workflow fits (q4, q5, q6):** which task needs an agent, how to split the makerspace assistant's request types between workflows and an agent, and how to guarantee a step never gets skipped.\n\nI'll grade it when you send your answers.\n\nThe two review passes didn't end clean, and pass 2's verdict was still REVISE. I started pass 2 before my first set of fixes had been saved, so it reviewed the old draft. I fixed the pass-2 findings that still applied (q2, q4, q5) but didn't run a third review. `review-records/0002-quiz.md` has the details.",
+  "ttft_ms": 5188,
+  "type": "result",
+  "duration_ms": 46079,
+  "uuid": "31480c47-0b91-4c36-9ced-343ba7053a89",
+  "ttft_stream_ms": 1012,
+  "time_to_request_ms": 21,
+  "first_content_frame_ms": 1012,
+  "queued_turn_count": 0,
+  "result_index": 2,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-28T13:15:33.320Z"
+}

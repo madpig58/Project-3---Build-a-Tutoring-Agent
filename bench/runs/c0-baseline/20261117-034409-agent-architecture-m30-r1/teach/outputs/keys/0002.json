@@ -1,0 +1,38 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "Each model call is separate and the context is rebuilt by the program; a new chat starts empty, and nothing was saved, so there is no sign of the training. Options a, b and d assume the model keeps or can fetch earlier conversations by itself, which is the misconception that memory is automatic.",
+      "distractors": {"a": "M3", "b": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 4500,
+      "tolerance": 0,
+      "rationale": "The contexts are 1,000, 1,500 and 2,000 tokens, and each is read in full: 1,000 + 1,500 + 2,000 = 4,500. An answer of 2,000 counts only the last context; 2,000 can also come from adding only new text (1,000 + 500 + 500) and forgetting the resend."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Everything in the system prompt is part of the context on every call, so it is read and paid for each time, and long contexts reduce the model's recall. Fitting in the window does not make it a good idea (M7). The model does not forget within a conversation (b), a system prompt can hold any text (c), and nothing is saved automatically (d).",
+      "distractors": {"b": "M3", "d": "M3"}
+    },
+    {
+      "id": "q4",
+      "answer": "Save a note or record of what the student said to storage outside the context (a file or database) after Tuesday, and load it into the new context at the start of Monday's session.",
+      "accepted": [
+        "Save it to a file or database, then load it back into the context at the start of the next session.",
+        "Store the information outside the model and put it into the context next session."
+      ],
+      "rationale": "Full credit needs both halves: save to storage outside the context, and load it into the next context. Saying only that it saves it is partial. Saying that the model remembers it, or that a bigger window would keep it, is wrong (M3, M7)."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "The error quotes the wrong machine's passage, so retrieval is the likely failure: check whether search returned the right page. A larger window (a) or stricter prompt (b) does not fix a wrong page, and the calendar tool (c) is not involved in manual answers.",
+      "distractors": {"a": "M7"}
+    }
+  ]
+}

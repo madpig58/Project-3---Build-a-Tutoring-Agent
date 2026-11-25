@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "On Monday a student tells your assistant their email address. On Friday they start a new session and your team has added no saving or loading code. The assistant does not know the address. Why?",
+      "options": [
+        {"id": "a", "text": "The model keeps only a week of conversations, and Friday was too late"},
+        {"id": "b", "text": "The context window was too small to hold Monday's whole conversation"},
+        {"id": "c", "text": "The context ended with Monday's session, and nothing saved it for Friday"},
+        {"id": "d", "text": "The model stored the address but cannot read it back without a tool"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent starts with 1,000 tokens of context. Each model output is 200 tokens and each tool result is 500 tokens. It makes three model calls: a tool request, a second tool request, then the final answer. Each call sends the whole history so far. How many tokens does it send in total across the three calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant must answer from a 400-page CNC router manual that is far too long to include in every call. Which design fits best?",
+      "options": [
+        {"id": "a", "text": "Search the manual per question and put only the best few chunks in"},
+        {"id": "b", "text": "Paste the whole manual into the system prompt on a larger model"},
+        {"id": "c", "text": "Summarise the manual once into one line and rely on that line"},
+        {"id": "d", "text": "Ask the model to recall the manual from what it learned in training"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences: an agent has been planning a long booking task and its context is nearly full. How can writing notes help, and where must the notes be kept?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Which fact about a student should your assistant check with a live tool call on each request, rather than rely on a saved note from an earlier session?",
+      "options": [
+        {"id": "a", "text": "Which of the machines they have already been trained to use"},
+        {"id": "b", "text": "Which of two printers is free at 4 pm on Thursday"},
+        {"id": "c", "text": "Which email address they asked to be sent reminders at"},
+        {"id": "d", "text": "Which of the makerspace's three sites is closest to them"}
+      ]
+    }
+  ]
+}

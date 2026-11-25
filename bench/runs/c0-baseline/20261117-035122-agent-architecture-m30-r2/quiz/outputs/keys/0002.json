@@ -1,0 +1,46 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The difference is who owns the control flow: in a workflow, predefined code sets the steps and their order; in an agent, the model decides its own next step and tool use. Both can use tools and several model calls, so a, c and d describe things that do not separate them."
+    },
+    {
+      "id": "q2",
+      "answer": "d",
+      "rationale": "The code decides every step and the order, and the model only fills in one fixed step, so this is a workflow. Using a tool (a) or writing the final text (b) does not make a system an agent; the model would have to choose the next step. Size or the number of tools (c) is not the test."
+    },
+    {
+      "id": "q3",
+      "answer": "In an agent the model decides the next step; in a fixed workflow the program's code decides it.",
+      "accepted": [
+        "The model decides in an agent, and the code decides in a workflow.",
+        "Agent: the model chooses next steps. Workflow: predefined code paths set them.",
+        "In an agent the model controls the flow; in a workflow the code does."
+      ],
+      "rationale": "Both halves are needed: the model owns the control flow in an agent, and predefined code owns it in a workflow. Giving only one half is partial. Saying that the user, or the tools, decide the next step is wrong."
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "When the steps are known and the same every time, a fixed workflow does the job predictably and with fewer model calls; an agent would add cost and latency for flexibility the task does not need. Agents are not cheaper for multi-step tasks (c), and a workflow does not adapt better to changing steps (d)."
+    },
+    {
+      "id": "q5",
+      "answer": 2000,
+      "tolerance": 0,
+      "rationale": "The agent makes 6 - 2 = 4 more calls per request, and 4 x 500 = 2000 more calls. An answer of 3000 is the agent's total calls (6 x 500), not the difference; 1000 is the workflow's total."
+    },
+    {
+      "id": "q6",
+      "answer": "The steps cannot be predicted in advance, because they depend on what the model finds along the way, so the model must choose them.",
+      "accepted": [
+        "The number or order of steps is unknown beforehand and varies by request, so the model has to decide.",
+        "An open-ended task where the path depends on intermediate results and cannot be hard-coded.",
+        "It needs flexibility because the required steps differ from request to request."
+      ],
+      "rationale": "Full credit names unpredictable or varying steps, so the path cannot be fixed in code and the model must choose it as it goes. Answers like 'it uses tools', 'it is more advanced' or 'it is more accurate' are wrong, since a workflow can use tools too. Saying only 'it is complex' without saying the steps cannot be known in advance is partial."
+    }
+  ]
+}

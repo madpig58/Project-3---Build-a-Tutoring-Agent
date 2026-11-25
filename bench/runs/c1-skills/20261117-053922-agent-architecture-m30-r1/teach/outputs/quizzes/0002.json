@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant answered a student's question at 2 pm. At 2:05 pm the same student sends a follow-up, and the program sends the model only the new message. What does the model do with the earlier exchange?",
+      "options": [
+        {"id": "a", "text": "It recalls the exchange from its own stored memory of the user"},
+        {"id": "b", "text": "It cannot use the exchange, because that text was not sent"},
+        {"id": "c", "text": "It looks the exchange up in the logs kept by the provider"},
+        {"id": "d", "text": "It reuses the exchange because the session has not yet ended"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A request takes 3 model calls. The system prompt and tool descriptions total 800 tokens and the student's question is 100 tokens. Each tool request is 50 tokens and each tool result is 350 tokens, and the program re-sends the full history on every call. Call 1 sends 900 tokens. How many tokens does call 3 send, counting the full history?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant must know on Thursday that a student passed 3D printer training on Tuesday. Which design does this?",
+      "options": [
+        {"id": "a", "text": "Use a model with a very large context window and keep chatting"},
+        {"id": "b", "text": "Write a small training record to storage and load it next session"},
+        {"id": "c", "text": "Ask the model to remember the training status for later chats"},
+        {"id": "d", "text": "Retrieve the status from the printer manual with a search tool"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A 60-page laser cutter manual is retrieved by search for each question. An answer comes back wrong because the right section exists but was not among the three chunks returned. What does this show about retrieval?",
+      "options": [
+        {"id": "a", "text": "The model read the whole manual but misread the right section"},
+        {"id": "b", "text": "The model needs a larger window so it can hold the manual"},
+        {"id": "c", "text": "The model answers only from chunks, so search quality limits it"},
+        {"id": "d", "text": "The model forgot the section because earlier chats were too long"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your teammate wants the assistant to save every full chat transcript and load all of a student's past transcripts at the start of each session. In one or two sentences, give one reason this is a poor design."
+    }
+  ]
+}

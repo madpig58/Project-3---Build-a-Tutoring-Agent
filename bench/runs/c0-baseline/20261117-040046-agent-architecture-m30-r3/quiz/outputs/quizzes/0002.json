@@ -1,0 +1,68 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which question best tells you whether a system is a workflow or an agent?",
+      "options": [
+        {"id": "a", "text": "Does it call the language model more than once per request?"},
+        {"id": "b", "text": "Does the program's code or the model choose each next step?"},
+        {"id": "c", "text": "Does it use tools such as a calendar lookup or a search?"},
+        {"id": "d", "text": "Does it use a prompt written by hand for each of its steps?"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A script handles every booking request in the same three steps: (1) the model pulls the machine and date out of the student's message, (2) the code calls check_calendar, (3) the model writes a reply from the result. How should you describe this system?",
+      "options": [
+        {"id": "a", "text": "An agent, because the model is called twice for one request"},
+        {"id": "b", "text": "An agent, because it uses a tool to look something up"},
+        {"id": "c", "text": "A workflow, because the code fixes the order of the steps"},
+        {"id": "d", "text": "A workflow, because the model never sees the tool's result"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Booking a machine always takes the same steps in the same order: check the student's training record, check that the slot is free, then create the booking. Your sponsor's model budget is small. Which design is the better choice for this part of the assistant?",
+      "options": [
+        {"id": "a", "text": "One agent with all three tools, so it can handle surprises"},
+        {"id": "b", "text": "One agent on a larger model, so it never skips a step"},
+        {"id": "c", "text": "Three agents, one per step, so that each stays focused"},
+        {"id": "d", "text": "A fixed workflow, because the steps and order are known"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "For a booking request, a fixed workflow makes 2 model calls, while an agent doing the same job averages 6 model calls. Assume every model call costs $0.004. How many more dollars does the agent version cost than the workflow version over 500 requests?",
+      "unit": "dollars"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "The makerspace assistant has two jobs. Job A is booking, with known steps in a known order. Job B is answering manual questions that may need an unknown number of lookups across several manuals, depending on what each lookup turns up. Which split of the design fits best?",
+      "options": [
+        {"id": "a", "text": "Job A as a fixed workflow, and Job B as an agent"},
+        {"id": "b", "text": "Job A as an agent, and Job B as a fixed workflow"},
+        {"id": "c", "text": "Both jobs as fixed workflows, to keep the cost down"},
+        {"id": "d", "text": "Both jobs as one agent, to keep the design simple"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A fixed workflow runs the same steps in the same order every time. Name one property of the assistant that gets harder to guarantee when you let the model choose the steps instead (one or two words)."
+    }
+  ]
+}

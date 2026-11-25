@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chats with your makerspace assistant on Monday and the session ends. On Tuesday they start a new session with the same assistant, built on a model API with no memory feature switched on. What does the model see about Monday?",
+      "options": [
+        {"id": "a", "text": "A short summary that the API writes and keeps for every user"},
+        {"id": "b", "text": "Only what your program saved and put into the new request"},
+        {"id": "c", "text": "The full Monday conversation, because the model learned from it"},
+        {"id": "d", "text": "Nothing yet, but it recalls Monday after a few Tuesday messages"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your agent's system prompt and tool definitions take 2,000 tokens. The question takes 100 tokens. The agent makes two model calls: the first requests a tool, and a 500-token tool result is then added. Ignore the model's own output tokens. How many input tokens are sent across both calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your sponsor offers a model with a context window ten times larger. A teammate proposes loading all 40 machine manuals into every request, so no search is needed. Which is the strongest objection?",
+      "options": [
+        {"id": "a", "text": "Every call would pay for all manual tokens, and recall drops as context fills"},
+        {"id": "b", "text": "Larger windows are only available to models that cannot call any tools"},
+        {"id": "c", "text": "The model would forget the manuals as soon as a single request finished"},
+        {"id": "d", "text": "Manuals cannot be placed in context, since only user messages are allowed"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your memory tool is client-side. In one sentence, who actually reads and writes the memory files when the model asks to create or view one?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Give one fact from the makerspace assistant that belongs in saved notes rather than in retrieval from the manuals, and say in a phrase why."
+    }
+  ]
+}

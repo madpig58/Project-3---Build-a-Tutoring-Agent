@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context, notes or retrieval?</title>
+  <style>
+    body { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Charter, Georgia, serif; line-height: 1.55; background: #fffdf8; color: #1f1d1a; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 1.8rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid #e4dfd4; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } }
+  </style>
+</head>
+<body>
+  <h1>Cheat sheet: context, notes or retrieval?</h1>
+  <p>From <a href="../lessons/0001-context-and-memory.html">lesson 1</a>. Objective O3.</p>
+  <table>
+    <thead><tr><th>Place</th><th>Lives</th><th>Cost</th><th>Use for</th></tr></thead>
+    <tbody>
+      <tr><td>Context</td><td>One run</td><td>Every token, every call</td><td>Rules, tools, the conversation</td></tr>
+      <tr><td>Notes</td><td>Across sessions</td><td>Only when loaded</td><td>Small facts about a user</td></tr>
+      <tr><td>Retrieval</td><td>Outside, searched</td><td>Only the chunks returned</td><td>Long manuals</td></tr>
+    </tbody>
+  </table>
+  <h2>Rules of thumb</h2>
+  <ul>
+    <li>Calls are stateless: the program re-sends the history, so a tool result is re-read on every later call.</li>
+    <li>Run input cost is the sum of every call's input, not the last one's.</li>
+    <li>More context is not better: recall degrades (context rot). Clear old tool results; compact by summary.</li>
+    <li>Rules that must always hold go in the system prompt, not in a summary or a search.</li>
+    <li>If all manuals fit in about 200,000 tokens (about 500 pages), pasting them is the simplest design.</li>
+    <li>Search by meaning plus search by exact words covers both questions and codes.</li>
+  </ul>
+</body>
+</html>

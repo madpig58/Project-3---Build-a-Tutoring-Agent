@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "In the makerspace assistant's loop, the model asks for check_calendar in call 1. In call 2 it uses the calendar result to write its answer. How does call 2 have the result?",
+      "options": [
+        {"id": "a", "text": "The model kept the result in its own memory after call 1"},
+        {"id": "b", "text": "The API stores the model's state and resumes it in call 2"},
+        {"id": "c", "text": "The program put the request and result into call 2's input"},
+        {"id": "d", "text": "The calendar tool sends the result straight to the model"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your assistant's system prompt, tool definitions and the student's question total 2,000 tokens. In call 1 the model writes a 50-token tool request. The tool result is 500 tokens. Call 2 writes the final answer. Counting only input tokens read by the model, how many tokens are read across the two calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student who finished laser cutter training last month returns and asks to book it. Which design lets the assistant know about the training?",
+      "options": [
+        {"id": "a", "text": "Use a model with a huge window so last month's chat is still there"},
+        {"id": "b", "text": "Save a training record and load that student's record with a tool"},
+        {"id": "c", "text": "Ask the model to remember the training once the chat is over"},
+        {"id": "d", "text": "Search the machine manuals for the student's name and training"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The assistant answers a question using retrieval over a 300-page laser cutter manual. Besides its prompt and the conversation, which part of the manual did the model read for that answer?",
+      "options": [
+        {"id": "a", "text": "Only the few chunks the search returned for the question"},
+        {"id": "b", "text": "All 300 pages, from which it picked the best page"},
+        {"id": "c", "text": "Only the page numbers, which it then looked up itself"},
+        {"id": "d", "text": "A copy of the manual it learned from during training"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A long assistant run has filled its context with old tool results. In one or two sentences, name one way to shrink the context, and say why simply switching to a model with a bigger window would not be the better fix."
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents: who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A game NPC is given a goal and three tools: move, talk and trade. In each run the number and order of its actions differ, and no one wrote that order down in code; the NPC works it out from each result. Is this system a workflow or an agent? Answer with one word."
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A teammate's game-dialogue system works like this: for every player message, the code always calls the model to classify the player's mood, then always looks up the character's backstory with a tool, then always calls the model to write the reply. The teammate says, \"It uses a tool and two model calls, so it is an agent.\" Which statement is correct?",
+      "options": [
+        {"id": "a", "text": "Right: it calls a tool and the model twice, and that mix is what makes an agent"},
+        {"id": "b", "text": "Right: it looks up a backstory before replying, and a lookup step makes an agent"},
+        {"id": "c", "text": "Wrong: its steps run in the same order for any player message, so it is a workflow"},
+        {"id": "d", "text": "Wrong: it calls the model more than once, and a workflow calls a model at most once"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "For a booking request, a fixed workflow always makes 2 model calls, while an agent version averages 5 model calls. Assume every model call costs $0.004, and the assistant gets 500 booking requests a day. How much more does the agent version cost per day than the workflow version? Give the difference, in dollars per day.",
+      "unit": "dollars per day"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which one of these tasks is the best fit for an agent rather than a fixed workflow, judged by whether the steps can be written down in advance?",
+      "options": [
+        {"id": "a", "text": "Turning each uploaded score file into a leaderboard: parse, check, then save"},
+        {"id": "b", "text": "Finding why a test fails in a game codebase: read the error, then investigate"},
+        {"id": "c", "text": "Sending each player a weekly summary: fetch stats, write text, then email it"},
+        {"id": "d", "text": "Answering each support ticket: look up the order, draft a reply, then send it"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your makerspace assistant handles three kinds of request. (1) A manual question: always search the manuals, then answer. (2) A booking: always check the calendar, then book, then confirm. (3) Project help, such as \"Which machine and what time suit my project?\", where the number of lookups varies. Which design is best for a small model budget while still handling all three?",
+      "options": [
+        {"id": "a", "text": "Run all three kinds of request as agents, with one design for every request"},
+        {"id": "b", "text": "Run all three kinds of request as fixed workflows, with one design for every request"},
+        {"id": "c", "text": "Run manual questions as an agent, and run bookings and project help as workflows"},
+        {"id": "d", "text": "Run manual questions and bookings as workflows, and run project help as an agent"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your game-server assistant is built as an agent. Logs show that in about 1 request in 20 it calls save_state without calling validate_move first, which corrupts a player's save. The correct order never changes: validate, then save. Which change best guarantees the validation happens on every request?",
+      "options": [
+        {"id": "a", "text": "Make the code always run validate_move before the save step, as a fixed workflow"},
+        {"id": "b", "text": "Add a line to the system prompt saying to always validate the move before saving"},
+        {"id": "c", "text": "Switch to a larger model, so that it is less likely to skip the validation step"},
+        {"id": "d", "text": "Raise the step limit, so that the agent has more steps in which to validate the move"}
+      ]
+    }
+  ]
+}

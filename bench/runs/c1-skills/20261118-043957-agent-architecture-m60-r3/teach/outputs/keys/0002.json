@@ -1,0 +1,43 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The context window holds the system prompt, the tool definitions and the messages the program sends on that call. The model keeps nothing from earlier calls or sessions on its own (a, d, shown by M7), and databases behind tools enter the window only as the results the tools return (c).",
+      "distractors": {"a": "M7", "c": "M7", "d": "M7"}
+    },
+    {
+      "id": "q2",
+      "answer": 3900,
+      "tolerance": 0,
+      "rationale": "The program re-sends everything each call. Call 1: 800 + 100 = 900. Call 2: 900 + 400 = 1300. Call 3: 1300 + 400 = 1700. Total 900 + 1300 + 1700 = 3900. Answering 1700 counts only the last call, and 1800 counts only new content once, which shows the idea that the model remembers earlier calls (M7)."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "Retrieval puts only the relevant chunks in the window, so the model reads little text per call and can find the answer easily. Pasting the whole manual (a) costs 40,000 tokens on every call and can bury the relevant line (M8). Training on the manual is out of scope and is not how the assistant would be kept current (b). A single summary (d) is paid for on every call and will drop the specific detail a student asks about.",
+      "distractors": {"a": "M8"}
+    },
+    {
+      "id": "q4",
+      "answer": "Because the program re-sends it as input on every later model call, so it is paid for once per call after it arrives.",
+      "accepted": [
+        "It is re-sent with every later call, so it is billed repeatedly.",
+        "It stays in the messages list, so every later call includes it and pays for it again.",
+        "Because the whole context is re-sent each call, an early result is paid for in more calls."
+      ],
+      "rationale": "Full credit needs the idea that the context is re-sent on each call, so an earlier result is paid for in more calls. Saying only that it is a big result is incomplete. Saying the model pays once because it remembers it shows M7."
+    },
+    {
+      "id": "q5",
+      "answer": "The chunk has lost its context, so it does not say which machine or setting it is about; add the manual title and section heading to the front of each chunk.",
+      "accepted": [
+        "The chunk is missing context about where it came from; prefix each chunk with its manual and section.",
+        "It was cut out of its surroundings, so it stands alone without a subject; add a short description of the machine and section before it.",
+        "The chunk has no context or source, so label every chunk with the machine and section it comes from."
+      ],
+      "rationale": "Full credit names the problem (the chunk lost the context that said what it is about) and a fix (add the manual and section title, or a short explanatory line, to each chunk; larger chunks cut on section boundaries is also reasonable). Naming only the problem or only a fix is partial. Blaming the model or asking for a bigger model misses that the model can only use the text it was given."
+    }
+  ]
+}

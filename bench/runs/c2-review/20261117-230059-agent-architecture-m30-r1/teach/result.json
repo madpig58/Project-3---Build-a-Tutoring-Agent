@@ -1,0 +1,126 @@
+{
+  "duration_api_ms": 406513,
+  "stop_reason": "end_turn",
+  "session_id": "945b5c6d-ff9c-4858-98a8-eb5a1ffabc17",
+  "total_cost_usd": 1.3223287,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 26292,
+    "cache_read_input_tokens": 426623,
+    "output_tokens": 24781,
+    "output_tokens_details": {
+      "thinking_tokens": 1318
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 26292,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 594,
+        "cache_read_input_tokens": 118398,
+        "cache_creation_input_tokens": 3951,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3951
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 56,
+      "outputTokens": 58075,
+      "cacheReadInputTokens": 1373557,
+      "cacheCreationInputTokens": 160132,
+      "webSearchRequests": 0,
+      "costUSD": 1.2799626999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 6039,
+      "cacheCreationEphemeral5mInputTokens": 52522,
+      "cacheCreationEphemeral1hInputTokens": 107610,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 73325,
+      "outputTokens": 10067,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 3,
+      "costUSD": 0.042365999999999994,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 5571,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwlavlf3-b984bad1"
+  },
+  "subagent_stats": {
+    "spawned": 2,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 2
+    },
+    "started_in_background": 2,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 2,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "lesson-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 10,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The 30-minute lesson on O3 is written: `lessons/0001-context-and-memory.html`. I didn't count its words with a tool, so the length is only my section-by-section estimate (about 4,500 to 5,000 words, against a 4,500-word target).\n\nIt covers:\n- **Context window:** what is on the model's \"sheet\" on each call.\n- **Between steps:** each call is stateless, so the program re-sends the history and big tool results get paid for again on every later call.\n- **When it gets too full:** context rot, clearing old tool results, and compaction.\n- **Between sessions:** notes saved outside the window, using the student training record as the example.\n- **Retrieval:** chunks, searching by meaning and by exact words, and how that compares with pasting a whole manual.\n- **Putting it together:** a table for deciding whether each item goes in context, notes or retrieval. It ends with worked token-count practice.\n\nBy the end, you should be able to sort each item in your makerspace assistant into one of those three places. The token counts are illustrative, not measured.\n\nThe `lesson-reviewer` ran two passes. The first returned REVISE, and I fixed an invalid-history scenario, a token-count error and an overloaded retrieval section. The second returned CLEAN.\n\nA five-item quiz is ready as quiz 0002. Ask me for it whenever you like. I also added a one-page cheat sheet (`cheatsheets/context-and-memory.html`), updated `RESOURCES.md` and `NOTES.md`, and wrote `review-records/0001-lesson.md`.\n\nAsk me anything about the lesson.\n\nOne question for you: is the makerspace's whole set of manuals more or less than about 500 pages? The lesson says to paste them into the prompt if they fit, so that answer changes whether you need retrieval at all.",
+  "ttft_ms": 2640,
+  "type": "result",
+  "duration_ms": 132256,
+  "uuid": "21d16a05-0720-4197-80f3-c35e84d7b97d",
+  "ttft_stream_ms": 1706,
+  "time_to_request_ms": 26,
+  "first_content_frame_ms": 1706,
+  "queued_turn_count": 0,
+  "result_index": 2,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-28T13:15:33.320Z"
+}

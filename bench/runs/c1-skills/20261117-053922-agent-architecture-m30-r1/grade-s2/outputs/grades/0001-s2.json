@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: what makes it an agent is the loop, where the model picks an action, the program runs it, and the result comes back for the next step. A longer prompt (a) is the tempting alternative, but it only changes what one call can do, not the structure of the system. Keep this as your test for the makerspace assistant: is there a loop with a stopping condition, or is it one call?"
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the model only outputs a structured request naming check_calendar with the machine and date as arguments. The program around it does the actual run. Options (a) and (d) are tempting because they picture the model acting directly, but it only writes text. This is the idea behind your next question about who runs the tools."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked 'No change; left to run longer, it will eventually fix the bug', which says more steps will get it there. That is tempting because a human who keeps trying often succeeds, but this agent gets the same failing test back each time, so step 41 will look just like step 1. The fix is a stopping condition, such as a step limit that ends the loop and reports back to a person (b). Next time, ask yourself: is each step adding new information, or repeating the last one?"
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your number is right: 4 calls, three tool requests plus one final answer. Your reason is off, though: the model does not run the tools itself. Each call, it only writes a request, and the program runs the tool and sends the result back in the next call, so 3 requests + 1 answer = 4. Fix it by counting inputs the model receives: the question plus three tool results gives four calls."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the result goes back in as the model's next input, and the reason you gave is the key one: so the model can decide its next step. The common slip is to say the program shows the result to the user, but the model has not seen the result until it is sent back. Your group-chat comparison works, and it also shows that each step is a separate model call."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You are right that the model never sees the code and picks from what it is given, and the name is part of that. But the name alone is not enough: the model reads the whole tool description, meaning the name, what the tool does and the parameters it takes. A name can mislead, for example a tool called check_calendar that also books slots. Next time, name all three parts: name, purpose, parameters."
+    }
+  ],
+  "summary": "You have the agent loop down: you recognise it, you know the model outputs requests rather than running tools, and you know results go back as the next input. The most important thing to work on is stopping conditions: you picked 'run longer' for the stuck agent (M6), and an agent that repeats itself needs a step limit. Your q4 reasoning also slipped into saying the model runs the tools (M4), though your q2 answer shows you know better. Next step: in your own words, trace the laser cutter request, marking which steps the model does and which the program does, then add where a step limit would stop it. Then reread the tool descriptions part of the lesson for q6."
+}

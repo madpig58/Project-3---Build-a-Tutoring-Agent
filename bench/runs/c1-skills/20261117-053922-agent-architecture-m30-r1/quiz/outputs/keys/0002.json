@@ -1,0 +1,45 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The difference is who owns the control flow. In (c) the model chooses which tool to call and when to stop, so it is an agent. In (a), (b) and (d) the code fixes the sequence; the model only does a job inside a step (writing, labeling or captioning), and in (b) the code, not the model, decides what happens after the label. Picking (b) shows the belief that any system that calls a model, or lets its output pick a branch, is an agent.",
+      "distractors": {"a": "M8", "b": "M8", "d": "M8"}
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "When the stages are known and identical for every line, the code can run them in order, and the model is called only where it is needed (one call per line). That gives the lowest cost and predictable behavior. An agent (a) pays for extra model calls to decide steps that are already decided; a step limit (c) caps cost but still lets the model choose, and may stop before the work is done; a prompt that lists the stages (d) asks the model to behave like a workflow without guaranteeing it, which shows M9. Choosing (a) shows M7, that more flexibility is always better.",
+      "distractors": {"a": "M7", "c": "M7", "d": "M9"}
+    },
+    {
+      "id": "q3",
+      "answer": 16,
+      "tolerance": 0.5,
+      "rationale": "Extra calls per request = 5 - 3 = 2 calls. Extra cost per request = 2 calls x $0.02 per call = $0.04. Extra cost per day = $0.04 per request x 400 requests per day = $16 per day. The agent's flexibility is paid for in extra model calls on every request, which matters when the steps are fixed anyway. An answer of 8 is the cost of only one extra call per request, and 40 is the agent's whole daily cost rather than the extra over the workflow."
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "An agent pays off where the steps cannot be listed in advance: in (a), what to look up next depends on what the previous lookup returned, and the number of lookups varies. The booking (b), reminder (c) and training check (d) each have the same steps every time, so code can run them as a fixed workflow more cheaply and predictably. Choosing (b) shows the belief that using several tools makes a task an agent job (M8); choosing (c) or (d) shows the belief that an agent is the better choice whenever it is available (M7).",
+      "distractors": {"b": "M8", "c": "M7", "d": "M7"}
+    },
+    {
+      "id": "q5",
+      "answer": "A workflow: the program's code (the if/elif) owns the control flow, and the model only labels the message.",
+      "accepted": [
+        "Workflow; the code decides which routine runs and the model only classifies the message.",
+        "It is a workflow because the program, not the model, chooses the next step.",
+        "A workflow, the code owns the control flow."
+      ],
+      "rationale": "Full credit needs both parts: it is a workflow, and the code (the program's if/elif) owns the control flow. The model's one-word output is only an input to a branch the programmer wrote in advance, the routines are fixed, and the program ends after one routine, so the model does not choose steps or when to stop. Answering that it is an agent because a model picks the branch shows M8. Saying workflow without saying who owns the control flow is partial."
+    },
+    {
+      "id": "q6",
+      "answer": "d",
+      "rationale": "The steps never change, so code can run all three in order every time: the window check can no longer be skipped, and the model is called only where language is needed, which lowers cost. A larger model (a) or a stronger prompt (b) makes skipping less likely but cannot guarantee it, which shows M9. Raising the step limit (c) lets an agent run longer and cost more without making it check the window.",
+      "distractors": {"a": "M9", "b": "M9", "c": "M7"}
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "A new session starts with an empty message list, and the model keeps nothing between requests, so only something the program saved and loaded can carry over. Options a and d show M1 (the model remembers by itself); option b shows M2 (the window is the issue, when it is simply separate per session).",
+      "distractors": {"a": "M1", "b": "M2", "d": "M1"}
+    },
+    {
+      "id": "q2",
+      "answer": 8650,
+      "tolerance": 0,
+      "rationale": "Call 1 reads 2,000. Call 2 reads 2,000 + 50 + 500 = 2,550. Call 3 reads 2,550 + 50 + 1,500 = 4,100. Total 2,000 + 2,550 + 4,100 = 8,650. A typical wrong answer of 4,100 (only the last call) or 4,000 (new text only) shows the history is not seen as re-read at every call (M1)."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Retrieval puts only the few relevant passages in the window, so cost and context rot stay low. Option a is paid at every call and shows M2 (more context is better); option c confuses training with memory and is out of scope for this team (M3); option d loses the exact details a question needs.",
+      "distractors": {"a": "M2", "c": "M3"}
+    },
+    {
+      "id": "q4",
+      "answer": "compaction",
+      "accepted": ["context compaction", "compacting", "compact", "conversation compaction", "compaction of the context"],
+      "rationale": "Compaction summarizes the conversation near the window limit and restarts with the summary."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "The memory tool is client-side: the model only requests a file operation and the application runs it against storage it controls. Option a and option c treat storage as inside the model or the provider (M3); option b treats a conversation as changing the model's learned patterns (M3).",
+      "distractors": {"a": "M3", "b": "M3", "c": "M3"}
+    }
+  ]
+}

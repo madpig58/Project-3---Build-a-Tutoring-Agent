@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "On Tuesday a student told your makerspace assistant in chat that they finished band saw training. On Monday they start a new chat and ask, \"Can I book the band saw?\" Your program saved nothing after Tuesday's chat. What does the model have to go on?",
+      "options": [
+        {"id": "a", "text": "Tuesday's chat, which the model keeps until the student closes it"},
+        {"id": "b", "text": "A short summary the model wrote itself at the end of Tuesday's chat"},
+        {"id": "c", "text": "Only Monday's context, which holds no sign of the earlier training"},
+        {"id": "d", "text": "Tuesday's chat, which the model retrieves from the booking calendar"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your assistant answers one request in 3 model calls. The context holds 1,000 tokens on the first call, and each later call adds 500 tokens, because the program resends everything. How many tokens does the model read in total across the 3 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A teammate proposes pasting all 12 machine manuals (about 300 pages) into the system prompt, because the model's context window is big enough to hold them. What is the best objection?",
+      "options": [
+        {"id": "a", "text": "Every call would re-read all 300 pages, costing more and weakening recall"},
+        {"id": "b", "text": "The model would forget the manuals as soon as the first answer ends"},
+        {"id": "c", "text": "A system prompt can only hold instructions and cannot hold any manuals"},
+        {"id": "d", "text": "The manuals would then be saved automatically for the next session"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences, what must your program do so that on Monday the assistant knows what a student said on Tuesday?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant told a student the wrong blade speed, quoting a passage from the wrong machine's manual. What is the best first thing to check?",
+      "options": [
+        {"id": "a", "text": "Whether a model with a larger context window would avoid the error"},
+        {"id": "b", "text": "Whether a stricter system prompt would make the model more careful"},
+        {"id": "c", "text": "Whether the booking calendar tool returned the correct machine's data"},
+        {"id": "d", "text": "Whether search returned the right manual page for that question"}
+      ]
+    }
+  ]
+}

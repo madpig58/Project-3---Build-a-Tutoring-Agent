@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 40rem; margin: 0 auto; padding: 2rem 1rem; font-family: Georgia, serif; line-height: 1.5; background: #fffdf8; color: #1f1d1a; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.5rem; }
+    table { border-collapse: collapse; width: 100%; } td, th { border-bottom: 1px solid #ddd; padding: 0.3rem; text-align: left; vertical-align: top; }
+    code { background: #f3efe6; padding: 0 0.2em; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } code { background: #23211e; } td, th { border-color: #36332e; } }
+  </style>
+</head>
+<body>
+<h1>Context and memory in an agent</h1>
+<p>From <a href="../lessons/0001-context-and-memory-in-an-agent.html">lesson 1</a>.</p>
+<h2>Key facts</h2>
+<ul>
+  <li>The model sees only the context of one call, and keeps nothing between calls.</li>
+  <li>Your program keeps the message list and re-sends all of it every call.</li>
+  <li>Input tokens for a request = the sum of every call's whole context.</li>
+  <li>Nothing carries across sessions unless you save it and load it.</li>
+</ul>
+<h2>Where information lives</h2>
+<table>
+  <tr><th>Layer</th><th>Holds</th><th>Reaches the model</th></tr>
+  <tr><td>Context</td><td>System prompt, tools, chat, tool results</td><td>Is the input</td></tr>
+  <tr><td>Notes</td><td>Small facts the assistant writes</td><td>Loaded at start or by a tool</td></tr>
+  <tr><td>Retrieval</td><td>Long documents by others</td><td>Search tool returns top chunks</td></tr>
+</table>
+<h2>Cost check</h2>
+<p>Call n input = call n-1 input + model request + tool result. Total = sum over calls.</p>
+<h2>Shrink the context</h2>
+<ul><li>Clear old tool results (leave a stub).</li><li>Compact: summarize decisions and open items.</li><li>Return chunks, not pages.</li></ul>
+<h2>Do not save</h2>
+<p>Fast-changing facts such as bookings: read them live from the tool.</p>
+</body>
+</html>

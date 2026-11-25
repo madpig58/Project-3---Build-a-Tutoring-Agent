@@ -1,0 +1,174 @@
+{
+  "duration_api_ms": 320936,
+  "stop_reason": "end_turn",
+  "session_id": "bf6ae7a8-cbad-4975-988e-e1ae122653f2",
+  "total_cost_usd": 0.8707935,
+  "usage": {
+    "input_tokens": 32,
+    "cache_creation_input_tokens": 84238,
+    "cache_read_input_tokens": 932573,
+    "output_tokens": 39972,
+    "output_tokens_details": {
+      "thinking_tokens": 4362
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 84238,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 717,
+        "cache_read_input_tokens": 92556,
+        "cache_creation_input_tokens": 6421,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 6421
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 32,
+      "outputTokens": 39972,
+      "cacheReadInputTokens": 932573,
+      "cacheCreationInputTokens": 84238,
+      "webSearchRequests": 0,
+      "costUSD": 0.8299932999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 4362,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 84238,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 64947,
+      "outputTokens": 8611,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 3,
+      "costUSD": 0.0408002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3955,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01M9vDXvH4kSJoSDkCkpj34k",
+      "tool_input": {
+        "command": "python3 -c \"\nimport re\nh=open('lessons/0001-context-and-memory-in-an-agent.html',encoding='utf8').read()\nh=re.sub(r'<(script|style)\\b.*?</\\1>','',h,flags=re.S)\nt=re.sub(r'<[^>]+>',' ',h)\nprint(len(t.split()))\n\""
+      }
+    },
+    {
+      "tool_name": "PowerShell",
+      "tool_use_id": "toolu_011xd3TwgoQPoBwnkJRfVGfE",
+      "tool_input": {
+        "command": "$h = Get-Content -Raw -Encoding UTF8 \"lessons\\0001-context-and-memory-in-an-agent.html\"; $h = [regex]::Replace($h,'(?s)<(script|style)\\b.*?</\\1>',''); $t = [regex]::Replace($h,'<[^>]+>',' '); ($t -split '\\s+' | Where-Object { $_ }).Count"
+      }
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01CgjscdgivEFkpeJyvJLrYj",
+      "tool_input": {
+        "command": "sed -e '/<style>/,/<\\/style>/d' -e '/<script>/,/<\\/script>/d' -e 's/<[^>]*>/ /g' lessons/0001-context-and-memory-in-an-agent.html | wc -w"
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 31,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I wrote the 60-minute lesson on O3, plus a quiz and a cheat sheet. I couldn't run a word count, because the shell commands I tried needed approval and I didn't have it. By my estimate the lesson is about 8,500 words, which fits the 60-minute target of 9,000. I didn't read the files back to check them.\n\n**Lesson:** `lessons/0001-context-and-memory-in-an-agent.html` covers what the model sees, what is kept between steps, and how to manage a growing context. It then covers memory between sessions, notes as memory, and retrieval from the manuals. It ends with a design exercise that sorts the assistant's information into the system prompt, saved notes, retrieval, or a check against the real record.\n\nIt follows your preferences: each idea starts from a game example, then the general idea, then a worked example with code and a practice check. Figures are inline SVG, and the cost examples use made-up token numbers that I labelled as such.\n\n**Sources:** the main one is Anthropic's [Effective context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents). The others are LangChain's [Memory docs](https://docs.langchain.com/oss/python/concepts/memory) and Anthropic's [Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval). All are recorded in `RESOURCES.md`.\n\n**Also written:**\n- **Quiz:** `quizzes/0002.json` and `keys/0002.json`, five items with fresh questions, not the lesson's practice questions. It is ready when you are.\n- **Cheat sheet:** `cheatsheets/0001-context-and-memory.html`.\n- **Notes:** I updated `NOTES.md`. I added two new misconception ids, M7 (a bigger window removes the need to manage context) and M8 (the model learns from conversations), and reused M3.\n\nYou can ask me anything about the lesson in the chat.\n\nQuiz 0001 is still ungraded. Do you want me to grade `s1` and `s2` next? Also, would you like a community to practise with? I left that out of the lesson because I haven't seen your preference.",
+  "ttft_ms": 2094,
+  "type": "result",
+  "duration_ms": 305773,
+  "uuid": "f3c7ac2b-ce82-4dfd-aef4-0250395d1503",
+  "ttft_stream_ms": 2093,
+  "time_to_request_ms": 123,
+  "first_content_frame_ms": 2093,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 32,
+      "outputTokens": 39972,
+      "cacheReadInputTokens": 932573,
+      "cacheCreationInputTokens": 84238,
+      "webSearchRequests": 0,
+      "costUSD": 0.8299932999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 4362,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 84238,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 64947,
+      "outputTokens": 8611,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 3,
+      "costUSD": 0.0408002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3955,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-28T13:15:33.320Z"
+}

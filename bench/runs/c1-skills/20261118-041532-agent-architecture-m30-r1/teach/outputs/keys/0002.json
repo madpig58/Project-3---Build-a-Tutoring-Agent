@@ -1,0 +1,36 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model keeps nothing between calls and the context is rebuilt per session, so unless the program saves the address and loads it next session, it is gone. Options a and d assume the model stores conversations itself, which is the misconception that memory is automatic (M3); b blames window size, but the window is per call and a new session starts empty regardless.",
+      "distractors": {"a": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 5100,
+      "tolerance": 0,
+      "rationale": "Call 1 sends 1,000. Call 2 sends 1,000 + 200 + 500 = 1,700. Call 3 sends 1,700 + 700 = 2,400. Total 1,000 + 1,700 + 2,400 = 5,100. Answering 2,400 counts only the last context and misses that each call resends the history."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Retrieval keeps the manual outside the window and brings in only the relevant chunks, which is cheaper and keeps the context short. Pasting everything (b) costs on every call and can reduce recall; one summary line (c) loses the detail needed; recalling from training (d) cannot give this manual's specifics."
+    },
+    {
+      "id": "q4",
+      "answer": "The agent writes its findings to notes stored outside the context window, so old context can be trimmed or reset and the notes read back later.",
+      "accepted": [
+        "Notes saved outside the context window let it clear or summarise the context and continue by reading them back.",
+        "It saves progress in a file or storage outside the window, then reads it back after the context is cleared."
+      ],
+      "rationale": "Full credit needs both parts: what notes do (keep progress so the context can be shortened or reset) and where they live (outside the context window, such as a file). Saying only that notes help, or keeping them inside the context, is partial or wrong."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "Availability changes fast, so a saved copy goes stale and should be checked live. Training status, a stated email and a nearest site are durable facts that suit a saved record."
+    }
+  ]
+}

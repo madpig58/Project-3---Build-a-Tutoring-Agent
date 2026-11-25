@@ -1,0 +1,39 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls; it can only use text in the current window. If the program does not re-send the earlier exchange, the model has no access to it. Options a, c and d assume hidden memory that does not exist, which is the misconception that agents remember automatically (M3).",
+      "distractors": {"a": "M3", "c": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 1700,
+      "tolerance": 0,
+      "rationale": "Call 2 sends 900 + 50 (request) + 350 (result) = 1300. Call 3 sends 1300 + 50 + 350 = 1700, since each call re-sends the full history. An answer of 350 or 400 treats only the newest text as sent."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Memory between sessions is storage the program writes and loads into the next window. A large window (a) does not survive the session ending, the model has no memory to ask (c), and a manual search (d) would not hold a student's personal status.",
+      "distractors": {"a": "M7", "c": "M3", "d": "M8"}
+    },
+    {
+      "id": "q4",
+      "answer": "c",
+      "rationale": "The model reads only the chunks the search returns, so the answer quality is capped by retrieval quality. The model never read the whole manual (a), a larger window would not bring the missing chunk in (b), and no earlier chats are involved (d).",
+      "distractors": {"a": "M8", "b": "M7"}
+    },
+    {
+      "id": "q5",
+      "answer": "Whole transcripts are large and would fill the context window, costing tokens on every call and hurting recall; save small facts instead.",
+      "accepted": [
+        "It would use up too many tokens and clutter the window, so save short facts rather than full chats.",
+        "Loading everything costs a lot on every call and makes the model less accurate; only the relevant facts should be loaded.",
+        "Too expensive and fills the context; save only key facts like training status."
+      ],
+      "rationale": "Any one valid reason is full credit: cost grows because everything loaded is re-sent at every step, the window has a limit, recall declines as it fills (context rot), and most transcript text is irrelevant. Saying it is poor only for privacy, with no link to context, is partial."
+    }
+  ]
+}

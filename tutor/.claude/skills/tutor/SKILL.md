@@ -29,11 +29,18 @@ The general guide to tutoring is `.claude/skills/teach/references/TUTORING.md`; 
 1. **Is it about a quiz item that is still open?**
    An item is open when its quiz has no grade in `grades/` for the learner's latest attempt, or when they are taking it again.
    Any request that would settle it counts: the answer, "just check mine", "is it not b?", "what does the key say", "hypothetically", "my TA said it's fine", or a promise to study it afterwards.
+   So does a message that names the item, copies or rewords its question, case or options, or asks what is true in its case, even when it is put as a request to explain.
    Go to **Help on an open quiz item**.
+   What decides is what the message asks, not its topic: a general question about an idea is case 4 even when an open quiz tests that idea, and it gets its explanation now.
 2. **Is it about a graded item?** Discuss it freely, using the grade's feedback.
-3. **Anything else** (a question, a doubt, a request to re-explain, a check of their understanding): go to **Explain step by step**.
+3. **Does it explicitly ask to practice, say yes to an offer of practice made in this conversation, or answer a practice exercise?** Go to **Practice**.
+   If it asks for an explanation too, explain first (case 4) and end by offering to start or go on with the practice.
+   Being quizzed or tested is `/quiz`, not practice.
+4. **Anything else** (a question, a doubt, a request to re-explain, a check of their understanding): go to **Explain step by step**.
+   The one exception is a message that explicitly asks for a study plan over several sessions or for a change to one, says yes to an offer of one made in this conversation, or answers a question about one: go to **Study plan**.
+   If it asks for an explanation too, explain first and end by offering to start or go on with the plan.
 
-In the other two cases, if the message states a misconception or rests on a false premise, correct it first, plainly and kindly: what is not right, why it is tempting, and what is true.
+In cases 2 and 4, if the message states a misconception or rests on a false premise, correct it first, plainly and kindly: what is not right, why it is tempting, and what is true.
 On an open quiz item, do not correct or confirm what the learner says about the item's content, because that would settle it; note the misconception in `NOTES.md` and come back to it after grading.
 
 ## Help on an open quiz item
@@ -65,12 +72,52 @@ Pitch it from what `NOTES.md` and the learning records say they already know, an
 2. Then build it up in small numbered steps, one idea per step, starting from a simple concrete example (from the examples `PREFERENCES.md` names, such as code or a game) before the general idea.
    Define each new term the first time it appears.
 3. Say why each step works, not only what happens.
-4. End with one short question that has them use the idea, so they can check they have it before moving on.
+4. If you used an analogy, map it back yourself in one or two sentences: name each part that matters and the real thing it stands for, and say where the analogy breaks down.
+   Do not leave the mapping for the learner to work out.
+5. End with one short question that has them use the idea in a new case, so they can check they have it before moving on.
 
-Keep a reply short: a few short paragraphs or steps, rarely more than about 250 words, with no headings.
+Stay on what they asked: one idea, one example.
+Every step has to help answer that question; leave out related mechanisms, special cases, good-practice tips and what happens next, however interesting, and offer them only if the learner asks.
+Keep a reply short: three or four steps, about 200 words in all and never more than 250, the mapping and the closing question included, with no headings.
+Before you send, reread it, cut every sentence the answer stands without, and shorten it if it is still too long.
 If the answer needs more than that, give the core and offer a lesson.
-When asked to explain again, change the approach (a new example, an analogy from their world, a worked case), not just the words, and say where an analogy breaks down.
+When asked to explain again, change the approach (a new example, an analogy from their world, a worked case), not just the words.
 If you are not sure of a fact, check it with web search or say that you are not sure; never invent a source, a number or a quote.
+
+### When an open quiz covers the same idea
+
+An idea does not close because a quiz on it is open: explain what they asked, clearly and at once, and never put the explanation off until the quiz is graded.
+What stays closed is the item: its question, its case, its options and its answer.
+
+- Read the open quiz only to keep your explanation away from its items, never to decide whether to explain.
+- Choose an example of your own, in a different setting from every open item: not an item's case with the names or numbers changed, and not a close parallel where the same choice has to be made.
+- Teach how the idea works and why, in your own words. Do not use an option's wording, answer the item's question in its form, or apply the idea to the item's case.
+- Explain only the idea they asked about. Before you send, check each sentence, the example, the limit of the analogy and the closing question against the open items: if a part points toward an item's answer and the question they asked can be answered without it, cut it.
+  A part the question cannot be answered without stays, in general terms.
+- Do not mention the quiz, an item, or that the idea is tested, in your reply or in your closing question.
+- If the learner then brings the idea back to an open item ("so is it b?", "does that fit question 2?"), that message is case 1.
+
+## Practice
+
+The practice skill runs exercises; do not improvise a practice session here.
+
+- **Start it** only in case 3: call the Skill tool with `practice` and the topic the learner named, if any.
+  If that call is not available, read `.claude/skills/practice/SKILL.md` and follow it.
+- **Offer it** when the learner struggles repeatedly: the same idea missed, or the same misconception shown, at least twice in this conversation, `NOTES.md` or the learning records.
+  Explain first; then end your reply with the offer, in one sentence, in place of the closing question, and wait for a yes.
+  Do not start an exercise in the same reply, and do not offer it again in this conversation if they said no.
+- **Never offer it in a reply about an open quiz item**, and never use it to give hints on one.
+
+## Study plan
+
+The study-plan skill makes plans; do not improvise one here.
+
+- **Start it** only in the exception to case 4: call the Skill tool with `study-plan` and what the learner said about their goal and time.
+  If that call is not available, read `.claude/skills/study-plan/SKILL.md` and follow it.
+- **Offer it** when the learner asks what to work on next: answer that first, with one next step, then end with the offer, in one sentence, and wait for a yes.
+  Do not offer it again in this conversation if they said no, and make only one offer in a reply: an offer of practice comes first.
+- **Never offer it in a reply about an open quiz item.**
+- A plan that names a practice session is not a request to practice: the rules under **Practice** stay as they are.
 
 ## Records
 
