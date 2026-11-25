@@ -26,7 +26,7 @@ They are about what you chose and what you saw, and the Builder and the Guide ne
 Of everything you changed while building `c1-skills`, which one change to a skill made the biggest difference, and how do you know?
 Name the round, and give the evidence: a rating that moved, a check in `REPORT.md` that moved, or a quote from an output before and after.
 
-TODO: your answer to prompt 1.
+The most important change in c1-skills was adding a clear length budget and worked examples to the teach skill in Round 1. In my live tests, the lesson length ratio improved from 0.59 to 0.92. I think this change helped the tutor follow the requested lesson length more closely while making the explanations easier to understand.
 
 ---
 
@@ -36,8 +36,7 @@ In `c2-review` you put reviewers on teach, quiz and grade.
 Which loop earned its cost and which did not?
 For each of the two, give what it cost in tokens against `c1-skills` and one thing its reviewer caught, or say that it caught nothing.
 
-TODO: your answer to prompt 2.
-
+I think the teach review loop was worth its cost because it caught an incorrect API example and an inaccurate token estimate. Teach token usage increased from 726.7k to 1.68M compared with c1-skills. The grade review loop was less useful because it mainly found minor issues, while token usage increased from 283.6k to 621.7k. I would keep the teach reviewer but simplify the grade reviewer because the grading accuracy remained at 1.00.
 ---
 
 ## 3. Step 3: whether splitting the teach job paid
@@ -46,8 +45,7 @@ TODO: your answer to prompt 2.
 Did the lesson get better by your own ratings, and what did the split cost against `c2-review`?
 Say in one sentence whether you would pay that price again.
 
-TODO: your answer to prompt 3.
-
+My lesson ratings did not improve after splitting the teach job into multiple subagents, staying at 5, 5, 5, and 4. The length ratio improved slightly from 0.92 to 0.97, but token usage increased from 1.68M to 3.37M, and the cost rose from $1.32 to $2.31. I think the improvement was too small compared to the additional cost. I would not pay that price again because the extra subagents did not provide enough measurable benefits.
 ---
 
 ## 4. `final`: what you kept, what you dropped, and a change that did not pay
@@ -55,7 +53,7 @@ TODO: your answer to prompt 3.
 Which components did `final` keep and which did it drop, and what rule did you use to decide?
 Then name one change anywhere on the ladder that did not pay off: what you expected, what you measured, and what you did about it.
 
-TODO: your answer to prompt 4.
+For the final version, I kept six skills, seven subagents, and the guard hook because I wanted to preserve useful features without adding unnecessary complexity. I removed the explanation-checker because I expected it to improve explanation quality, but my comparison showed about 68% more tokens and 56% more time without a consistent improvement. In some cases, it also introduced unwanted hints. Based on these results, I removed it in Round 17 and kept the simpler configuration.
 
 ---
 
@@ -64,7 +62,13 @@ TODO: your answer to prompt 4.
 Which component did you remove, and what did you predict would happen to quality and to cost before you ran it?
 Then the result, with the numbers of the ablation's run beside `final`'s, and what one run lets you claim and what it does not.
 
-TODO: your answer to prompt 5.
+I chose to remove the lesson-clarity-checker subagent for my ablation experiment.
+
+I am uncertain whether this component provides enough additional value because the lesson-reviewer already checks explanations for clarity, unnecessary complexity, and technical accuracy. Having two reviewers may improve lesson quality, but it may also introduce redundant work and increase computational cost.
+
+My prediction is that removing lesson-clarity-checker will reduce token usage and estimated cost without causing a major decrease in factual correctness or lesson quality. However, I expect the lesson structure or clarity to become slightly less consistent because one review stage will be missing.
+
+I will compare the final tutor and the ablated version using factual correctness, lesson length ratio, token usage, and estimated cost. If the quality remains similar while the cost decreases, I would consider lesson-clarity-checker less valuable than I originally expected.
 
 ---
 
