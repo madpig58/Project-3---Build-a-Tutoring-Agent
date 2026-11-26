@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: what makes an agent is the loop, where the model picks an action, it gets run, and the result comes back for the next choice. For example, a longer prompt still gives you one reply, while a loop can check the calendar and then decide what to do next."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the model only produces output, so using a tool means writing a request that names check_calendar and gives the machine and date. It can look as if the model opens the booking system itself, but it only hands over something like a Python dict with the tool name and arguments, and your program runs the function and sends the entries back."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked \"No change\", which says the agent will eventually fix the bug if it keeps running. Persistence is tempting, but 40 rounds of the same edit and failing test show it is stuck. Give your agent program a stopping condition (a rule that ends the loop), such as a step limit that halts at, say, 15 steps and reports what was tried so a person can step in."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your count of 4 is right: three calls that each request a tool, plus one that writes the answer. The part that's off is that the model \"can only run one tool itself\": it never runs tools, it only asks for one, and your program runs it and passes the result into the next call. When tracing a loop, label each step \"model\" or \"program\"."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: you gave both what happens (the result becomes part of the model's next input) and why (so the model can figure out what to do next). The model sees that result only because your program puts it into the next call."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You're right that the name is one clue. The model also uses the rest of the tool description your program gives it: what the tool does and its parameters (inputs such as machine and date). A name like check_calendar could mean machine bookings or staff shifts. For each tool you define, write a one-sentence purpose and list its inputs."
+    }
+  ],
+  "summary": "You have down what makes something an agent, how to count the model calls in a run, and that a tool's result goes back to the model for its next step. The most important thing to work on is stopping a loop that isn't getting anywhere (q3): your agent program needs a rule that ends it even if the model never succeeds. As a next step, write short Python-style pseudocode for the \"Is the laser cutter free tomorrow?\" loop, add a step limit, and show what the program reports when it reaches that limit."
+}

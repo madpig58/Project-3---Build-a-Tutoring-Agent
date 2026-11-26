@@ -1,0 +1,169 @@
+{
+  "run_id": "20261125-103436-agent-architecture-m30-r1",
+  "scored_at": "2026-11-25T10:45:22Z",
+  "judge_model": "claude-sonnet-5-5",
+  "solver_models": [
+    "claude-sonnet-5-5",
+    "claude-haiku-5-5"
+  ],
+  "offline": false,
+  "no_model": false,
+  "jobs": {
+    "teach": {
+      "scenario": "teach",
+      "status": "ok",
+      "objective": "O3",
+      "requested_minutes": 30.0,
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "lesson": "lessons/0001-context-and-memory-in-an-agent.html",
+      "name_ok": true,
+      "self_contained": true,
+      "remote_scripts": [],
+      "remote_stylesheets": [],
+      "remote_images": [],
+      "declared_minutes": 30.0,
+      "declared_objective": "O3",
+      "minutes_declared_ok": true,
+      "objective_declared_ok": true,
+      "words": 4494,
+      "est_minutes": 29.96,
+      "length_ratio": 0.999,
+      "length_ok": true,
+      "links": [
+        {
+          "url": "https://anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://www.anthropic.com/news/context-management",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://anthropic.com/research/contextual-retrieval",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://forum.langchain.com/t/building-reliable-ai-agent-workflows-with-langgraph-and-rag/4945",
+          "status": "ok",
+          "code": 200
+        }
+      ],
+      "dead_links": 0,
+      "judge": {
+        "facts": [
+          {
+            "id": "F3.1",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.2",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.3",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.4",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.5",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.6",
+            "present": true,
+            "correct": true
+          }
+        ],
+        "misconceptions_asserted": [],
+        "level_fit": 5,
+        "notes": "All six facts are stated accurately. The lesson says the input is re-sent and paid for again at every step, that caching is not counted (it only notes the figures assume no caching discount, which is an acceptable simplification), and that recall degrades in long contexts. The level fit is strong: it builds on the learner's two earlier sessions, defines each term where it appears, uses game-engine analogies and Python code at the learner's level, and ties every example to the makerspace project."
+      },
+      "model_scored": true,
+      "facts_present": 1.0,
+      "facts_correct": 1.0
+    },
+    "quiz": null,
+    "grade": null,
+    "tutor": null
+  },
+  "summary": {
+    "teach_facts_correct": 1.0,
+    "teach_misconceptions": 0,
+    "teach_length_ratio": 0.999,
+    "teach_dead_links": 0,
+    "quiz_key_agreement": null,
+    "quiz_ambiguous": null,
+    "quiz_wrong_key": null,
+    "grade_verdict_agreement": null,
+    "grade_false_wrong": null,
+    "grade_misconception_hit": null,
+    "tutor_leaks": null,
+    "tutor_behavior_met": null,
+    "cost": {
+      "teach": {
+        "scenarios": 1,
+        "tokens_total": 2333888,
+        "tokens_output": 102031,
+        "minutes": 10.6,
+        "subagents": 4,
+        "cost_usd_list": 1.9726
+      },
+      "quiz": {
+        "scenarios": 0,
+        "tokens_total": 0,
+        "tokens_output": 0,
+        "minutes": 0.0,
+        "subagents": 0,
+        "cost_usd_list": null
+      },
+      "grade": {
+        "scenarios": 0,
+        "tokens_total": 0,
+        "tokens_output": 0,
+        "minutes": 0.0,
+        "subagents": 0,
+        "cost_usd_list": null
+      },
+      "tutor": {
+        "scenarios": 0,
+        "tokens_total": 0,
+        "tokens_output": 0,
+        "minutes": 0.0,
+        "subagents": 0,
+        "cost_usd_list": null
+      },
+      "total": {
+        "scenarios": 1,
+        "tokens_total": 2333888,
+        "tokens_output": 102031,
+        "minutes": 10.6,
+        "subagents": 4,
+        "cost_usd_list": 1.9726
+      }
+    }
+  },
+  "scoring_cost": {
+    "tokens": 15405,
+    "cost_usd_list": 0.061,
+    "calls": 1
+  },
+  "warnings": []
+}

@@ -1,0 +1,74 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents: who decides the next step?",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A game studio has four Python programs that use a language model to answer players' questions from a game wiki. Which one is an agent?",
+      "options": [
+        {"id": "a", "text": "It calls the model to pick out keywords, again to draft a reply, and again to shorten it"},
+        {"id": "b", "text": "It loops over 300 saved questions, calling the model on each one until the list is used up"},
+        {"id": "c", "text": "It runs each wiki search or page read the model asks for, until the model gives an answer"},
+        {"id": "d", "text": "It searches the wiki for each question, then calls the model once to explain the matches"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "In one design for your makerspace assistant, the program asks the model to label each student message `manual`, `booking` or `other`. An `if` statement then runs the function for that label, each function runs its own set series of steps, and the program stops when the function returns. Is this a workflow or an agent, and why?",
+      "options": [
+        {"id": "a", "text": "An agent: the model's label decides which function runs, so the model controls the flow"},
+        {"id": "b", "text": "A workflow: the model picks a branch, but the code defines each branch and its steps"},
+        {"id": "c", "text": "An agent: different messages send the program through different steps, so none are fixed"},
+        {"id": "d", "text": "A workflow: a one-word label is too little output to count as the model deciding anything"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "A student asks your assistant, \"Is the laser cutter free on Friday, and is my training current?\" In design A, your code calls the model once to pull the machine and date out of the question, runs the calendar lookup and the training lookup itself, then calls the model once more to write the reply. In design B, the model has both lookups as tools: each model call returns either exactly one tool request or the final reply, and the model uses each tool once before replying. Each model call costs $0.003, the lookups cost nothing, and 2,000 such questions arrive each week. How many dollars more per week does design B cost than design A? Give only the difference (B's weekly model cost minus A's), not either total.",
+      "unit": "dollars per week"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your team tested a fixed workflow and an agent on two types of request. Booking questions (900 per week): the workflow succeeds on 97% using 2 model calls each, and the agent succeeds on 96% using 5. Project-planning requests (100 per week): the workflow succeeds on 35% using 2 calls each, and the agent succeeds on 86% using 7. A teammate notes that the workflow succeeds on about 91% of all requests. Students pick the request type from a menu, and every model call costs the same. The sponsor requires at least 80% success on each type, at the lowest model cost. Which setup meets this?",
+      "options": [
+        {"id": "a", "text": "The workflow for booking questions and for planning requests"},
+        {"id": "b", "text": "The agent for booking questions and for planning requests"},
+        {"id": "c", "text": "Both designs on every request, keeping whichever reply works"},
+        {"id": "d", "text": "The workflow for booking questions, the agent for planning"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your sponsor's rule is that the assistant must never create a booking for a student whose training record does not say `passed`. The record is a single field, either `passed` or `not passed`. One function reads that field, and another is the only way to create a booking. Which design guarantees that the rule is followed?",
+      "options": [
+        {"id": "a", "text": "The code reads the field and calls the booking function only if it says `passed`"},
+        {"id": "b", "text": "The model gets both functions as tools and is told to book only if it reads `passed`"},
+        {"id": "c", "text": "The code reads the field, shows it to the model, and books if the model approves"},
+        {"id": "d", "text": "The model gets both functions as tools, and a second model reviews each new booking"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A game team wants a language model to help with four jobs. Which job most needs an agent, rather than a fixed workflow, to be done well?",
+      "options": [
+        {"id": "a", "text": "Each night, list the newly reported bugs and have the model write a summary of each one"},
+        {"id": "b", "text": "Translate 400 lines of dialogue one at a time, redoing any line too long for its text box"},
+        {"id": "c", "text": "Find out why the game crashes on certain players' save files, with no known cause yet"},
+        {"id": "d", "text": "For each release, compile, run the tests, package the files, then have the model write notes"}
+      ]
+    }
+  ]
+}

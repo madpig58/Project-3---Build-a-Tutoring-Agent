@@ -1,0 +1,37 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "What separates an agent from a workflow is who owns the control flow, meaning who decides the next step. In Generator 1 the code fixes the order, while in Generator 2 the model picks the next action or stops after seeing each result, so only Generator 2 is an agent. The tempting answer that neither is an agent confuses running an action with choosing it: the program runs the actions in an agent too.",
+      "distractors": {"d": "M4"}
+    },
+    {
+      "id": "q2",
+      "answer": "workflow",
+      "accepted": ["a workflow", "fixed workflow", "a fixed workflow", "it is a workflow", "it's a workflow", "workflow."],
+      "rationale": "The script's code decides every step: test, send the error back, ask again, and stop on a pass or after 3 tries. The model only returns code and never chooses what happens next, so this is a workflow even though it loops and reacts to results. An answer of agent suggests that any loop with feedback makes a system an agent."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "A rule that must hold every time belongs in code that the model cannot skip. Because book_machine is the only way to book and the booking code verifies training before reserving, no choice by the model can produce an unchecked booking. A stronger prompt, a repeated reminder or a better model may make skipping rarer, but each still leaves the check up to the model, so none guarantees it."
+    },
+    {
+      "id": "q4",
+      "answer": "b",
+      "rationale": "Every request needs the same two known steps, so code can fix them in advance: Design X always makes 2 calls in the same order. It solved as many test requests as Design Y (190 of 200), so Y's freedom buys nothing here while adding calls and variation. The limit of 8 calls is tempting, but it only caps how long Y can run; the model still chooses the path and the number of calls up to that cap."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "Costs: workflow for both is 1000 x 1 cent = 10 dollars; agent for both is 1000 x 5 cents = 50 dollars; workflow for A with agent for B is 9 + 5 = 14 dollars; the reverse is 45 + 1 = 46 dollars. Only the workflow for both (873 + 20 = 893 solved) and the workflow for A with the agent for B (873 + 80 = 953 solved) fit 20 dollars, so the second of these wins. The agent for both is tempting because it solves the most (891 + 80 = 971), but it costs far more than the budget allows."
+    },
+    {
+      "id": "q6",
+      "answer": "a",
+      "rationale": "A fixed workflow works when the steps can be written down before the job starts. In tracing a new crash, what to read or test next depends on what the last clue showed, so the steps cannot be fixed in advance, which is where an agent helps. The other three jobs apply the same known steps to every input; filing bug reports involves a model's judgment, but the code still knows what happens after each type is chosen."
+    }
+  ]
+}

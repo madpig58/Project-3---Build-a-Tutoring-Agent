@@ -1,0 +1,51 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in your makerspace assistant",
+  "items": [
+    {
+      "id": "q1",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An assistant sends 500 tokens of standing instructions with every model call, plus the whole message history. A student asks three questions in one session. Each question is 100 tokens and each reply is 200 tokens. There are no tool calls, nothing is cleared or summarized, and each question takes one model call. How many input tokens are sent in total across the three calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A teammate says, \"Our model's context window is big enough for every machine manual, so let's send them all with every question.\" You pay for each input token. Which statement about this plan is true?",
+      "options": [
+        {"id": "a", "text": "The model will soon memorize the manuals permanently"},
+        {"id": "b", "text": "Every call costs more, and accuracy may suffer"},
+        {"id": "c", "text": "Only the student's typed question fills the window"},
+        {"id": "d", "text": "Manuals sent once stay available in later sessions"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O3",
+      "stem": "On Monday your program saved a student's training status to a note file. In a new session on Friday, the file is still there and correct, but the model knows nothing about the training. No tool for reading the file exists. In a few words, what did the program most likely fail to do?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant is about to summarize a long, unfinished chat and start a fresh context with the summary. The manuals and the booking calendar can be read again at any time. Which detail is most important for the summary to keep?",
+      "options": [
+        {"id": "a", "text": "The full calendar listing already checked twice"},
+        {"id": "b", "text": "The greeting exchanged when the chat began"},
+        {"id": "c", "text": "Every manual page the assistant has quoted"},
+        {"id": "d", "text": "The student still needs a Thursday booking"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A model's context window holds 8,000 tokens, and you must keep 1,000 of them free for the reply. The instructions, tool list, history and question together take 2,200 tokens. Retrieval returns manual chunks of 400 tokens each. What is the largest number of whole chunks you can add?",
+      "unit": "chunks"
+    }
+  ]
+}

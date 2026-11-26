@@ -1,0 +1,129 @@
+{
+  "duration_api_ms": 33655,
+  "stop_reason": "end_turn",
+  "session_id": "5040d809-3071-4ad8-ba07-01efadb25107",
+  "total_cost_usd": 0.177328,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 29953,
+    "cache_read_input_tokens": 152060,
+    "output_tokens": 4229,
+    "output_tokens_details": {
+      "thinking_tokens": 2464
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 29953,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 473,
+        "cache_read_input_tokens": 42283,
+        "cache_creation_input_tokens": 2692,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2692
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 4229,
+      "cacheReadInputTokens": 152060,
+      "cacheCreationInputTokens": 29953,
+      "webSearchRequests": 0,
+      "costUSD": 0.177328,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2464,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 29953,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_013tRaxZhyZr7GzDhejWEPnR",
+      "tool_input": {
+        "command": "cat FORMATS.md MISSION.md PREFERENCES.md NOTES.md; echo ---; ls -R learning-records lessons quizzes submissions grades cheatsheets assets; echo ---; for f in learning-records/*; do echo \"== $f\"; cat \"$f\"; done; cat .claude/skills/teach/references/TUTORING.md",
+        "description": "Read learner files and tutoring guide"
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 13,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Tool calling is how a model that can only write text gets things done: it **asks** for an action, and something else **carries it out**.\n\nPicture a friend coaching you through dinner over a voice call. They know a lot about cooking, but they can't see or touch your kitchen.\n\n1. Your friend says, \"Check how many eggs you have.\" They have to ask, because talking is all they can do from there.\n2. You open the fridge and count. Asking didn't check anything by itself; your action did.\n3. You say, \"Two.\" Now your friend can suggest a small omelette. They needed you to report back, because they only know what reaches them over the call.\n\nIn the real thing:\n\n- Your friend is the **model**.\n- You are the **program**, the ordinary software around the model.\n- Checking the fridge is a **tool**, an action the model is allowed to ask for.\n- \"Check how many eggs you have\" is the **tool call**, the model's written request.\n- \"Two\" is the **result**.\n\nSo when people say \"the model used a tool,\" it really means the model asked and the program did the work.\n\nWhere the analogy breaks: you could work out what a vague, mumbled request meant. A program only follows its rules, so the model's request has to be written in an exact format the program can read.\n\nYour turn: which would need a tool, writing a birthday poem or telling you whether it's raining outside your window right now? Why?",
+  "ttft_ms": 2011,
+  "type": "result",
+  "duration_ms": 37553,
+  "uuid": "bad18a22-9db7-4649-89c7-90d77bae54ba",
+  "ttft_stream_ms": 1106,
+  "time_to_request_ms": 167,
+  "first_content_frame_ms": 1106,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 4229,
+      "cacheReadInputTokens": 152060,
+      "cacheCreationInputTokens": 29953,
+      "webSearchRequests": 0,
+      "costUSD": 0.177328,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2464,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 29953,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-28T13:15:33.836Z"
+}

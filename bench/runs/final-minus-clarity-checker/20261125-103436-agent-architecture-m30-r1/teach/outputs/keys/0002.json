@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "Each call starts fresh and the transcript is thrown away when the session ends, so only something the program saved and loads back into the prompt can carry information to the next visit. Option c shows M11 (the window is memory), a shows M14 (the model learns), d shows M12 (the model remembers earlier steps by itself).",
+      "distractors": {"a": "M14", "c": "M11", "d": "M12"}
+    },
+    {
+      "id": "q2",
+      "answer": 5000,
+      "tolerance": 0,
+      "rationale": "500 x (1 + 2 + 3 + 4) = 500 x 10 = 5,000 input tokens. An answer of 2,000 counts only the final transcript, which ignores that each call re-sends everything (M12)."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "A chunk must carry enough context to make sense alone, so a short header naming the machine and section fixes it. A bigger window or loading everything does not repair a chunk that lacks meaning and costs more (M13); guessing relies on the model knowing the manual (M14).",
+      "distractors": {"a": "M13", "b": "M14", "d": "M13"}
+    },
+    {
+      "id": "q4",
+      "answer": "Your program writes it; the model only requests the operation, and the program runs it (and does checks like path and size).",
+      "accepted": [
+        "the program",
+        "your program writes it",
+        "the program writes the file because the model only requests it",
+        "the program, since the model only asks for the operation",
+        "program, the model only requests the write"
+      ],
+      "rationale": "The model only outputs a request for a memory operation; the application runs it, applying path checks and size caps. Answering that the model writes the file shows M14 or M12-style confusion about what the model can do on its own."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "A short note needed in nearly every session is cheap to load whole and is paid for at every step, so it should be tiny. Large or rarely needed text is retrieved on demand. Option a shows M13 (if it fits, load it).",
+      "distractors": {"a": "M13"}
+    }
+  ]
+}

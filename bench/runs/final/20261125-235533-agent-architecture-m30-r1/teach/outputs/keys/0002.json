@@ -1,0 +1,40 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model only knows the text it is given on each call. A system prompt line cannot store anything; with an empty list and nothing saved, last week's text is absent. Picking a, b or d shows the belief that the model or provider remembers chats by itself."
+    },
+    {
+      "id": "q2",
+      "answer": 3450,
+      "tolerance": 0,
+      "rationale": "Call 1 input is 800. Call 2 input is 800 + 50 + 400 = 1,250. Call 3 input is 1,250 + 50 + 100 = 1,400. Total 800 + 1,250 + 1,400 = 3,450. An answer of 1,400 counts only the last window, and 1,350 counts each piece once; both ignore that each call re-sends the history."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Facts that must outlast a session belong in a saved record the program reads when needed, one student at a time. A 600-name list in the system prompt is paid for on every call; weights do not change while chatting; the message list lives in the program and ends with the session."
+    },
+    {
+      "id": "q4",
+      "answer": "The whole manual would be re-sent and billed on every step, and relevant text in the middle of a long input is read less reliably.",
+      "accepted": [
+        "cost: the whole manual is re-sent and paid for at every step",
+        "it costs far more tokens on every call",
+        "the model is less accurate when the relevant text is buried in a long context",
+        "context rot: accuracy drops as the context grows",
+        "cheaper and more accurate",
+        "the manual would be billed again at every step",
+        "relevant text in the middle gets lost"
+      ],
+      "rationale": "Either reason is complete: the whole history, manual included, is re-sent and billed at every call, and accuracy falls when the relevant text is buried in a long context. An answer that the manual does not fit would be wrong here, since the stem says it fits."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "The memory tool is client-side: the model requests a file operation and the application runs it, so the file is an ordinary file on disk. Options a, b and c place the memory inside the model or the provider, the mix-up that memory is stored in the model."
+    }
+  ]
+}

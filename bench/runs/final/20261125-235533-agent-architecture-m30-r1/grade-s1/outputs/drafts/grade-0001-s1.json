@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: an agent is defined by the loop. The model picks an action, the action gets run, and the result comes back so the model can pick the next one. It's a lot like a game loop that reads the new state before the next move."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Choice (a) is wrong: the model can't open the booking system. It only takes text in and puts text out. Here it writes a request (option c), such as check_calendar(machine=\"laser cutter\", date=<tomorrow's date>). Your program then runs the function and sends the entries back. For each step in a trace, ask: \"Is this the model writing text, or the program running code?\""
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the agent keeps getting the same failure, so the program needs its own rule for ending the loop and reporting what happened. It works like a max-iteration guard on a while loop."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "1 is wrong: the model can't run tools. When it requests one, that call ends. Your program runs the tool, then calls the model again with the result. So: call 1 requests check_calendar, call 2 search_manuals, call 3 check_training_record, and call 4 writes the answer. That's 4 model calls. Next time, count one call for the question and one after each tool result."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You got the \"what\" right: the program sends the result back to the model. The \"why\" is missing. The program adds the result to the model's input and calls it again, so the model can choose its next step or write the final answer. When a question asks what and why, answer both halves."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "Your first sentence is right. The second is wrong: the model doesn't remember earlier sessions on its own. It works only from its training and its current input. Last week's tool choice is there only if your program saved it and added it to that input. When you expect \"memory\", ask: \"Which part of my program stores this and sends it back in?\""
+    }
+  ],
+  "summary": "You have the overall shape of an agent down: it runs in a loop, it needs a way to stop, and it picks tools from their descriptions. The main thing to work on is who does what (q2 and q4): the model only writes a tool request or an answer, while your program runs the tool and calls the model again. Also drop the idea that the model remembers earlier sessions by itself (q6). Next, trace the laser cutter request from q4 on paper, label every step \"model\" or \"program\", and count the model calls."
+}

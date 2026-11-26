@@ -1,0 +1,36 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "An agent is a system where the model decides, while it runs, what happens next. In c the model chooses each search or read and also when to stop, and the program only carries out its requests, so the model owns the control flow. In a, b and d the programmer's code fixes the steps in advance: several model calls (a), a loop over a list (b) or a tool run by the program (d) do not make an agent. Picking b shows the belief that any loop around a model is an agent."
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "What separates the two is who determines the path: in a workflow the code lays out the possible paths, and in an agent the model directs its own steps. Here the model makes one choice among branches the programmer wrote, and the code fixes what each branch does and when the program stops, so this is a workflow. The tempting answer a treats any model decision as control of the flow, and d reaches the right word for a wrong reason, since the label is a real decision that the code acts on."
+    },
+    {
+      "id": "q3",
+      "answer": 6,
+      "tolerance": 0.005,
+      "rationale": "Design A makes 2 model calls per question (extract, then reply), because the code runs the lookups itself. Design B makes 3 calls: one requesting the first tool, one requesting the second, and one writing the reply. The difference is 3 - 2 = 1 call per question, so 1 call x $0.003 = $0.003 per question, and $0.003 x 2,000 questions = $6 per week. An answer of 18 is B's total cost rather than the difference. An answer of 12 can be either A's total or the difference found by counting B as 4 calls, so the number alone does not show which error was made."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "Each type must reach 80% by itself: the workflow does so for booking (97%) but not for planning (35%), while the agent does for planning (86%). Using the cheaper workflow where it is good enough and the agent only where it is needed takes 900 x 2 + 100 x 7 = 2,500 calls a week, compared with 900 x 5 + 100 x 7 = 5,200 for the agent on everything and 7,200 for running both. The tempting answer a relies on the 91% overall figure, which hides that most planning requests fail."
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "A rule is guaranteed only when code that always runs enforces it. In a the program reads a two-valued field and the booking function cannot be reached unless the field says passed, so no model output can skip or override the check. In b the model may skip or misread the check despite its instructions, in c the model can still approve a student who has not passed, and d finds a bad booking only after it exists, with a reviewer that can also be wrong. Picking b shows the belief that a clear instruction guarantees a model's behavior."
+    },
+    {
+      "id": "q6",
+      "answer": "c",
+      "rationale": "An agent is worth its extra cost and risk when the steps cannot be written in advance. With an unknown crash cause, what to inspect next depends on what the last search or test showed, so the model needs to choose the steps as it goes. The other jobs have steps that can be coded beforehand, including the loop with a length check in b and the several stages in d. Picking b or d shows the belief that repetition or many steps calls for an agent."
+    }
+  ]
+}

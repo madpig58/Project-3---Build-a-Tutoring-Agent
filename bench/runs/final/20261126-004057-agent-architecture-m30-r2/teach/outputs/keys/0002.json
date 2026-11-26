@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": 2700,
+      "tolerance": 0,
+      "rationale": "Call 1 carries 500 + 100 = 600, call 2 carries 600 + 200 + 100 = 900, and call 3 carries 900 + 200 + 100 = 1,200, for 2,700 in total. An answer of 1,200 gives only the last call; an answer of 1,800 counts only instructions and the new question on each call, leaving out the history."
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "Every token sent is paid for on each call, and recall tends to degrade as the context grows. Sending text does not change the model's training or carry it into a new session, and everything sent counts toward the window."
+    },
+    {
+      "id": "q3",
+      "answer": "load the note into the context",
+      "accepted": [
+        "load the note",
+        "load it",
+        "load the file",
+        "load the note file",
+        "load it into the context",
+        "load the file into the context",
+        "add the note to the context",
+        "add it to the context",
+        "put the note in the context",
+        "put it in the context",
+        "include the note in the context",
+        "include the note in the input",
+        "send the note to the model",
+        "send it to the model",
+        "add the note to the instructions",
+        "read the note and send it to the model"
+      ],
+      "rationale": "A saved note reaches the model only if the program reads it and puts its text in what is sent. Saving it does not change what the model knows. Any wording that means reading the note and including it in the model's input is correct."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "A summary must keep unfinished work, decisions and important details. The listing and manual pages can be read again, and the greeting affects nothing later."
+    },
+    {
+      "id": "q5",
+      "answer": 12,
+      "tolerance": 0,
+      "rationale": "8,000 - 1,000 - 2,200 = 4,800 tokens are left, and 4,800 / 400 = 12 chunks. An answer of 14 forgets the room for the reply, and 20 ignores everything else in the window."
+    }
+  ]
+}

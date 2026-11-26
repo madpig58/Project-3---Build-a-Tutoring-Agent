@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: what lives where in the makerspace assistant</title>
+  <style>
+    body { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem; font-family: Charter, Georgia, serif; line-height: 1.5; background: #fffdf8; color: #1f1d1a; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 1.6rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid #e4dfd4; }
+    code { background: #f3efe6; padding: 0.1em 0.3em; border-radius: 4px; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } code { background: #23211e; } }
+  </style>
+</head>
+<body>
+<h1>What lives where: context and memory</h1>
+<p>From <a href="../lessons/0001-context-and-memory-in-an-agent.html">lesson 1</a>. Token counts in the lesson are illustrative.</p>
+<h2>The window holds, on every call</h2>
+<p>System prompt + tool definitions + history (questions, model requests, tool results) + the reply. Everything is counted in tokens and billed.</p>
+<h2>Cost rule</h2>
+<p>Each call re-sends the whole history. Total input billed = the sum of every call's full input. Cost grows with steps and with what is carried.</p>
+<h2>Where each thing goes</h2>
+<table>
+  <thead><tr><th>Thing</th><th>Home</th><th>Reason</th></tr></thead>
+  <tbody>
+    <tr><td>System prompt, tool definitions</td><td>Always in context</td><td>Small; they define the assistant</td></tr>
+    <tr><td>Long manuals</td><td>Retrieved: a few chunks via <code>search_manuals</code></td><td>Whole manual is re-billed every step and read less reliably</td></tr>
+    <tr><td>Student facts (training, preferences)</td><td>Saved: memory file or database, read at the start</td><td>Survives between sessions</td></tr>
+    <tr><td>Safety-gating records</td><td>Database the program checks</td><td>Do not rely on a model-written note</td></tr>
+    <tr><td>Calendar</td><td>Fetched for one machine and week</td><td>Changes, so never stored</td></tr>
+    <tr><td>Old transcripts, raw tool output</td><td>Not kept</td><td>Bulky and stale</td></tr>
+  </tbody>
+</table>
+<h2>Between steps vs between sessions</h2>
+<p>Between steps: the message list in the running program. Between sessions: nothing, unless the program writes it out and reads it back.</p>
+<h2>Memory file rules</h2>
+<p>Write facts and decisions. Keep notes short. Read on demand. The model asks; the program does the file work.</p>
+</body>
+</html>

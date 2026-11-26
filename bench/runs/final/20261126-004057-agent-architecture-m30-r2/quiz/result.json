@@ -1,0 +1,155 @@
+{
+  "duration_api_ms": 295466,
+  "stop_reason": "end_turn",
+  "session_id": "d1ab6c94-6166-4f4c-a734-b049b2805872",
+  "total_cost_usd": 0.78502394,
+  "usage": {
+    "input_tokens": 24,
+    "cache_creation_input_tokens": 58172,
+    "cache_read_input_tokens": 541329,
+    "output_tokens": 23599,
+    "output_tokens_details": {
+      "thinking_tokens": 12464
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 58172,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 192,
+        "cache_read_input_tokens": 69282,
+        "cache_creation_input_tokens": 3912,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3912
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 40,
+      "outputTokens": 37246,
+      "cacheReadInputTokens": 634122,
+      "cacheCreationInputTokens": 98638,
+      "webSearchRequests": 0,
+      "costUSD": 0.7698052000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 23736,
+      "cacheCreationEphemeral5mInputTokens": 40466,
+      "cacheCreationEphemeral1hInputTokens": 58172,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 13474,
+      "outputTokens": 4751,
+      "cacheReadInputTokens": 3234,
+      "cacheCreationInputTokens": 11708,
+      "webSearchRequests": 1,
+      "costUSD": 0.015218740000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2157,
+      "cacheCreationEphemeral5mInputTokens": 11708,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 3,
+    "requested": {
+      "background": 0,
+      "foreground": 3,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 3,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1,
+      "quiz-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 34,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Your quiz is ready: `quizzes/0002.json` (6 questions on O4).\nSend me your answers here in the chat when you have done every question, and I will grade them. You can also ask me to show you the questions one by one.",
+  "ttft_ms": 1127,
+  "type": "result",
+  "duration_ms": 318846,
+  "uuid": "534ba655-67ef-4773-a15b-56db27999faf",
+  "ttft_stream_ms": 704,
+  "time_to_request_ms": 181,
+  "first_content_frame_ms": 704,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 40,
+      "outputTokens": 37246,
+      "cacheReadInputTokens": 634122,
+      "cacheCreationInputTokens": 98638,
+      "webSearchRequests": 0,
+      "costUSD": 0.7698052000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 23736,
+      "cacheCreationEphemeral5mInputTokens": 40466,
+      "cacheCreationEphemeral1hInputTokens": 58172,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 13474,
+      "outputTokens": 4751,
+      "cacheReadInputTokens": 3234,
+      "cacheCreationInputTokens": 11708,
+      "webSearchRequests": 1,
+      "costUSD": 0.015218740000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2157,
+      "cacheCreationEphemeral5mInputTokens": 11708,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-28T13:15:33.836Z"
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    :root { --bg:#fffdf8; --text:#1f1d1a; --muted:#6b665e; --rule:#e4dfd4; --accent:#9a4517; --code-bg:#f3efe6;
+            --serif: Charter, Cambria, Georgia, serif; --sans: system-ui, "Segoe UI", Arial, sans-serif; --mono: ui-monospace, Consolas, monospace; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#171614; --text:#e9e5dc; --muted:#a49e93; --rule:#36332e; --accent:#eaa77a; --code-bg:#23211e; } }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:var(--serif); line-height:1.5; }
+    main { max-width:42rem; margin:0 auto; padding:2rem 1.25rem; }
+    h1 { font-size:1.6rem; } h2 { font-size:1.1rem; margin-top:1.6rem; }
+    table { width:100%; border-collapse:collapse; font-size:0.9rem; font-family:var(--sans); }
+    th, td { text-align:left; vertical-align:top; padding:0.4rem 0.5rem; border-bottom:1px solid var(--rule); }
+    th { font-size:0.75rem; text-transform:uppercase; color:var(--muted); }
+    code { font-family:var(--mono); font-size:0.85em; background:var(--code-bg); padding:0.1em 0.3em; border-radius:4px; }
+    a { color:var(--accent); }
+    @media print { :root { --bg:#fff; --text:#000; --muted:#444; --accent:#000; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Context and memory in an agent</h1>
+  <p>From <a href="../lessons/0001-context-and-memory-in-an-agent.html">lesson 1</a> (objective O3). All numbers are illustrative.</p>
+
+  <h2>Three timescales</h2>
+  <table>
+    <tr><th>Span</th><th>What holds it</th><th>Who moves it</th></tr>
+    <tr><td>One model call</td><td>the context window: everything sent plus the answer</td><td>you choose what goes in</td></tr>
+    <tr><td>Between steps of one request</td><td>the transcript (the model is stateless)</td><td>the program re-sends it every call</td></tr>
+    <tr><td>Between sessions</td><td>files or records outside the window</td><td>the program saves and loads; the model only requests</td></tr>
+  </table>
+
+  <h2>Rules of thumb</h2>
+  <ul>
+    <li>Tokens &asymp; words &times; 4/3 (rough). Window size must cover prompt, tools, input, and answer.</li>
+    <li>Call n re-sends everything before it: input over n steps grows like 1 + 2 + ... + n times the step size.</li>
+    <li>Clear used tool results (keep a short note) or compact to cut cost and reduce context rot.</li>
+    <li>Retrieve a few chunks, each with a header naming its machine; load short always-needed text whole.</li>
+    <li>Verify before saving a note. The model is unchanged by memory; only files persist.</li>
+  </ul>
+
+  <h2>Sources</h2>
+  <ul>
+    <li><a href="https://anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering for AI agents</a></li>
+    <li><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool">Memory tool docs</a></li>
+    <li><a href="https://anthropic.com/research/contextual-retrieval">Contextual Retrieval</a></li>
+  </ul>
+</main>
+</body>
+</html>

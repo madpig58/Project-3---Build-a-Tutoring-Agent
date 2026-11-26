@@ -1,0 +1,73 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Two level generators for your game use a model. Generator 1: the code asks the model for a room layout, then runs a validator, then asks the model for item names, in that order every time. Generator 2: the model gets a goal and the same three actions, and after each result it picks which action to run next, or stops. The program runs each chosen action. Which statement is correct?",
+      "options": [
+        {"id": "a", "text": "Both are agents, because each one uses a model and a validator to finish a job"},
+        {"id": "b", "text": "Only Generator 2 is an agent, because its model controls the order of the work"},
+        {"id": "c", "text": "Only Generator 1 is an agent, because it carries out a set plan with several steps"},
+        {"id": "d", "text": "Neither is an agent, because in both of them ordinary program code runs the actions"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A script asks a model to write a function for your game, then runs the unit tests on it. If a test fails, the script sends the error back to the model and asks again. The script stops when the tests pass or after 3 tries. The model's only job is to return code. Is this system a workflow or an agent? Answer in one word."
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your makerspace assistant is an agent with two tools, check_training and book_machine, and book_machine is its only way to book. In testing, it sometimes books a machine without checking the student's training first. The rule is that no booking may ever happen without a passed training check. Which change guarantees that the rule is followed?",
+      "options": [
+        {"id": "a", "text": "Put the booking rule first in the system prompt, in capitals, with an example"},
+        {"id": "b", "text": "Have the program repeat the training rule to the model before each model call"},
+        {"id": "c", "text": "Have the booking code itself verify training and reserve only after a pass"},
+        {"id": "d", "text": "Switch to a stronger model that follows booking rules much more reliably"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "You are choosing a design to answer routine help requests in your game. Every request needs the same two known steps: sort it, then answer it. Design X: the code calls the model once to sort and once to answer. Design Y: the model chooses its own steps, averages 5 calls per request, and is stopped after 8. On the same 200 test requests, each design solved 190. You want predictable behaviour and cost without solving fewer requests. Which choice and reason are right?",
+      "options": [
+        {"id": "a", "text": "Design Y, because stopping it after 8 calls makes its path as predictable as X's"},
+        {"id": "b", "text": "Design X, because its steps and call count are fixed ahead and it solved as many"},
+        {"id": "c", "text": "Design Y, because its extra model calls show that it checks answers more carefully"},
+        {"id": "d", "text": "Design X, because making fewer model calls means it will solve more later requests"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your help bot gets 900 kind A and 100 kind B requests a month. In tests, a fixed workflow solves 97% of kind A and 20% of kind B, at 1 cent per request. An agent solves 99% of kind A and 80% of kind B, at 5 cents per request. A menu button tells the program each request's kind, correctly and for free. The model budget is 20 dollars a month. Which design solves the most requests while staying within the budget?",
+      "options": [
+        {"id": "a", "text": "The workflow for kind A requests and the workflow for kind B requests"},
+        {"id": "b", "text": "The agent for kind A requests and the agent for kind B requests"},
+        {"id": "c", "text": "The agent for kind A requests and the workflow for kind B requests"},
+        {"id": "d", "text": "The workflow for kind A requests and the agent for kind B requests"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your game team wants a model to help automate one of the jobs below. For which job would a sequence of steps fixed in advance in code work least well?",
+      "options": [
+        {"id": "a", "text": "Trace each new crash to its cause, using the game's logs, code and save files"},
+        {"id": "b", "text": "Shrink each new texture to the set size, using the team's one standard format"},
+        {"id": "c", "text": "Translate each new menu label into French, using the team's list of game terms"},
+        {"id": "d", "text": "File each new bug report under one of five types, using its title and details"}
+      ]
+    }
+  ]
+}

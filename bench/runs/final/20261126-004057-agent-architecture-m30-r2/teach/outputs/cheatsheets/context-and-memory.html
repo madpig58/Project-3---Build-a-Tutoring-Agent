@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory</title>
+  <style>
+    :root { --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4; --accent: #9a4517; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e; --accent: #eaa77a; }
+    }
+    body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.5;
+           font-family: Charter, "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif; }
+    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.5rem; }
+    h2 { font-size: 1.1rem; margin: 1.5rem 0 0.4rem; color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.35rem 0.5rem; border-bottom: 1px solid var(--rule); }
+    ul { padding-left: 1.2rem; margin: 0.3rem 0; }
+    a { color: var(--accent); }
+    .muted { color: var(--muted); font-size: 0.85rem; }
+    @media print { :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Context and memory</h1>
+  <p class="muted">From <a href="../lessons/0001-context-and-memory.html">lesson 1</a>.</p>
+
+  <h2>Terms</h2>
+  <table>
+    <tbody>
+      <tr><th>Token</th><td>A small piece of text the model works in. Rough estimate for English: characters / 3.5 (<a href="https://platform.claude.com/docs/en/about-claude/glossary">varies by model</a>).</td></tr>
+      <tr><th>Context window</th><td>All the text the model can use for one reply, including the reply (<a href="https://platform.claude.com/docs/en/build-with-claude/context-windows">docs</a>).</td></tr>
+      <tr><th>Message history</th><td>Everything said and returned so far; sent again on each call.</td></tr>
+      <tr><th>Short-term memory</th><td>The history of one session.</td></tr>
+      <tr><th>Context rot</th><td>Recall gets less accurate as the context grows.</td></tr>
+      <tr><th>Compaction</th><td>Summarize a conversation nearing the limit; start fresh with the summary.</td></tr>
+      <tr><th>Long-term memory</th><td>Stored outside any one conversation; available in later sessions.</td></tr>
+      <tr><th>Note</th><td>Saved text or data, loaded back into the context when needed.</td></tr>
+      <tr><th>Retrieval</th><td>Search stored material at run time; add only the relevant parts.</td></tr>
+      <tr><th>Chunk</th><td>A small, separately findable piece of a document.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Estimate one request</h2>
+  <ul>
+    <li>Input = instructions + tool list + notes + history + retrieved chunks + tool results.</li>
+    <li>Input + room for the reply must fit the window.</li>
+    <li>Cost of a visit: add up the input of <em>every</em> call (plus whatever replies cost).</li>
+  </ul>
+
+  <h2>Where each thing goes</h2>
+  <table>
+    <thead><tr><th>Information</th><th>Place</th></tr></thead>
+    <tbody>
+      <tr><td>Instructions, tool list</td><td>Every call</td></tr>
+      <tr><td>Student's note</td><td>Load at session start; save changes</td></tr>
+      <tr><td>Manual text</td><td>Retrieve when needed</td></tr>
+      <tr><td>Calendar listing</td><td>Fetch fresh, then clear</td></tr>
+      <tr><td>Chat history</td><td>Keep this session; clear or summarize</td></tr>
+    </tbody>
+  </table>
+  <p>Ask: when is it needed, and how fast does it change?</p>
+
+  <h2>Checks</h2>
+  <ul>
+    <li>Crowded context: clear used results first, then summarize. Check the summary kept decisions, open problems and important details.</li>
+    <li>Exact code or part number: search by exact words. Different wording: search by meaning.</li>
+    <li>Read retrieved chunks: right machine? really covers the question?</li>
+    <li>Skipping retrieval: does everything fit, and can you afford it on each call?</li>
+  </ul>
+</main>
+</body>
+</html>

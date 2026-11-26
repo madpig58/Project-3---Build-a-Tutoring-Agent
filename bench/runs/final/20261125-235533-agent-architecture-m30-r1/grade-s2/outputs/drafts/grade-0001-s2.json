@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: what makes an agent is the loop, where the model picks an action, the program runs it, and the result comes back for the next choice. A longer prompt only changes what the model is told; it adds no way to act and react. Think of a game loop (read the state, act, update, repeat), which also needs a clear condition for when to stop."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the model only outputs text, so using a tool means writing a request such as \"check_calendar, machine: laser cutter, date: tomorrow's date\". It can sound as if the model reads the calendar itself, but it cannot open the booking system; your program runs the function and sends the entries back to the model for its next step."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked \"No change\", which says the agent will eventually fix the bug if left running. It is tempting because each step looks like another try, but 40 steps of the same edit and failing test show it is stuck. Add a step limit to your program (for example, \"after 20 steps, stop and report what was tried\") so a person can take over."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your count of 4 is right: three calls that each request a tool, plus a fourth that writes the final answer. The off part is \"the model can only run one tool itself\": the model never runs a tool, it only writes a request, and your program runs the tool and puts the result into the next call. When you trace a loop, label each step \"model\" or \"program\"."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: you gave both what happens (the result goes into the next input) and why (so the model can decide what to do next). Asking for a tool doesn't hand the model the result; your program has to put it into that next input. In your group chat picture, the program posts the reply and calls the model again; that next \"turn\" may be another tool request or the final answer."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You are right that a name like check_calendar helps, but your program also gives the model each tool's description (what it does) and parameters (the inputs it takes), and the model chooses using all of that. The name alone doesn't say whether check_calendar also makes bookings, while \"Lists bookings for one machine on one date; does not book\" does. For each tool, write its name, purpose and parameters."
+    }
+  ],
+  "summary": "You have the core of the loop down: what makes an agent, that the model outputs a tool request, and that the result goes back in so it can choose its next step. The most important thing to work on is stopping conditions: your program needs one, such as a step limit, that ends the loop and hands the problem back to a person (q3). Also tighten two details: the program, not the model, runs each tool (q4), and the model picks tools from their full descriptions, not just their names (q6). Next, sketch the loop for the laser cutter question in q4, label each step \"model\" or \"program\", and write down both ways it can end: a final answer or your step limit."
+}

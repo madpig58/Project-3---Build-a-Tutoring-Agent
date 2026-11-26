@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A teammate adds this line to the assistant's system prompt: \"Always remember everything students tell you.\" The program still starts every session with an empty message list and saves nothing. What happens when a student returns next week?",
+      "options": [
+        {"id": "a", "text": "The assistant recalls last week, because the line tells the model to store chats"},
+        {"id": "b", "text": "The assistant recalls last week, because the provider keeps each student's chats"},
+        {"id": "c", "text": "The assistant knows nothing of last week, because no text from it is given"},
+        {"id": "d", "text": "The assistant recalls only the key facts, because the model sorts them itself"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "One request to the assistant takes three model calls. The system prompt plus tool definitions plus the question total 800 tokens. The model's first request is 50 tokens, and the program adds a 400-token tool result. The model's second request is 50 tokens, and the program adds a 100-token tool result. Each call sends the whole history so far. How many input tokens are billed across the three calls, in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The makerspace has 600 students, and the assistant must know which of them passed the CNC router safety class. Where is the best place to keep that information?",
+      "options": [
+        {"id": "a", "text": "In the system prompt, as a list of all 600 names sent on every call"},
+        {"id": "b", "text": "In a saved record that the program reads for one student at a time"},
+        {"id": "c", "text": "In the model's weights, by telling it each name during chats"},
+        {"id": "d", "text": "In the message list, which the model keeps between visits"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A 100-page manual would fit easily in the model's context window. Give one reason to retrieve only a few relevant chunks instead of putting the whole manual into the context."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The assistant uses a memory tool to save a note about a student. Which statement about who does what is correct?",
+      "options": [
+        {"id": "a", "text": "The model writes the file itself, because it stores notes inside its weights"},
+        {"id": "b", "text": "The provider writes the file, because it keeps every student's notes for you"},
+        {"id": "c", "text": "The model reads the file itself, because notes are placed in its training data"},
+        {"id": "d", "text": "The model asks for the write, and your program carries it out on disk"}
+      ]
+    }
+  ]
+}

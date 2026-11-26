@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 27300,
+  "stop_reason": "end_turn",
+  "session_id": "8027fa89-d79f-4b91-93aa-60803b63e6f0",
+  "total_cost_usd": 0.1438802,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 24769,
+    "cache_read_input_tokens": 114182,
+    "output_tokens": 3337,
+    "output_tokens_details": {
+      "thinking_tokens": 1932
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 24769,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 1027,
+        "cache_read_input_tokens": 38142,
+        "cache_creation_input_tokens": 1649,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1649
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 3337,
+      "cacheReadInputTokens": 114182,
+      "cacheCreationInputTokens": 24769,
+      "webSearchRequests": 0,
+      "costUSD": 0.1438802,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1932,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 24769,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 9,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Neither, at least not yet. **More agents don't always give better results.** Start with one, and split only to fix a specific problem you've seen.\n\nThe idea is tempting because more workers *sounds* like more getting done.\n\n1. **Game example.** In a co-op level, you have to grab a key, then open a door, then pull the lever behind it. Ten players won't finish much faster than one, because each job waits for the one before. Searching five separate areas for loot is different: extra players help because those jobs are **independent** (none needs another's result).\n\n2. **General idea.** A **multi-agent system** divides work among several agents, each with its own job. An agent knows only its training plus the text it's given, so agents have to pass information to each other as text. Details can get lost at each handoff.\n\n3. **Cost.** Extra agents and handoffs usually mean more model calls and more text to process, which you pay for. On your small budget, a split should beat the one-agent version in testing by enough to justify its price.\n\nIn the analogy, players are agents, voice chat is the text passed between them, and loot areas are independent subtasks. It breaks down because teammates may share a screen and play for free, while agents don't automatically share what they know, and each one adds cost.\n\n**Quick check:** your team wants separate summaries of 20 machine manuals. Could splitting that work help, and why?",
+  "ttft_ms": 1394,
+  "type": "result",
+  "duration_ms": 30044,
+  "uuid": "f246125f-1769-4fe7-97b1-9f145f65f75f",
+  "ttft_stream_ms": 669,
+  "time_to_request_ms": 155,
+  "first_content_frame_ms": 670,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 3337,
+      "cacheReadInputTokens": 114182,
+      "cacheCreationInputTokens": 24769,
+      "webSearchRequests": 0,
+      "costUSD": 0.1438802,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1932,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 24769,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-28T13:15:33.836Z"
+}

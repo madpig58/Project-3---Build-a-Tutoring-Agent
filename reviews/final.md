@@ -384,7 +384,7 @@ Overall, I think study-plan adds useful long-term learning support without dupli
 
 ## Major review
 
-**Run:** bench/runs/final/TODO
+**Run:** bench/runs/final/20261125-235533-agent-architecture-m30-r1
 
 **Live tries:**
 
@@ -394,101 +394,101 @@ TODO: one line that points at your three learning sessions under Learning sessio
 
 #### Technical correctness and facts
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+The lesson was mostly accurate, with 5 out of 6 required facts covered correctly. However, it did not explain that a larger context can increase the time required for each model call. I think this is an important detail that should have been included.
 
 #### Pedagogy
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+I liked that the lesson used concrete makerspace examples and practice questions to explain difficult concepts. However, there were too many token calculations, which could make the lesson harder for beginners to follow.
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+The lesson stayed focused on the learning objective and used examples related to the makerspace assistant. However, some explanations assumed knowledge that the learner might not have, such as model weights.
 
 #### Overall quality
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+The lesson was well organized and had a length ratio of 1.03, which was close to the requested length. The examples and practice activities were useful, but I think the lesson could be shorter and easier to follow in some sections.
 
 ### Quiz
 
 #### Difficulty
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+The quiz required the learner to apply concepts rather than simply memorize definitions. I think q5 was a good example because it required comparing costs and outcomes, although the calculation was relatively complicated.
 
 #### Coverage of the lesson's core
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+The questions covered the main differences between fixed workflows and agents, including cost and decision-making. I think the quiz tested the important concepts, although some questions focused heavily on calculations.
 
 #### Wording and possible misreadings
 
-Rating: TODO
+Rating: 3/5
 
-TODO
+The questions were generally understandable, but q2 had wording that could reveal the answer. The benchmark also flagged q5 as potentially ambiguous, although the disagreement appeared to come from one solver's calculation rather than multiple valid answers.
 
 #### Writing quality
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+The questions were clearly structured, and the answer key explained the reasoning behind the correct answers. I especially liked that q5 included the calculations, making it easier to understand why the other options were incorrect.
 
 #### Alignment with the learning goal
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+All six questions were aligned with objective O4. They focused on deciding when a fixed workflow or an agent would be more appropriate, which matched the learning goal.
 
 ### Feedback
 
 #### Useful
 
-Rating: TODO
+Rating: 5/5
 
-TODO
+The grading feedback was useful because it identified incorrect answers and misconceptions accurately. The benchmark showed 1.00 verdict agreement and a 1.00 misconception hit rate, with no false-wrong judgments.
 
 #### Explains enough
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+The feedback generally explained why an answer was incorrect and suggested what the learner should review next. However, some explanations could be more concise and focused on one misconception at a time.
 
 #### Personalized to how I like things explained
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+The feedback generally followed my preference for clear explanations and practical examples. I would still prefer shorter paragraphs and more examples related to programming or game systems when explaining difficult ideas.
 
 ### Tutor
 
 #### Guardrails
 
-Rating: TODO
+Rating: 4/5
 
-TODO
+The tutor did not reveal any protected quiz answers in either run. However, in tutor-p01, it did not explicitly ask the learner to choose an answer and explain their reasoning, which would have provided better guidance.
 
 #### Personalization
 
-Rating: TODO
+Rating: 3/5
 
-TODO
+The tutor sometimes used helpful analogies related to games and everyday activities. However, tutor-p06 did not clearly explain that the model knows which tools are available through their descriptions. In the second run, tutor-p05 also introduced a mathematical PPO formula that was too advanced for the learner's requested level.
 
 ### Compared with the previous step
 
-TODO
+Compared with c3-split, the final tutor includes additional skills and stronger protections for grading and quiz answers. The final lesson still had some problems with complexity and completeness, but the quiz and grading results were strong. I think the final version is more capable overall, although the additional subagents also increase the computational cost.
 
 ### What I would do next
 
-TODO
+I would first improve the tutor's responses in tutor-p01 and tutor-p06 because both failed their expected behavior checks in two runs. For tutor-p01, I would make sure the learner is encouraged to choose an answer and explain their reasoning without revealing the correct answer. For tutor-p06, I would improve the analogy so it explains how the model uses tool descriptions and receives tool results. I would also revise the teach skill to explain how context size affects response time and reduce unnecessary calculations in the lessons.
 
 ## Learning sessions
 

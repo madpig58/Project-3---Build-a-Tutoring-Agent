@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. An agent is defined by its loop: the model picks an action, it gets run, the result comes back, and this repeats until the job is done or a limit is hit. Like a game loop reading the new state each tick, each round lets the model react to what just happened."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "You picked (a): the model opens the booking system itself. It can't, because a model only takes text in and writes text out. Here it writes a request (c), such as check_calendar(machine=\"laser cutter\", date=<tomorrow's date>). Your program runs it and sends the entries back. For each step, ask: \"Did the model write this, or did my code do it?\""
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. A step limit (a cap on how many times the loop can repeat) stops the stuck agent and reports what happened. A larger context window (how much text the model can take in at once) wouldn't help, because all 40 steps are already in its context."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Your answer, 1, is wrong because the model can't run tools. Each request ends a call; your program runs the tool, then calls the model again with the result. Calls 1, 2 and 3 request check_calendar, search_manuals and check_training_record. Call 4 writes the answer: 3 + 1 = 4 model calls. Next time, count one call per request, plus one for the final answer."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You got the \"what\" right: the program sends the result back to the model. The \"why\" is missing: the result goes into the model's next input so it can decide its next step or write the final answer. For example, it needs the calendar result to say whether the laser cutter is free. For \"why\" questions, add \"so that ...\"."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "Your first sentence is right: the model picks from a list of tool names and descriptions. Remembering earlier choices on its own is wrong: it knows only its training plus the text it's given, and using it doesn't add to its training. Like a game's save file, your program must store past choices and put them into the model's input."
+    }
+  ],
+  "summary": "You know that an agent is a loop where results come back to the model, and that a step limit protects you when that loop gets stuck. The most important thing to work on is who does what: the model only writes text, such as a tool request or an answer, while your program runs the tools, and mixing these up affected both q2 and q4. Also, memory between sessions isn't automatic (q6). Next step: on paper, trace \"Book me the 3D printer on Friday if I'm trained on it\", label every step \"model\" or \"program\", and count the model calls."
+}

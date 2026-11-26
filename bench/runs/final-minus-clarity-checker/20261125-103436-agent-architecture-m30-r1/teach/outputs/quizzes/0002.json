@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your makerspace assistant finishes a request and the program exits. The next morning, the same student starts a brand-new request. What is the only way the assistant can know what happened yesterday?",
+      "options": [
+        {"id": "a", "text": "The model's own weights, changed by yesterday's conversation with the student"},
+        {"id": "b", "text": "A note the program saved earlier and loads into the prompt"},
+        {"id": "c", "text": "The context window, which keeps old text until it fills up"},
+        {"id": "d", "text": "The final tool result, which the model still remembers from before"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A loop makes 4 model calls. The program re-sends the whole transcript each time, and the transcript grows by 500 tokens per step, so call n receives 500 x n tokens. How many input tokens are sent across all 4 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your search for \"how do I clean the laser lens\" returns a chunk that reads only \"Remove it and wipe gently\", with no machine named, and the model gets confused. Which change best fixes this?",
+      "options": [
+        {"id": "a", "text": "A bigger context window so the chunk can hold more"},
+        {"id": "b", "text": "Let the model guess which machine the chunk means"},
+        {"id": "c", "text": "Add a header naming the machine and section to each chunk"},
+        {"id": "d", "text": "Load every manual into the prompt so nothing is missed"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "When the model decides to save a note to the memory store, who actually writes the file, the model or your program? Answer in one sentence and say why."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The assistant must keep cost low. Which one of these should it load at the start of every session, rather than retrieve on demand?",
+      "options": [
+        {"id": "a", "text": "The full 90-page lathe manual, so nothing is ever missing"},
+        {"id": "b", "text": "Every student's training note, so it can compare them"},
+        {"id": "c", "text": "The whole year of booking history for all machines"},
+        {"id": "d", "text": "This student's one-line training note, loaded at session start"}
+      ]
+    }
+  ]
+}

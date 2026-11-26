@@ -1,0 +1,130 @@
+{
+  "duration_api_ms": 710746,
+  "stop_reason": "end_turn",
+  "session_id": "3d79f0aa-61a4-4b80-ade9-149bc06cad12",
+  "total_cost_usd": 2.4242474250000003,
+  "usage": {
+    "input_tokens": 14,
+    "cache_creation_input_tokens": 44983,
+    "cache_read_input_tokens": 866542,
+    "output_tokens": 26911,
+    "output_tokens_details": {
+      "thinking_tokens": 1362
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 44983,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 782,
+        "cache_read_input_tokens": 168020,
+        "cache_creation_input_tokens": 4136,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4136
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 92,
+      "outputTokens": 102766,
+      "cacheReadInputTokens": 2942311,
+      "cacheCreationInputTokens": 319714,
+      "webSearchRequests": 0,
+      "costUSD": 2.357059600000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 19525,
+      "cacheCreationEphemeral5mInputTokens": 162581,
+      "cacheCreationEphemeral1hInputTokens": 157133,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 78963,
+      "outputTokens": 9581,
+      "cacheReadInputTokens": 9040,
+      "cacheCreationInputTokens": 35285,
+      "webSearchRequests": 5,
+      "costUSD": 0.067187825,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2808,
+      "cacheCreationEphemeral5mInputTokens": 35285,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwwsi6l2-cbd64d61"
+  },
+  "subagent_stats": {
+    "spawned": 6,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 6
+    },
+    "started_in_background": 4,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 6,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 2,
+      "lesson-planner": 1,
+      "lesson-example-designer": 1,
+      "lesson-clarity-checker": 1,
+      "lesson-reviewer": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 12,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I wrote the 30-minute lesson on context and memory (O3), plus a quiz, a cheat sheet and a review record. I couldn't count the words with a script because the shell guard blocked it. By hand I put it at about 5,300 words. That's above the 4,500 target and inside the 2,700–6,750 range the bench accepts.\n\n**The lesson** is `lessons/0001-context-and-memory-in-an-agent.html`. Its win is that Riley can decide, for the makerspace assistant, three things:\n- what stays in context during a request;\n- what is saved between sessions;\n- how the assistant finds the right manual page.\n\nIt covers these in order:\n- tokens and what fills the context window;\n- why every step re-sends the whole history, and how that drives cost;\n- what lasts between steps versus between sessions;\n- retrieval of manual chunks;\n- notes and memory files.\n\nIt ends with a worked design example (Priya and the acrylic) and a faded one (Marcus and the vinyl cutter). The token counts in the examples are invented to show the pattern, and the lesson says so. The statistics come from the cited Anthropic pages and the \"Lost in the Middle\" paper, and the page-size figure of about 500–800 tokens is flagged as a rough uncited rule of thumb.\n\n**How it was checked.** The clarity check found 3 major and 9 minor issues, and I fixed them. The reviewer then found no major issues and the verdict was CLEAN, so there was no second pass. I fixed three of its minor findings (an arithmetic slip, the scope of the 49% retrieval figure, and a caching note). I left two minor ones unchanged, and the review record gives the reasons.\n\n**Also written:**\n- Quiz `quizzes/0002.json` has five new items, with its key in `keys/0002.json`. It is ready when Riley wants it. I haven't checked it with the quiz-reviewer.\n- `cheatsheets/what-lives-where.html`, a one-page lookup table.\n- `RESOURCES.md`, `NOTES.md` and `review-records/0001-lesson.md`.\n- No learning record yet, since nothing here has been shown as learned.\n\n**Open points for Riley:**\n- Do you know a good community for agent builders? None is vetted yet, so Go further says so honestly.\n- Is 30 minutes the right length, or would you like it shorter or longer?",
+  "ttft_ms": 2258,
+  "type": "result",
+  "duration_ms": 141942,
+  "uuid": "0900d76f-ff0c-4449-8a1a-717e78878460",
+  "ttft_stream_ms": 1162,
+  "time_to_request_ms": 43,
+  "first_content_frame_ms": 1162,
+  "queued_turn_count": 0,
+  "result_index": 4,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-28T13:15:33.836Z"
+}
